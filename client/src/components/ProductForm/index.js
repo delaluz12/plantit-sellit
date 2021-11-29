@@ -28,9 +28,16 @@ function ProductForm() {
   const submit = async (event) => {
     event.preventDefault();
     //add error handling
-    const result = await postImage({ image: file, description });
-    // console.log(result);
-    setImages([result, ...images]);
+    try {
+      const result = await postImage({ image: file, description });
+      // console.log(result);
+      setImages([result, ...images]);
+      setFile();
+      setDescription('');
+
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const fileSelected = (event) => {
@@ -45,7 +52,7 @@ function ProductForm() {
         <>
           <h4>image form Testing</h4>
           {/* form for S2 image upload */}
-          <div >
+          <div>
             <form onSubmit={submit}>
               <input
                 onChange={fileSelected}
