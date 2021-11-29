@@ -41,32 +41,31 @@ function ProductForm() {
 
   return (
     <div>
-      <h3>S3 Testing</h3>
-
       {Auth.loggedIn() ? (
         <>
           <h4>image form Testing</h4>
           {/* form for S2 image upload */}
-          <form onSubmit={submit}>
-            <input
-              onChange={fileSelected}
-              type="file"
-              multiple
-              accept="image/*"
-            ></input>
-            <input
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              type="text"
-            ></input>
-            <button type="submit">Submit</button>
-          </form>
-          {/* display images that have been uploaded */}
-          {images.map((image, index) => (
-            <div key={index}>
-              <img src={image.imagePath}></img>
-            </div>
-          ))}
+          <div >
+            <form onSubmit={submit}>
+              <input
+                onChange={fileSelected}
+                type="file"
+                accept="image/*"
+              ></input>
+              <input
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                type="text"
+              ></input>
+              <button type="submit">Submit</button>
+            </form>
+            {/* display images that have been uploaded */}
+            {images.map((image, index) => (
+              <div key={index}>
+                <img src={image.imagePath}></img>
+              </div>
+            ))}
+          </div>
         </>
       ) : (
         <p>
