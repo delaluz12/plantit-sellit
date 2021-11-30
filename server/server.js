@@ -46,7 +46,7 @@ app.get("/images/:key", (req, res) => {
 
 app.post("/images", upload.single("image"), async (req, res) => {
   const file = req.file;
-  console.log(file);
+  // console.log(file);
 
   //can do the following:
   // 1. apply filter
@@ -54,7 +54,7 @@ app.post("/images", upload.single("image"), async (req, res) => {
 
   const result = await uploadFile(file);
   await unlinkFile(file.path);
-  console.log(result);
+  // console.log(result);
   const description = req.body.description;
   res.send({ imagePath: `/images/${result.Key}` });
 });
