@@ -46,7 +46,7 @@ app.get("/images/:key", (req, res) => {
 
 app.post("/images", upload.single("image"), async (req, res) => {
   const file = req.file;
-  // console.log(file);
+  console.log(file);
 
   //can do the following:
   // 1. apply filter
