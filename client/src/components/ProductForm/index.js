@@ -16,6 +16,10 @@ import axios from "axios";
 
 import Auth from "../../utils/auth";
 
+//import addProduct mutation
+import {ADD_PRODUCT} from "../../utils/mutations"
+
+
 //async fnc to post image to server via multer
 async function postImage({ image, description }) {
   const formData = new FormData();
@@ -30,8 +34,9 @@ async function postImage({ image, description }) {
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
     minWidth: 120,
+
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -40,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
 
 function ProductForm() {
   const classes = useStyles();
- 
+  const sellerId = Auth.getProfile();
+  console.log(sellerId.data._id)
 
   //try to capture prod details as one object to send
   const [product, setProduct] = React.useState({
@@ -49,6 +55,9 @@ function ProductForm() {
     imagePath: "",
     price: "",
     category: "",
+    sellerId: sellerId,
+    soldStatus:'false',
+    buyerId: ''
   });
 
   const handleChange = (event) => {
@@ -85,6 +94,7 @@ function ProductForm() {
       // console.log("product with imagePath", product);
 
       // setImages([result, ...images]);
+      
 
       setProduct({
         name: "",
@@ -111,7 +121,7 @@ function ProductForm() {
           <h4></h4>
           {/* form for S2 image upload */}
           <div>
-            <form onSubmit={submit} noValidate autoComplete="off">
+            <form onSubmit={submit} noValidate autoComplete="off" className={classes.formControl}>
               <TextField
                 id="outlined-basic"
                 label="Name of Product"
@@ -119,6 +129,7 @@ function ProductForm() {
                 name="name"
                 value={product.name}
                 onChange={handleChange}
+                className={classes.formControl}
               />
               <TextField
                 id="outlined-textarea"
@@ -129,6 +140,7 @@ function ProductForm() {
                 name="description"
                 value={product.description}
                 onChange={handleChange}
+                className={classes.formControl}
               />
               <TextField
                 id="outlined-basic"
@@ -136,6 +148,7 @@ function ProductForm() {
                 onChange={fileSelected}
                 type="file"
                 accept="image/*"
+                className={classes.formControl}
               ></TextField>
               {/* <TextField
                 id="outlined-basic"
@@ -153,8 +166,9 @@ function ProductForm() {
                 value={product.price}
                 onChange={handleChange}
                 type='number'
+                className={classes.formControl}
               />
-              <FormControl variant="outlined">
+              <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel htmlFor="outlined-age-native-simple">
                   Category
                 </InputLabel>
@@ -174,7 +188,7 @@ function ProductForm() {
                 </Select>
               </FormControl>{" "}
               <br />
-              <Button variant="contained" color="primary" type="submit">
+              <Button variant="contained" color="primary" type="submit" className={classes.formControl}>
                 Submit
               </Button>
             </form>
