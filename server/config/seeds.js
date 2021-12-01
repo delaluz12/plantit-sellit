@@ -24,7 +24,7 @@ db.once('open', async () => {
       image: 'oregano.jpg',
       category: categories[0]._id,
       price: 4.50,
-      quantity: 20
+      // quantity: 20
     },
     {
       name: 'Rosemary Live Cutting',
@@ -33,7 +33,7 @@ db.once('open', async () => {
       image: 'rosemary.jpg',
       category: categories[0]._id,
       price: 7.99,
-      quantity: 20
+      // quantity: 20
     },
     {
       name: 'Longevity Spinach',
@@ -42,7 +42,7 @@ db.once('open', async () => {
         'You will receive 10 Longevity Spinach cuttings, leaves removed, wrapped in a moist paper towel to prevent dehydration. Be ready to self root and keep them moist. Touted to have many medicinal benefits, particularly in Asian cuisine.',
       image: 'spinach.jpg',
       price: 14.99,
-      quantity: 20
+      // quantity: 20
     },
     {
       name: 'Cassava Cuttings',
@@ -51,7 +51,7 @@ db.once('open', async () => {
         '5 fresh cuttings of cassava that are at least 6 inches long. Very easy to grow and a great source of food. Grown without use of pesticides and chemicals.',
       image: 'cassava.jpg',
       price: 9.99,
-      quantity: 20
+      // quantity: 20
     },
     {
       name: 'Eggplant Sprout',
@@ -60,7 +60,7 @@ db.once('open', async () => {
         'This listing is for one 100% organic Black Beauty Eggplant plant. Plant is guaranteed to be at least 8 inches tall. Plant is hardened off and ready to transplant into the ground or container!',
       image: 'eggplant.jpg',
       price: 5.99,
-      quantity: 20
+      // quantity: 20
     },
     {
       name: 'Sweet Potato Slips',
@@ -69,7 +69,7 @@ db.once('open', async () => {
         'Sweet potatoes are tender, warm-season perennial plants grown as annuals. Sweet potatoes are easily trained onto trellises, lattice, or wires strung between sturdy poles. These are 3 rooted 4" - 6" cuttings. Yields large size sweet potatoes in 4-5 months',
       image: 'sweet-potato.jpg',
       price: 6.75,
-      quantity: 20
+      // quantity: 20
     },
     {
       name: 'New Dawn Rose',
@@ -78,7 +78,7 @@ db.once('open', async () => {
         'New Dawn rose is a climber that is easy to root, also very diseases resistant and requires minimal care. These large roses will bring both color and elegance to your home and garden. You will receive 8 premium cuttings approximately 6-8 inches in length. They are collected right after blooms which are in their prime condition for propagating. Also comes with a small bag of rooting hormone.',
       image: 'new-dawn-rose.jpg',
       price: 15.00,
-      quantity: 30
+      // quantity: 30
     },
     {
       name: 'Red Prize Azalea',
@@ -87,7 +87,7 @@ db.once('open', async () => {
         'RED PRIZE belongs to the Azalea grouping known as Southern Indica Hybrids selected for their vigorous growth habits and sun tolerance and is a very hardy landscape plan. Three (3) very well-rooted, healthy growing starter size plants, shipped bare-root in a plastic bag. Plants will be a minimum of 3 to 6 inches tall.',
       image: 'azalea.jpg',
       price: 21.95,
-      quantity: 10
+      // quantity: 10
     },
     {
       name: 'Star Jasmine',
@@ -96,7 +96,7 @@ db.once('open', async () => {
         'Star Jasmine is a very popular evergreen vine that requires very little care. Grown for its fragrant white star shaped flowers on dense dark green foliage. Jasmine are prolific bloomers from spring through summer. You will receive 10 Star Jasmine Flowering Vine (NOT ROOTED) cuttings 10" - 12" long.',
       image: 'star-jasmine.jpg',
       price: 15.95,
-      quantity: 20
+      // quantity: 20
     },
     {
       name: 'Spider Plant Cutting',
@@ -104,7 +104,7 @@ db.once('open', async () => {
       description: 'The spider plant is considered one of the most adaptable of houseplants and the easiest to grow. This plant can grow in a wide range of conditions and suffers from few problems, other than brown tips. You will receive one 6 inch rooted cutting.',
       image: 'spider-plant.jpg',
       price: 3.99,
-      quantity: 20
+      // quantity: 20
     },
     {
       name: 'Aloe Vera Pup',
@@ -113,7 +113,7 @@ db.once('open', async () => {
         'This listing is for one (1) single Aloe pup. The Aloe pup will be taken from a healthy, thriving mother plant. Each aloe pup will vary in size, and most will be approximately 4 inches long (never shorter). They will be shipped freshly removed from the mother plant (rooted) in moist sphagnum moss and/or a moist paper towel.',
       image: 'aloe-vera.jpg',
       price: 5.99,
-      quantity: 10
+      // quantity: 10
     },
     {
       name: 'Bromeliad Offsets',
@@ -122,7 +122,7 @@ db.once('open', async () => {
         'Bromeliad plants provide an exotic touch to the home and bring a sense of the tropics and sun-kissed climates. Growing a bromeliad as a houseplant is easy and brings interesting texture and color to the interior garden. Package of Miscellaneous Bromeliad Offsets. Quantity of 5',
       image: 'bromeliad.jpg',
       price: 15.00,
-      quantity: 10
+      // quantity: 10
     },
     {
       name: "Crassula Buddha's Temple Succulent",
@@ -131,7 +131,7 @@ db.once('open', async () => {
         'Resembling a Buddhist temple, this Crassula succulent has a perfectly symmetrical tower appearance that would please even the most pretentious succulent aficionado. Besides being a living sculpture, Crassula cv. is really easy to grow and care for. One two inch plant.',
       image: 'crassula.jpg',
       price: 9.99,
-      quantity: 10
+      // quantity: 10
     },
     {
       name: "Ten Sedum Cutting Mix",
@@ -140,7 +140,7 @@ db.once('open', async () => {
         'Sedum offers lots of variety in texture, color, and growth habit. Like other succulents, sedum grow best with fill sun, light watering and excellent drainage. They are an indispensable succulent plant that has a place in any garden or succulent project. This set of 10 cuttings includes Little Missy, Coral Reef, Tricolor, Pachyclados and Brevifolium.',
       image: 'succulent-mix.jpg',
       price: 9.99,
-      quantity: 10
+      // quantity: 10
     },
     {
       name: "Campfire Succulent",
@@ -149,7 +149,7 @@ db.once('open', async () => {
         'Crassula Capitella/ Campfire is a super tolerant succulent with beautiful yellow or red leaves. They love sunlight and grow fast all seasons. One rooted two inch plant.',
       image: 'campfire.jpg',
       price: 5.99,
-      quantity: 10
+      // quantity: 10
     },
     {
       name: "Silver Dollar Vine",
@@ -158,7 +158,7 @@ db.once('open', async () => {
         'Xerosicyos Danguyi stem also known as "Silver Dollar", "Dollar Vine" and "Penny Plant". This is a beautiful climbing succulent vine. It is perfect for outside gardens since it can grow up 10 - 12 feet in height! It is a thick green succulent with round leaves. One four inch unrooted cutting.',
       image: 'silver-dollar.jpg',
       price: 4.99,
-      quantity: 10
+      // quantity: 10
     }
   ]);
 
@@ -170,27 +170,69 @@ db.once('open', async () => {
     role: 'customer',
     firstName: 'Ann',
     lastName: 'Baker',
+    address: '123 Main Street',
+    city: 'Minneapolis',
+    state: 'MN',
+    zip: '55424',
     email: 'ann@test.com',
     password: 'demo123123',
     orders: [
       {
-        products: [products[11]._id, products[6]._id, products[1]._id]
+        purchaseDate: '2021-10-30 18:30:00',
+        products: [products[0]._id, products[1]._id, products[2]._id]
+      },
+      {
+        purchaseDate: '2021-11-21 12:30:00',
+        products: [products[3]._id, products[4]._id, products[5]._id]
       }
     ]
   });
 
   await User.create({
-    role: 'customer',
+    role: 'seller',
     firstName: 'Jordan',
     lastName: 'Murray',
+    address: '98 Main Street',
+    city: 'St Paul',
+    state: 'MN',
+    zip: '55410',
     email: 'jordan@test.com',
     password: 'demo123123',
-    orders: [
-      {
-        products: [products[12]._id, products[5]._id, products[2]._id]
-      }
-    ]
   });
+
+  const user = await User.findOneAndUpdate({ firstName: 'Jordan' }, { listings: [products[0]._id, products[1]._id, products[2]._id, products[3]._id, products[4]._id, products[5]._id, products[6]._id, products[7]._id]  }, { new: true });
+
+  await Product.findOneAndUpdate({name: 'Italian Oregano Live Cutting'}, { $set: {'sellerId': user._id }});
+  await Product.findOneAndUpdate({name: 'Rosemary Live Cutting'}, { $set: {'sellerId': user._id }});
+  await Product.findOneAndUpdate({name: 'Longevity Spinach'}, { $set: {'sellerId': user._id }});
+  await Product.findOneAndUpdate({name: 'Cassava Cuttings'}, { $set: {'sellerId': user._id }});
+  await Product.findOneAndUpdate({name: 'Eggplant Sprout'}, { $set: {'sellerId': user._id }});
+  await Product.findOneAndUpdate({name: 'Sweet Potato Slips'}, { $set: {'sellerId': user._id }});
+  await Product.findOneAndUpdate({name: 'New Dawn Rose'}, { $set: {'sellerId': user._id }});
+  await Product.findOneAndUpdate({name: 'Red Prize Azalea'}, { $set: {'sellerId': user._id }});
+
+  await User.create({
+    role: 'seller',
+    firstName: 'Kelly',
+    lastName: 'Brown',
+    address: '4420 Maple Street',
+    city: 'Lakeville',
+    state: 'MN',
+    zip: '55268',
+    email: 'kelly@test.com',
+    password: 'demo123123',
+  });
+
+  const user2 = await User.findOneAndUpdate({ firstName: 'Kelly' }, { listings: [products[8]._id, products[9]._id, products[10]._id, products[11]._id, products[12]._id, products[13]._id, products[14]._id, products[15]._id]  }, { new: true });
+
+  await Product.findOneAndUpdate({name: 'Star Jasmine'}, { $set: {'sellerId': user2._id }});
+  await Product.findOneAndUpdate({name: 'Spider Plant Cutting'}, { $set: {'sellerId': user2._id }});
+  await Product.findOneAndUpdate({name: 'Aloe Vera Pup'}, { $set: {'sellerId': user2._id }});
+  await Product.findOneAndUpdate({name: 'Bromeliad Offsets'}, { $set: {'sellerId': user2._id }});
+  await Product.findOneAndUpdate({name: 'Crassula Buddha\'s Temple Succulent'}, { $set: {'sellerId': user2._id }});
+  await Product.findOneAndUpdate({name: 'Ten Sedum Cutting Mix'}, { $set: {'sellerId': user2._id }});
+  await Product.findOneAndUpdate({name: 'Campfire Succulent'}, { $set: {'sellerId': user2._id }});
+  await Product.findOneAndUpdate({name: 'Silver Dollar Vine'}, { $set: {'sellerId': user2._id }});
 
   await User.create({
     role: 'admin',

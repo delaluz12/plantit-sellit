@@ -11,9 +11,11 @@ const typeDefs = gql`
     name: String
     description: String
     image: String
-    quantity: Int
     price: Float
     category: Category
+    sellerId: User
+    buyerId: User
+    sold: Boolean
   }
 
   type Order {
@@ -27,8 +29,12 @@ const typeDefs = gql`
     role: String
     firstName: String
     lastName: String
+    address: String
+    city: String
+    zip: String
     email: String
     orders: [Order]
+    listings: [Product]
   }
 
   type Checkout {
@@ -48,6 +54,9 @@ const typeDefs = gql`
     users: [User]
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
+    # listingsBySeller(sellerId: ID!): [Product]
+    # soldBySeller(sellerId: ID!): [Product]
+    # notSoldBySeller(sellerId ID!): [Product]
   }
 
   type Mutation {

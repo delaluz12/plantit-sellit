@@ -10,10 +10,16 @@ const resolvers = {
       return await Category.find();
     },
     users: async () => {
-      return await User.find().populate({
-        path: 'orders',
-        populate: 'products'
-      });
+      return await User.find().populate(
+        {
+          path: 'orders',
+          populate: 'products'
+        },
+        {
+          path: 'listings',
+          populate: ['category', 'sellerId', 'buyerId']
+        },
+      );
     },
     products: async (parent, { category, name }) => {
       const params = {};
@@ -94,7 +100,22 @@ const resolvers = {
       });
 
       return { session: session.id };
-    }
+    },
+    // listingsBySeller: async (parent, { _id }, context) => {
+    //   if (context.user) {
+    //     const listings = await Product.findMany({sellerid: context.user._id});
+
+    //     return listings;
+    //   }
+
+    //   throw new AuthenticationError('Not logged in');
+    // },
+    // soldBySeller: async () => {
+    //   console.log('Sold by seller')
+    // },
+    // notSoldBySeller: async () => {
+    //   console.log('Items not sold')
+    // }
   },
   Mutation: {
     addUser: async (parent, args) => {
