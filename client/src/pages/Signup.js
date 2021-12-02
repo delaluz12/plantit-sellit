@@ -16,6 +16,10 @@ function Signup(props) {
         password: formState.password,
         firstName: formState.firstName,
         lastName: formState.lastName,
+        state:"static",
+        city: "city",
+        address: "addrs",
+        zipCode: "15634"
       },
     });
     const token = mutationResponse.data.addUser.token;
