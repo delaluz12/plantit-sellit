@@ -1,3 +1,4 @@
+// something wrong with front& back end connection in development
 require('dotenv').config()
 const fs = require('fs')
 const S3 = require('aws-sdk/clients/s3')
