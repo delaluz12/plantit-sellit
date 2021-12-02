@@ -1,6 +1,7 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
+require('dotenv').config()
 
 //s3 reqs
 const fs = require("fs");
