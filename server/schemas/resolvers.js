@@ -103,6 +103,15 @@ const resolvers = {
 
       return { token, user };
     },
+
+    addProduct: async (parent, args) => {
+      const user = await Product.create(args);
+      
+
+      return product;
+    },
+
+
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
@@ -122,10 +131,9 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateProduct: async (parent, { _id, quantity }) => {
-      const decrement = Math.abs(quantity) * -1;
-
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+    updateProduct: async (parent, { _id, args }) => {
+      
+      return await Product.findByIdAndUpdate(_id,args , { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
