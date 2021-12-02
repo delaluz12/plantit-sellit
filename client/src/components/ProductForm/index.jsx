@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(2),
     minWidth: 120,
+    marginTop: '10px'
 
   },
   selectEmpty: {
@@ -128,7 +129,7 @@ function ProductForm() {
         <>
           <h4></h4>
           {/* form for S2 image upload */}
-          <div>
+          
             <form onSubmit={submit} noValidate autoComplete="off" className={classes.formControl}>
               <TextField
                 id="outlined-basic"
@@ -206,7 +207,7 @@ function ProductForm() {
                 <img src={image.imagePath}></img>
               </div>
             ))}
-          </div>
+         
         </>
       ) : (
         <p>
