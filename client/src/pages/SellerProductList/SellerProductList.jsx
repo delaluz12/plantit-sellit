@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { useEffect } from 'react';
+//UI imports
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { productRows } from '../../components/SellerChart/dummyData';
@@ -8,12 +9,23 @@ import { useState } from "react";
 
 import "./sellerProductList.css"
 
+//setUp dynamic rendering of productdata
+import { useQuery } from '@apollo/client';
+import { QUERY_PRODUCTS } from '../../utils/queries';
+
+
 export default function SellerProductList() {
 
-    const [data, setData] = useState(productRows);
+  
+  const {loading, data} = useQuery(QUERY_PRODUCTS);
+  console.log(data)
+ 
+
+
+    const [dummyData, setDummyData] = useState(productRows);
 
     const handleDelete = (id) => {
-      setData(data.filter((item) => item.id !== id));
+      setDummyData(dummyData.filter((item) => item.id !== id));
     };
   
     const columns = [
@@ -65,7 +77,7 @@ export default function SellerProductList() {
     return (
         <div className='sellerProductList'>
              <DataGrid
-        rows={data}
+        rows={dummyData}
         disableSelectionOnClick
         columns={columns}
         pageSize={10}
