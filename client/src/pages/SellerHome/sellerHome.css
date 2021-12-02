@@ -1,0 +1,8 @@
+.sellerHome {
+    flex: 4;
+}
+
+.sellerHomeWidgets{
+    display: flex;
+    margin: 20px;
+}
