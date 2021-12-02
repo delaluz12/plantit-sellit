@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 function ProductForm() {
   const classes = useStyles();
   const sellerId = Auth.getProfile();
-  console.log(sellerId.data._id)
+  // console.log(sellerId.data._id)
 
   //try to capture prod details as one object to send
   const [product, setProduct] = React.useState({
@@ -55,7 +55,7 @@ function ProductForm() {
     imagePath: "",
     price: "",
     category: "",
-    sellerId: sellerId,
+    sellerId: sellerId.data._id,
     soldStatus:'false',
     buyerId: ''
   });
@@ -84,14 +84,22 @@ function ProductForm() {
       console.log("product created", product);
       //send image to s3 bucket first to get back path to store in MongoDB
       const result = await postImage({ image: file, description });
-      // console.log(result.imagePath);
+      // console.log(result.imagePath.split('/').filter(entry => entry !== ''));
 
+
+      // split path to get back just the numbers & filter out empty strings
+      const paths = result.imagePath.split('/').filter(entry => entry !== '')
+      
+      //from those grab the last path in the array
+      const s3path = paths[paths.length -1];
+      // console.log(s3path)
+      
       //set the product imagePath to the path sent back from S3
-      product.imagePath = result.imagePath;
+      product.imagePath = s3path;
       setProduct({
         ...product,
       });
-      // console.log("product with imagePath", product);
+      console.log("product with imagePath", product);
 
       // setImages([result, ...images]);
       
