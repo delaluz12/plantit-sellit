@@ -31,6 +31,7 @@ const typeDefs = gql`
     lastName: String
     address: String
     city: String
+    state: String
     zip: String
     email: String
     orders: [Order]
@@ -54,7 +55,7 @@ const typeDefs = gql`
     users: [User]
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
-    # listingsBySeller(sellerId: ID!): [Product]
+    listingsBySeller(_id: ID!): [Product]
     # soldBySeller(sellerId: ID!): [Product]
     # notSoldBySeller(sellerId ID!): [Product]
   }

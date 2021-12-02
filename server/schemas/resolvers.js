@@ -10,16 +10,24 @@ const resolvers = {
       return await Category.find();
     },
     users: async () => {
-      return await User.find().populate(
+      try {
+      const users = await User.find().populate(
         {
           path: 'orders',
           populate: 'products'
         },
-        {
-          path: 'listings',
-          populate: ['category', 'sellerId', 'buyerId']
-        },
-      );
+        // {
+        //   path: 'listings',
+        //   populate: 'product'
+        // },
+      );      
+      console.log(users);
+      return users;
+      }
+      catch(err){
+        console.log(err);
+      }
+
     },
     products: async (parent, { category, name }) => {
       const params = {};
@@ -101,15 +109,44 @@ const resolvers = {
 
       return { session: session.id };
     },
-    // listingsBySeller: async (parent, { _id }, context) => {
-    //   if (context.user) {
-    //     const listings = await Product.findMany({sellerid: context.user._id});
+    listingsBySeller: async (parent, { _id }) => {
+      console.log(_id);
+      // if (context.user) {
+        // const user = await User.findOne({_id: _id})
+        // .populate({
+        //   path: 'listings.products',
+        //   populate: 'sellerId'
+        // });
+        User.findById(_id, function(err, user) {
+          if (err) {
+            console.err(err);
+          } else {
+            console.log(user);
+            user.listings = user.listings.map(async (listing) => {
+              try {
+                const product = await Product.findById(listing._id)
+                console.log("looked up this product", product);
+                return product;
+              }
+              catch(err) {
+                throw err;
+    
+              }
+            })
+    
+    
+            return user.listings;
+          // }
+    
+          // throw new AuthenticationError('Not logged in');
+          }
+        })
 
-    //     return listings;
-    //   }
 
-    //   throw new AuthenticationError('Not logged in');
-    // },
+
+
+
+    },
     // soldBySeller: async () => {
     //   console.log('Sold by seller')
     // },
