@@ -202,11 +202,11 @@ function ProductForm() {
               </Button>
             </form>
             {/* display images that have been uploaded */}
-            {images.map((image, index) => (
+            {/* {images.map((image, index) => (
               <div key={index}>
                 <img src={image.imagePath}></img>
               </div>
-            ))}
+            ))} */}
          
         </>
       ) : (
