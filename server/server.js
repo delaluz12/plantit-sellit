@@ -37,10 +37,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //add s3 server code
-app.get("/images/:key", (req, res) => {
+app.get("/images/:key", async (req, res) => {
   console.log(req.params);
   const key = req.params.key;
-  const readStream = getFileStream(key);
+  const readStream = await getFileStream(key);
 
   readStream.pipe(res);
 });
