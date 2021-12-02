@@ -65,10 +65,10 @@ export default function SellerProductItem() {
               <div className="productFormRight">
                   <div className="productUpload">
                       <img src="/images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productUploadImg" />
-                      <label for="file">
+                      {/* <label for="file">
                           <Publish/>
-                      </label>
-                      <input type="file" id="file" style={{display:"none"}} />
+                      </label> */}
+                      {/* <input type="file" id="file" style={{display:"none"}} /> */}
                   </div>
                   <button className="productButton">Update</button>
               </div>
