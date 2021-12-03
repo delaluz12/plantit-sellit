@@ -10,16 +10,10 @@ const resolvers = {
       return await Category.find();
     },
     users: async () => {
-      return await User.find().populate((
-        {
-          path: 'orders',
-          populate: 'products'
-        },
-        {
-          path: 'listings',
-          populate: 'products'
-        })
-      );
+      return await User.
+      find().
+      populate({ path: 'orders', populate: 'products' }).
+      populate({ path: 'listings', populate: 'products'});
     },
     products: async (parent, { category, name }) => {
       const params = {};
