@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
-const { populate } = require('../models/Order');
+const { User, Product, Category, Order, Listing } = require('../models');
+const { populate } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_51K0BxZKLr0iD6VeB2Kl01qwPm80m2vnRq8PIKTKN3kx1Avs0Mq5MZErhABUDZWEnyUEGp593dMHVL7BwZigt7EDY00EmrqnFRE');
 
@@ -10,10 +10,10 @@ const resolvers = {
       return await Category.find();
     },
     users: async () => {
-      return await User.find().populate({
-        path: 'orders',
-        populate: 'products'
-      });
+      return await User.
+      find().
+      populate({ path: 'orders', populate: 'products' }).
+      populate({ path: 'listings', populate: 'products'});
     },
     products: async (parent, { category, name }) => {
       const params = {};
@@ -59,6 +59,18 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    listings: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'listings.products',
+          populate: 'category'
+        });
+
+        return user;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
@@ -94,7 +106,7 @@ const resolvers = {
       });
 
       return { session: session.id };
-    }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -119,6 +131,18 @@ const resolvers = {
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
         return order;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    addListing: async (parent, { product }, context) => {
+      console.log(context);
+      if (context.user) {
+        const listing = new Listing({ product });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { listings: listing } });
+
+        return listing;
       }
 
       throw new AuthenticationError('Not logged in');
