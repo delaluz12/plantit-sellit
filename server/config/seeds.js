@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { User, Product, Category, Listing } = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -178,7 +178,7 @@ db.once('open', async () => {
     password: 'demo123123',
     orders: [
       {
-        purchaseDate: '2021-10-30 18:30:00',
+        purchaseDate: '2021-11-30 18:30:00',
         products: [products[0]._id, products[1]._id, products[2]._id]
       },
       {
@@ -198,18 +198,24 @@ db.once('open', async () => {
     zip: '55410',
     email: 'jordan@test.com',
     password: 'demo123123',
+    listings: [
+      {
+        listingDate: '2021-10-30 18:30:00',
+        products: [products[0]._id, products[1]._id, products[2]._id, products[3]._id, products[4]._id, products[5]._id, products[6]._id, products[7]._id,]
+      },
+    ],
   });
 
-  const user = await User.findOneAndUpdate({ firstName: 'Jordan' }, { listings: [products[0]._id, products[1]._id, products[2]._id, products[3]._id, products[4]._id, products[5]._id, products[6]._id, products[7]._id]  }, { new: true });
+  const user = await User.findOne({ "firstName": "Jordan" });
 
-  await Product.findOneAndUpdate({name: 'Italian Oregano Live Cutting'}, { $set: {'sellerId': user._id }});
-  await Product.findOneAndUpdate({name: 'Rosemary Live Cutting'}, { $set: {'sellerId': user._id }});
-  await Product.findOneAndUpdate({name: 'Longevity Spinach'}, { $set: {'sellerId': user._id }});
-  await Product.findOneAndUpdate({name: 'Cassava Cuttings'}, { $set: {'sellerId': user._id }});
-  await Product.findOneAndUpdate({name: 'Eggplant Sprout'}, { $set: {'sellerId': user._id }});
-  await Product.findOneAndUpdate({name: 'Sweet Potato Slips'}, { $set: {'sellerId': user._id }});
-  await Product.findOneAndUpdate({name: 'New Dawn Rose'}, { $set: {'sellerId': user._id }});
-  await Product.findOneAndUpdate({name: 'Red Prize Azalea'}, { $set: {'sellerId': user._id }});
+  await Product.findOneAndUpdate({ name: 'Italian Oregano Live Cutting' }, { $set: { 'sellerId': user._id } });
+  await Product.findOneAndUpdate({ name: 'Rosemary Live Cutting' }, { $set: { 'sellerId': user._id } });
+  await Product.findOneAndUpdate({ name: 'Longevity Spinach' }, { $set: { 'sellerId': user._id } });
+  await Product.findOneAndUpdate({ name: 'Cassava Cuttings' }, { $set: { 'sellerId': user._id } });
+  await Product.findOneAndUpdate({ name: 'Eggplant Sprout' }, { $set: { 'sellerId': user._id } });
+  await Product.findOneAndUpdate({ name: 'Sweet Potato Slips' }, { $set: { 'sellerId': user._id } });
+  await Product.findOneAndUpdate({ name: 'New Dawn Rose' }, { $set: { 'sellerId': user._id } });
+  await Product.findOneAndUpdate({ name: 'Red Prize Azalea' }, { $set: { 'sellerId': user._id } });
 
   await User.create({
     role: 'seller',
@@ -221,18 +227,24 @@ db.once('open', async () => {
     zip: '55268',
     email: 'kelly@test.com',
     password: 'demo123123',
+    listings: [
+      {
+        listingDate: '2021-11-10 18:30:00',
+        products: [products[8]._id, products[9]._id, products[10]._id, products[11]._id, products[12]._id, products[13]._id, products[14]._id, products[15]._id,]
+      },
+    ],
   });
 
-  const user2 = await User.findOneAndUpdate({ firstName: 'Kelly' }, { listings: [products[8]._id, products[9]._id, products[10]._id, products[11]._id, products[12]._id, products[13]._id, products[14]._id, products[15]._id]  }, { new: true });
+  const user2 = await User.findOne({ "firstName": "Kelly" });
 
-  await Product.findOneAndUpdate({name: 'Star Jasmine'}, { $set: {'sellerId': user2._id }});
-  await Product.findOneAndUpdate({name: 'Spider Plant Cutting'}, { $set: {'sellerId': user2._id }});
-  await Product.findOneAndUpdate({name: 'Aloe Vera Pup'}, { $set: {'sellerId': user2._id }});
-  await Product.findOneAndUpdate({name: 'Bromeliad Offsets'}, { $set: {'sellerId': user2._id }});
-  await Product.findOneAndUpdate({name: 'Crassula Buddha\'s Temple Succulent'}, { $set: {'sellerId': user2._id }});
-  await Product.findOneAndUpdate({name: 'Ten Sedum Cutting Mix'}, { $set: {'sellerId': user2._id }});
-  await Product.findOneAndUpdate({name: 'Campfire Succulent'}, { $set: {'sellerId': user2._id }});
-  await Product.findOneAndUpdate({name: 'Silver Dollar Vine'}, { $set: {'sellerId': user2._id }});
+  await Product.findOneAndUpdate({ name: 'Star Jasmine' }, { $set: { 'sellerId': user2._id } });
+  await Product.findOneAndUpdate({ name: 'Spider Plant Cutting' }, { $set: { 'sellerId': user2._id } });
+  await Product.findOneAndUpdate({ name: 'Aloe Vera Pup' }, { $set: { 'sellerId': user2._id } });
+  await Product.findOneAndUpdate({ name: 'Bromeliad Offsets' }, { $set: { 'sellerId': user2._id } });
+  await Product.findOneAndUpdate({ name: 'Crassula Buddha\'s Temple Succulent' }, { $set: { 'sellerId': user2._id } });
+  await Product.findOneAndUpdate({ name: 'Ten Sedum Cutting Mix' }, { $set: { 'sellerId': user2._id } });
+  await Product.findOneAndUpdate({ name: 'Campfire Succulent' }, { $set: { 'sellerId': user2._id } });
+  await Product.findOneAndUpdate({ name: 'Silver Dollar Vine' }, { $set: { 'sellerId': user2._id } });
 
   await User.create({
     role: 'admin',
