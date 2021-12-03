@@ -105,9 +105,8 @@ const resolvers = {
     },
 
     addProduct: async (parent, args) => {
-      const user = await Product.create(args);
+      const product = await Product.create(args);
       
-
       return product;
     },
 
@@ -131,9 +130,9 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateProduct: async (parent, { _id, args }) => {
-      
-      return await Product.findByIdAndUpdate(_id,args , { new: true });
+    updateProduct: async (parent, args ) => {
+            
+      return await Product.findByIdAndUpdate(args._id, args , { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
