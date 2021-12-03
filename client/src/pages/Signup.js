@@ -19,7 +19,7 @@ function Signup(props) {
         street: formState.street,
         city: formState.city,
         state: formState.state,
-        zipCode: formState.zipCode
+        zip: formState.zip
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -101,9 +101,9 @@ function Signup(props) {
             onChange={handleChange}
           />
           <input
-            name={"zipCode"}
-            type={"zipCode"}
-            placeholder={"ZipCode"}
+            name={"zip"}
+            type={"zip"}
+            placeholder={"zip"}
             onChange={handleChange}
           />
         </div>

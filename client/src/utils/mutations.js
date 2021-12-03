@@ -38,7 +38,7 @@ export const ADD_USER = gql`
     $state: String
     $city: String
     $address: String
-    $zipCode: String
+    $zip: String
 
 
   ) {
@@ -50,7 +50,7 @@ export const ADD_USER = gql`
       state: $state
     city:  $city
      address: $address
-    zipCode: $zipCode 
+    zip: $zip 
     ) {
       token
       user {
