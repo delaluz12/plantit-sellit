@@ -4,20 +4,20 @@ import "./sellerProductItem.css"
 
 import { Link, useParams } from "react-router-dom";
 import { Publish } from "@material-ui/icons";
-import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../utils/queries';
-import spinner from '../assets/spinner.gif';
+// import { useQuery } from '@apollo/client';
+// import { QUERY_PRODUCTS } from '../utils/queries';
+// import spinner from '../assets/spinner.gif';
 
 
 import SellerChart from '../../components/SellerChart';
 import { productData } from '../../components/SellerChart/dummyData';
 
 export default function SellerProductItem() {
-    const { id } = useParams();
+    // const { id } = useParams();
  
-    const [currentProduct, setCurrentProduct] = useState({});
+    // const [currentProduct, setCurrentProduct] = useState({});
 
-    const { loading, data } = useQuery(QUERY_PRODUCTS);
+    // const { loading, data } = useQuery(QUERY_PRODUCTS);
 
     return (
         <div className='sellerProductItem'>
