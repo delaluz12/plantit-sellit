@@ -67,7 +67,7 @@ function ProductItem(item) {
       <Link to={`/products/${_id}`}>
         <CardMedia className={classes.media}>
         <LazyLoadImage alt={name}
-          src={`/images/${image}`}>
+          src={`/s3images/${image}`}>
         
           
        
@@ -85,7 +85,7 @@ function ProductItem(item) {
       <CardContent>
         <Typography align="left" classes="object" color="inherit">
         {/* <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div> */}
-        <span className="cardTitle">'$'{price}</span>
+        <span className="cardTitle">$ {price}</span>
         </Typography>
       </CardContent>  
       </div>

@@ -33,7 +33,7 @@ export default function SellerProductItem() {
           </div>
           <div className="productTopRight">
               <div className="productInfoTop">
-                  <img src="/images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productInfoImg" />
+                  <img src="/s3images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productInfoImg" />
                   <span className="productName">Spider Plant</span>
               </div>
               <div className="productInfoBottom">
@@ -74,7 +74,7 @@ export default function SellerProductItem() {
               </div>
               <div className="productFormRight">
                   <div className="productUpload">
-                      <img src="/images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productUploadImg" />
+                      <img src="/s3images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productUploadImg" />
                       {/* <label for="file">
                           <Publish/>
                       </label> */}

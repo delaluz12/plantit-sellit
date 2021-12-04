@@ -109,7 +109,7 @@ const [dummyData, setDummyData] = useState([]);
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={`/images/${params.row.image}`} alt="" />
+            <img className="productListImg" src={`/s3images/${params.row.image}`} alt="" />
             {params.row.name}
           </div>
         );

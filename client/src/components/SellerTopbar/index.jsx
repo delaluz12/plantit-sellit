@@ -26,7 +26,7 @@ export default function SellerTopbar() {
           <div className="topbarIconContainer">
             <Settings />
           </div>
-          <img src="/images/35afa876b7c427a1dbb26d44f25fd57b" alt="" className="topAvatar" />
+          <img src="/s3images/35afa876b7c427a1dbb26d44f25fd57b" alt="" className="topAvatar" />
         </div>
       </div>
     </div>

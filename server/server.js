@@ -30,28 +30,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Serve up static assets
-// app.use("/images", express.static(path.join(__dirname, "../client/images")));
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
-}
+app.use("/images", express.static(path.join(__dirname, "../client/images")));
 
 //add s3 server code
-app.get("/images/:key", async (req, res) => {
+app.get("/s3images/:key", async (req, res) => {
   // console.log(req.params);
   const key = req.params.key;
   try {
     const readStream = await getFileStream(key);
-    readStream.pipe(res);
+    if (readStream) {
+      readStream.pipe(res);
+    } else {
+      res.send(401).json("S3 broken :(")
+    }
   } catch (err) {
     console.log(err);
-
-    res.send(400).json(err)
   }
-  
 });
 
-app.post("/images", upload.single("image"), async (req, res) => {
+app.post("/s3images", upload.single("image"), async (req, res) => {
   const file = req.file;
   // console.log(file);
 
@@ -64,13 +61,17 @@ app.post("/images", upload.single("image"), async (req, res) => {
   await unlinkFile(file.path);
   // console.log(result);
   const description = req.body.description;
-  res.send({ imagePath: `/images/${result.Key}` });
+  res.send({ imagePath: `/s3images/${result.Key}` });
 });
 ///
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../client/build")));
+// }
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 db.once("open", () => {
   app.listen(PORT, () => {

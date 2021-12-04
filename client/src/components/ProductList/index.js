@@ -57,7 +57,7 @@ function ProductList() {
           {filterProducts().map((product, index) => (
 
           
-            index < 4  ? 
+           product && index < 8  ? 
             <ProductItem
             key={product._id}
             _id={product._id}

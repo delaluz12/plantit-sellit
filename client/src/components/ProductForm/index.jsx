@@ -27,7 +27,7 @@ async function postImage({ image, description }) {
   formData.append("image", image);
   formData.append("description", description);
 
-  const result = await axios.post("/images", formData, {
+  const result = await axios.post("/s3images", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
   return result.data;
