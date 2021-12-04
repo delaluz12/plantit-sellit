@@ -57,14 +57,14 @@ function ProductList() {
           {filterProducts().map((product, index) => (
 
           
-           product && index < 8  ? 
+           product && index < 10  ? 
             <ProductItem
             key={product._id}
             _id={product._id}
             image={product.image}
             name={product.name}
             price={product.price}
-            quantity={product.quantity}
+            
           /> : null
           
           ))}
