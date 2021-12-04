@@ -8,6 +8,8 @@ import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 const stripePromise = loadStripe('pk_test_51K0BxZKLr0iD6VeBK9jLkCn1oalSRd6CSIoOJaXXF9Qlx8ScXKDm2NpARCSD0muwsObIgaLX2kIfPB8CdPRn3jEb005EXOkxIX');
 
@@ -64,7 +66,7 @@ const Cart = () => {
     return (
       <div className="cart-closed" onClick={toggleCart}>
         <span role="img" aria-label="trash">
-          🛒
+        <ShoppingCartIcon/>
         </span>
       </div>
     );
@@ -73,9 +75,11 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="close" onClick={toggleCart}>
-        [close]
+      <span role="img" aria-label="trash">
+        <CancelIcon/>
+        </span>
       </div>
-      <h2>Shopping Cart</h2>
+      <h2>My Cart</h2>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (

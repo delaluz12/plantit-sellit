@@ -3,6 +3,9 @@ import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
+import './login.css';
+import { Button, Card, CardContent, Typography } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -30,15 +33,20 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
+    <div className="container loginBg">
+      <Link to="/signup">Go to Signup</Link>
 
+      <Card className="cards">
+      <div className="loginTitle">
       <h2>Login</h2>
+      </div>
+     
+        <CardContent>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
-          <input
-            placeholder="youremail@test.com"
+          <TextField
+            placeholder="email@test.com"
             name="email"
             type="email"
             id="email"
@@ -47,7 +55,7 @@ function Login(props) {
         </div>
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
-          <input
+          <TextField
             placeholder="******"
             name="password"
             type="password"
@@ -60,10 +68,12 @@ function Login(props) {
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+        <div className="flex-row loginBtn">
+          <Button type="submit">Submit</Button>
         </div>
       </form>
+      </CardContent>
+      </Card>
     </div>
   );
 }

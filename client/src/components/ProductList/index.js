@@ -5,7 +5,10 @@ import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import spinner from '../../assets/spinner.gif';
+import Loading from '../Loading/Loading';
+
+
+
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -33,6 +36,7 @@ function ProductList() {
     }
   }, [data, loading, dispatch]);
 
+
   function filterProducts() {
     if (!currentCategory) {
       return state.products;
@@ -49,7 +53,8 @@ function ProductList() {
       {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
-            <ProductItem
+            
+            <ProductItem classname="items"
               key={product._id}
               _id={product._id}
               image={product.image}
@@ -62,7 +67,7 @@ function ProductList() {
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? <Loading/> : null}
     </div>
   );
 }
