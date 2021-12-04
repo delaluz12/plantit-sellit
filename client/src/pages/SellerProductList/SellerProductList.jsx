@@ -47,7 +47,7 @@ export default function SellerProductList() {
   // const { sellerProducts, clean } = state;
   // console.log(sellerProducts);
   
-  const { loading, data } = useLazyQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
 
 //   const updatedSellerProducts = sellerProducts.map(p => {
 //     return {
@@ -61,7 +61,7 @@ export default function SellerProductList() {
 // console.log(updatedSellerProducts)
 
 const [dummyData, setDummyData] = useState([]);
-// console.log(dummyData)
+console.log(dummyData)
 
   useEffect(() => {
     if (data) {
@@ -70,9 +70,9 @@ const [dummyData, setDummyData] = useState([]);
         return {
           id: p._id,
           price: p.price,
-          image: p.image,
+          // image: p.image,
           name: p.name,
-          quantity: p.quantity
+          category: p.category.name
         }
       });
       // console.log(updatedSellerProducts)
@@ -109,13 +109,13 @@ const [dummyData, setDummyData] = useState([]);
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={`/s3images/${params.row.image}`} alt="" />
+            {/* <img className="productListImg" src={`/s3images/${params.row.image}`} alt="" /> */}
             {params.row.name}
           </div>
         );
       },
     },
-    { field: "quantity", headerName: "qty", width: 150 },
+    { field: "category", headerName: "cat", width: 150 },
     // {
     //   field: "status",
     //   headerName: "Status",
