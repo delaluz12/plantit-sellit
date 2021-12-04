@@ -38,8 +38,8 @@ function ProductList() {
     if (!currentCategory) {
       return state.products;
     }
-
-    return state.products.filter(
+    const firstTen = state.products.slice(0,10)
+    return firstTen.filter(
       (product) => product.category._id === currentCategory
     );
   }
@@ -49,15 +49,19 @@ function ProductList() {
       <h2>Our Products:</h2>
       {state.products.length ? (
         <div className="flex-row">
-          {filterProducts().map((product) => (
+          {filterProducts().map((product, index) => (
+
+          
+            index < 4  ? 
             <ProductItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
-            />
+            key={product._id}
+            _id={product._id}
+            image={product.image}
+            name={product.name}
+            price={product.price}
+            quantity={product.quantity}
+          /> : null
+          
           ))}
         </div>
       ) : (
