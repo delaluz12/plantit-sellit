@@ -2,13 +2,17 @@ import React from "react";
 import ProductList from "../components/ProductList";
 import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";
+import Sidebar from "../components/Sidebar"
 
 const Shop = () => {
   return (
-    <div className="container">
-      <CategoryMenu />
-      <ProductList />
-      <Cart />
+    <div className="shopContainer">
+                
+
+      <Sidebar />
+      <div className="others">
+        <ProductList />
+      </div>
     </div>
   );
 };

@@ -1,68 +1,150 @@
+// import React from "react";
+// import Auth from "../../utils/auth";
+// import { Link } from "react-router-dom";
+
+// function Nav() {
+
+//   function showNavigation() {
+//     if (Auth.loggedIn()) {
+//       return (
+//         <ul className="flex-row">
+//           <li className="mx-1">
+//             <Link to="/shop">
+//               Shop
+//             </Link>
+//           </li>
+//           <li className="mx-1">
+//             <Link to="/orderHistory">
+//               Order History
+//             </Link>
+//           </li>
+//           <li className="mx-1">
+//             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+//             <a href="/" onClick={() => Auth.logout()}>
+//               Logout
+//             </a>
+//           </li>
+//         </ul>
+//       );
+//     } else {
+//       return (
+//         <ul className="flex-row">
+//           <li className="mx-1">
+//             <Link to="/shop">
+//               Shop
+//             </Link>
+//           </li>
+//           <li className="mx-1">
+//             <Link to="/signup">
+//               Signup
+//             </Link>
+//           </li>
+//           <li className="mx-1">
+//             <Link to="/login">
+//               Login
+//             </Link>
+//           </li>
+//         </ul>
+//       );
+//     }
+//   }
+
+//   return (
+//     <header className="flex-row px-1">
+//       <h1>
+//         <Link to="/">
+//           {/* <span role="img" aria-label="shopping bag">🛍️</span> */}
+//           Plant It - Sell It
+//         </Link>
+//       </h1>
+
+//       <nav>
+//         {showNavigation()}
+//       </nav>
+//     </header>
+//   );
+// }
+
+// export default Nav;
+
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
-function Nav() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
+function LandingNav() {
+  const classes = useStyles();
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/shop">
-              Shop
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+        <div className={classes.root}>
+          <div className="header ">
+            <div className="navigation pxy__30">
+              <AppBar positon="static" color="transparent">
+                <Toolbar className="navbar d__flex">
+                  <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+                  <Link to="/orderHistory" edge="end" className="nav__items px__30" >Order History</Link>
+                  <a href="/" onClick={() => Auth.logout()}>
+                    Logout
+                  </a>
+                </Toolbar>
+              </AppBar>
+            </div>
+          </div>
+        </div>
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/shop">
-              Shop
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
-        </ul>
+        <div className={classes.root}>
+          <div className="header ">
+            <div className="navigation">
+              <AppBar positon="static" color="transparent">
+                <Toolbar className="navbar d__flex">
+                  <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+                  <Link to="/signup" edge="end" className="nav__items px__30" >Signup</Link>
+                  <Link to="/login" edge="end" className="nav__items px__30" >Login</Link>
+                </Toolbar>
+              </AppBar>
+            </div>
+          </div>
+        </div>
       );
     }
   }
-
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          {/* <span role="img" aria-label="shopping bag">🛍️</span> */}
-          Plant It - Sell It
-        </Link>
-      </h1>
+    <div className={classes.root}>
+      <div className="header ">
+        <div className="navigation pxy__30">
+          <header>
+            <AppBar positon="static" color="transparent">
+              <Toolbar className="d__flex">
+                <Link to="/" edge="end">
+                  Plant It - Sell It
+                </Link>
 
-      <nav>
-        {showNavigation()}
-      </nav>
-    </header>
+                <nav>{showNavigation()}</nav>
+              </Toolbar>
+            </AppBar>
+          </header>
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default Nav;
+export default LandingNav;
