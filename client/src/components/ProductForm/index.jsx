@@ -82,7 +82,7 @@ function ProductForm() {
     event.preventDefault();
     //add error handling
     try {
-      console.log("product created", product);
+      // console.log("product created", product);
       //send image to s3 bucket first to get back path to store in MongoDB
       const result = await postImage({ image: file, description });
       // console.log(result.imagePath.split('/').filter(entry => entry !== ''));
@@ -99,7 +99,7 @@ function ProductForm() {
       setProduct({
         ...product,
       });
-      console.log("product with imagePath", product);
+      // console.log("product with imagePath", product);
 
       setImages([result, ...images]);
 
@@ -120,7 +120,7 @@ function ProductForm() {
 
     //resize image file
     const image = await resizeFile(file);
-    console.log(image);
+    // console.log(image);
     const newFile = dataURIToBlob(image);
 
     // pass resized file to setFile state handler which will pass it to postImage()
@@ -247,11 +247,11 @@ function ProductForm() {
             </Button>
           </form>
           {/* display images that have been uploaded */}
-          {images.map((image, index) => (
+          {/* {images.map((image, index) => (
               <div key={index}>
                 <img src={image.imagePath}></img>
               </div>
-            ))}
+            ))} */}
         </>
       ) : (
         <p>
