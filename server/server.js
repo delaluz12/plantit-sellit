@@ -1,8 +1,7 @@
-require('dotenv').config()
+require("dotenv").config();
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
-
 
 //s3 reqs
 const fs = require("fs");
@@ -38,17 +37,21 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //add s3 server code
-app.get("/images/:key",  (req, res) => {
-  console.log(req.params);
+app.get("/images/:key", async (req, res) => {
+  // console.log(req.params);
   const key = req.params.key;
-  const readStream =  getFileStream(key);
-
-  readStream.pipe(res);
+  try {
+    const readStream = await getFileStream(key);
+    readStream.pipe(res);
+  } catch (err) {
+    console.log(err);
+  }
+  
 });
 
 app.post("/images", upload.single("image"), async (req, res) => {
   const file = req.file;
-  console.log(file);
+  // console.log(file);
 
   //can do the following:
   // 1. apply filter
