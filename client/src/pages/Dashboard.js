@@ -1,12 +1,40 @@
 import React from "react";
+import { Route} from 'react-router-dom';
+import "./SellerDashboard/sellerdash.css";
+
+
+import SellerTopbar from "../components/SellerTopbar";
+import SellerSidebar from "../components/SellerSidebar";
+import SellerHome from "./SellerHome/SellerHome";
+import SellerProductList from "./SellerProductList/SellerProductList";
+import NewProduct from "./NewProduct/NewProduct";
+import SellerProductItem from "./SellerProductItem/SellerProductItem";
 
 
 const Dashboard = () => {
   return (
-    <div className="container">
+    <>
+      <SellerTopbar />
+      <div className='mycontainer'>
+      <SellerSidebar />
+      <Route exact path="/seller/home">
+            <SellerHome />
+          </Route>
+      <Route exaxt path="/seller/products" component={SellerProductList} />  
+      <Route exact path="/seller/product/:id" component={SellerProductItem}/> 
+      <Route exact path="/seller/addProduct" component={NewProduct}/> 
+      
+      
         <h1>This is the dashboard!</h1>
-    </div>
+    
+      {/* <SellerHome/> */}
+      
+      </div>
+      
+    </>
   );
 };
+
+
 
 export default Dashboard;
