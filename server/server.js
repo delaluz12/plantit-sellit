@@ -45,6 +45,8 @@ app.get("/images/:key", async (req, res) => {
     readStream.pipe(res);
   } catch (err) {
     console.log(err);
+
+    res.send(400).json(err)
   }
   
 });
@@ -56,6 +58,7 @@ app.post("/images", upload.single("image"), async (req, res) => {
   //can do the following:
   // 1. apply filter
   // 2. resize
+  //did resize/compress on the front-end
 
   const result = await uploadFile(file);
   await unlinkFile(file.path);
