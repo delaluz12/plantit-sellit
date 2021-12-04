@@ -16,6 +16,10 @@ function Signup(props) {
         password: formState.password,
         firstName: formState.firstName,
         lastName: formState.lastName,
+        street: formState.street,
+        city: formState.city,
+        state: formState.state,
+        zip: formState.zip
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -76,6 +80,34 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="address">Address:</label>
+          <input
+            name={"address"}
+            type={"address"}
+            placeholder={"Address"}
+            onChange={handleChange}
+          />
+          <input
+            name={"city"}
+            type={"city"}
+            placeholder={"City"}
+            onChange={handleChange}
+          />
+          <input
+            name={"state"}
+            type={"state"}
+            placeholder={"State"}
+            onChange={handleChange}
+          />
+          <input
+            name={"zip"}
+            type={"zip"}
+            placeholder={"zip"}
+            onChange={handleChange}
+          />
+        </div>
+
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
         </div>

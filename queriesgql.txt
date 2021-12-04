@@ -5,3 +5,21 @@ query {
   }
 }
 
+
+Add Product
+mutation addProd($name: String!, $Cat: ID!, $Price: Float!,$sellerid: ID) {
+ addProduct(name:$name, category:$Cat, price:$Price, sellerId:$sellerid){name}}
+
+Update Product
+
+mutation UpdateProduct($name: String!, $Cat: ID!, $Price: Float!,$sellerid: ID, $id:ID!) {
+  updateProduct(  name:$name, category:$Cat, price:$Price, sellerId:$sellerid , _id:$id){name, price , sellerId{_id}}}
+ 
+ **Query Variables
+ {
+   "_id":"61a9a739aa42e257bc9b4c35",
+  "name": "test Pfro",
+  "Cat": "61a85b51d0213f1f9c80d1c6",
+  "Price": 23249.99,
+  "sellerid": "61a9a73aaa42e257bc9b4c57"
+}
