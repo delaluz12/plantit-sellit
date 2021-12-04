@@ -3,7 +3,7 @@ import { Route} from 'react-router-dom';
 import "./SellerDashboard/sellerdash.css";
 
 
-import SellerTopbar from "../components/SellerTopbar";
+import AdminTopbar from "../components/AdminTopbar";
 import SellerSidebar from "../components/SellerSidebar";
 import SellerHome from "./SellerHome/SellerHome";
 import SellerProductList from "./SellerProductList/SellerProductList";
@@ -14,7 +14,7 @@ import SellerProductItem from "./SellerProductItem/SellerProductItem";
 const Dashboard = () => {
   return (
     <>
-      <SellerTopbar />
+      <AdminTopbar />
       <div className='mycontainer'>
       <SellerSidebar />
       <Route exact path="/seller/home">
