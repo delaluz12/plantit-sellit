@@ -11,14 +11,15 @@ import {
   Button,
 } from "@material-ui/core";
 
+import Resizer from "react-image-file-resizer";
+
 //S3 axios import for making call to post image
 import axios from "axios";
 
 import Auth from "../../utils/auth";
 
 //import addProduct mutation
-import {ADD_PRODUCT} from "../../utils/mutations"
-
+import { ADD_PRODUCT } from "../../utils/mutations";
 
 //async fnc to post image to server via multer
 async function postImage({ image, description }) {
@@ -36,8 +37,7 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(2),
     minWidth: 120,
-    marginTop: '10px'
-
+    marginTop: "10px",
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -57,13 +57,13 @@ function ProductForm() {
     price: "",
     category: "",
     sellerId: sellerId.data._id,
-    soldStatus:'false',
-    buyerId: ''
+    soldStatus: "false",
+    buyerId: "",
   });
 
   const handleChange = (event) => {
     event.preventDefault();
-    
+
     //try capturing all in one object
     setProduct({
       ...product,
@@ -87,14 +87,13 @@ function ProductForm() {
       const result = await postImage({ image: file, description });
       // console.log(result.imagePath.split('/').filter(entry => entry !== ''));
 
-
       // split path to get back just the numbers & filter out empty strings
-      const paths = result.imagePath.split('/').filter(entry => entry !== '')
-      
+      const paths = result.imagePath.split("/").filter((entry) => entry !== "");
+
       //from those grab the last path in the array
-      const s3path = paths[paths.length -1];
+      const s3path = paths[paths.length - 1];
       // console.log(s3path)
-      
+
       //set the product imagePath to the path sent back from S3
       product.imagePath = s3path;
       setProduct({
@@ -102,8 +101,7 @@ function ProductForm() {
       });
       console.log("product with imagePath", product);
 
-      // setImages([result, ...images]);
-      
+      setImages([result, ...images]);
 
       setProduct({
         name: "",
@@ -117,11 +115,48 @@ function ProductForm() {
     }
   };
 
-  const fileSelected = (event) => {
+  const fileSelected = async (event) => {
     const file = event.target.files[0];
+
+    //resize image file
+    const image = await resizeFile(file);
+    console.log(image);
+    const newFile = dataURIToBlob(image);
+
+    // pass resized file to setFile state handler which will pass it to postImage()
     setFile(file);
   };
   /// ends here
+
+  //resizer functions
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        600,
+        600,
+        "JPEG",
+        80,
+        0,
+        (uri) => {
+          resolve(uri);
+        },
+        "base64"
+      );
+    });
+
+  const dataURIToBlob = (dataURI) => {
+    const splitDataURI = dataURI.split(",");
+    const byteString =
+      splitDataURI[0].indexOf("base64") >= 0
+        ? atob(splitDataURI[1])
+        : decodeURI(splitDataURI[1]);
+    const mimeString = splitDataURI[0].split(":")[1].split(";")[0];
+    const ia = new Uint8Array(byteString.length);
+    for (let i = 0; i < byteString.length; i++)
+      ia[i] = byteString.charCodeAt(i);
+    return new Blob([ia], { type: mimeString });
+  };
 
   return (
     <div>
@@ -129,37 +164,42 @@ function ProductForm() {
         <>
           <h4></h4>
           {/* form for S2 image upload */}
-          
-            <form onSubmit={submit} noValidate autoComplete="off" className={classes.formControl}>
-              <TextField
-                id="outlined-basic"
-                label="Name of Product"
-                variant="outlined"
-                name="name"
-                value={product.name}
-                onChange={handleChange}
-                className={classes.formControl}
-              />
-              <TextField
-                id="outlined-textarea"
-                label="Product Description"
-                placeholder="description"
-                multiline
-                variant="outlined"
-                name="description"
-                value={product.description}
-                onChange={handleChange}
-                className={classes.formControl}
-              />
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                onChange={fileSelected}
-                type="file"
-                accept="image/*"
-                className={classes.formControl}
-              ></TextField>
-              {/* <TextField
+
+          <form
+            onSubmit={submit}
+            noValidate
+            autoComplete="off"
+            className={classes.formControl}
+          >
+            <TextField
+              id="outlined-basic"
+              label="Name of Product"
+              variant="outlined"
+              name="name"
+              value={product.name}
+              onChange={handleChange}
+              className={classes.formControl}
+            />
+            <TextField
+              id="outlined-textarea"
+              label="Product Description"
+              placeholder="description"
+              multiline
+              variant="outlined"
+              name="description"
+              value={product.description}
+              onChange={handleChange}
+              className={classes.formControl}
+            />
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              onChange={fileSelected}
+              type="file"
+              accept="image/*"
+              className={classes.formControl}
+            ></TextField>
+            {/* <TextField
                 id="outlined-basic"
                 label="image description"
                 variant="outlined"
@@ -167,47 +207,51 @@ function ProductForm() {
                 onChange={(e) => setDescription(e.target.value)}
                 type="text"
               ></TextField> */}
-              <TextField
-                id="outlined-basic"
-                label="Price"
-                variant="outlined"
-                name="price"
-                value={product.price}
+            <TextField
+              id="outlined-basic"
+              label="Price"
+              variant="outlined"
+              name="price"
+              value={product.price}
+              onChange={handleChange}
+              type="number"
+              className={classes.formControl}
+            />
+            <FormControl variant="outlined" className={classes.formControl}>
+              <InputLabel htmlFor="outlined-age-native-simple">
+                Category
+              </InputLabel>
+              <Select
+                native
+                value={product.category}
                 onChange={handleChange}
-                type='number'
-                className={classes.formControl}
-              />
-              <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel htmlFor="outlined-age-native-simple">
-                  Category
-                </InputLabel>
-                <Select
-                  native
-                  value={product.category}
-                  onChange={handleChange}
-                  label="category"
-                  inputProps={{ name: "category" }}
-                >
-                  <option aria-label="None" value="" />
-                  <option value="herbs">Herbs</option>
-                  <option value="Vegetables">Vegetables </option>
-                  <option value="House Plants">House Plants</option>
-                  <option value="Flowering Plants">Flowering Plants</option>
-                  <option value="Succulents">Succulents</option>
-                </Select>
-              </FormControl>{" "}
-              <br />
-              <Button variant="contained" color="primary" type="submit" className={classes.formControl}>
-                Submit
-              </Button>
-            </form>
-            {/* display images that have been uploaded */}
-            {/* {images.map((image, index) => (
+                label="category"
+                inputProps={{ name: "category" }}
+              >
+                <option aria-label="None" value="" />
+                <option value="herbs">Herbs</option>
+                <option value="Vegetables">Vegetables </option>
+                <option value="House Plants">House Plants</option>
+                <option value="Flowering Plants">Flowering Plants</option>
+                <option value="Succulents">Succulents</option>
+              </Select>
+            </FormControl>{" "}
+            <br />
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              className={classes.formControl}
+            >
+              Submit
+            </Button>
+          </form>
+          {/* display images that have been uploaded */}
+          {images.map((image, index) => (
               <div key={index}>
                 <img src={image.imagePath}></img>
               </div>
-            ))} */}
-         
+            ))}
         </>
       ) : (
         <p>
