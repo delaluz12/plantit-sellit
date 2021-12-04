@@ -7,6 +7,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
+import SpaIcon from '@material-ui/icons/Spa';
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
@@ -43,17 +44,28 @@ function CategoryMenu() {
 
   return (
     <div>
-      <h2>Choose a Category:</h2>
-      {categories.map((item) => (
-        <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
-      ))}
+      <div className="sidebarWrapper">
+        <div className="sidebarMenu">
+          <h3 id="sidebarTitle">Choose a Category:</h3>
+          <ul className="sidebarList">
+            {categories.map((item) => (
+              <li
+                id="categoryLi"
+                className="sidebarListItem categoryLi"
+                key={item._id}
+                onClick={() => {
+                  handleClick(item._id);
+                }}
+              ><SpaIcon />
+                {item.name}
+              </li>
+            ))}
+          </ul>
+
+        </div>
+      </div>
+
+      
     </div>
   );
 }

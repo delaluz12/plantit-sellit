@@ -133,14 +133,22 @@ input:focus {
   border: 1px solid var(--secondary);
   box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
 }
-
 .container {
-  width: 85%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+    width: 85%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
+.shopContainer {
+  /* width: 85%; */
+  display: flex;
+  /* max-width: 1200px; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+.others {
+  flex: 10;
+}
 .flex-row {
   display: flex;
   flex-wrap: wrap;
@@ -201,6 +209,22 @@ input:focus {
 
 .error-text {
   color: var(--error);
+}
+
+.categoryLi {
+  color: black;
+  background-color: #609a81;
+  margin: 5px;
+}
+
+#categoryLi:hover {
+  color: white;
+  background-color: #96c3b0;
+}
+
+#sidebarTitle {
+  font-size: 13px;
+  color: #555;
 }
 
 @media screen and (max-width: 768px) {
