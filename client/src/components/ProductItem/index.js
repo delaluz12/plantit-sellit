@@ -4,6 +4,7 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
@@ -41,10 +42,12 @@ function ProductItem(item) {
   return (
     <div className="card px-1 py-1">
       <Link to={`/products/${_id}`}>
+        <LazyLoadImage>
         <img
           alt={name}
           src={`/images/${image}`}
         />
+        </LazyLoadImage>
         <p>{name}</p>
       </Link>
       <div>
