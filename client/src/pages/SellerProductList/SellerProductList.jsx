@@ -10,7 +10,7 @@ import { useState } from "react";
 import "./sellerProductList.css";
 
 //setUp dynamic rendering of productdata
-import { useQuery } from "@apollo/client";
+import { useQuery, useLazyQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_SELLERPRODUCTS } from "../../utils/actions";
@@ -47,7 +47,7 @@ export default function SellerProductList() {
   // const { sellerProducts, clean } = state;
   // console.log(sellerProducts);
   
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useLazyQuery(QUERY_PRODUCTS);
 
 //   const updatedSellerProducts = sellerProducts.map(p => {
 //     return {
