@@ -56,7 +56,8 @@ function CategoryMenu() {
                 onClick={() => {
                   handleClick(item._id);
                 }}
-              ><SpaIcon />
+              >
+                <SpaIcon id="categoryIcon" />
                 {item.name}
               </li>
             ))}

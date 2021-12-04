@@ -2,6 +2,7 @@ import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const CartItem = ({ item }) => {
 
@@ -45,7 +46,7 @@ const CartItem = ({ item }) => {
         />
       </div>
       <div>
-        <div>{item.name}, ${item.price}</div>
+        <div className="cardTitle">{item.name}, ${item.price}</div>
         <div>
           <span>Qty:</span>
           <input
@@ -59,7 +60,7 @@ const CartItem = ({ item }) => {
             aria-label="trash"
             onClick={() => removeFromCart(item)}
           >
-            🗑️
+            <DeleteIcon id="trashIcon"/>
           </span>
         </div>
       </div>

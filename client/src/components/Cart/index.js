@@ -9,6 +9,7 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 import Avatar from "@material-ui/core/Avatar"
+import CloseIcon from '@material-ui/icons/Close';
 
 const stripePromise = loadStripe('pk_test_51K0BxZKLr0iD6VeBK9jLkCn1oalSRd6CSIoOJaXXF9Qlx8ScXKDm2NpARCSD0muwsObIgaLX2kIfPB8CdPRn3jEb005EXOkxIX');
 
@@ -72,9 +73,9 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="close" onClick={toggleCart}>
-        [close]
+        <CloseIcon className="closeBtn" />
       </div>
-      <h2>Shopping Cart</h2>
+      <h2 className="cartTitle">Shopping Cart</h2>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (

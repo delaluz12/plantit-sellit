@@ -227,7 +227,105 @@ input:focus {
   color: #555;
 }
 
+.itemCard {
+  width: 33%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardItem {
+  flex:1;
+  margin: 0px 20px;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px -1px #868686;
+  box-shadow: 0px 0px 10px -1px #868686;
+}
+
+.addCart {
+  background-color: #609a81;
+}
+
+.addCart:hover {
+  color: white;
+}
+
+
+.cardTitle {
+  font-size: 18px;
+  color: #20302c;
+  font-weight: bold;
+}
+
+.cartTitle {
+  font-weight: bold;
+  color: #20302c;
+}
+
+#trashIcon {
+  height: 25px;
+  width: 25px;
+  margin-bottom: -7px;
+  color: #416758;
+  cursor: pointer;
+}
+
+#trashIcon:hover {
+  color: #609a81;
+}
+
+.closeBtn {
+  color: black;
+}
+@media screen and (max-width: 319px) {
+  .sidebarWrapper {
+    padding: 0px !important;
+  }
+  .categoryLi {
+    font-size: 16px !important;
+  }
+  .cartTitle {
+    font-size: 20px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .itemCard {
+    width: 100%;
+    margin: 5px 0px;
+    padding: 0px;
+  }
+  .cardItem {
+    width: 100%;
+    margin: 5px;
+    padding: 0px;
+  }
+  .sidebar {
+    width: 40%;
+  }
+  .categoryLi {
+    font-size: 11px;
+    margin: 2px;
+  }
+  #categoryIcon {
+    width: 15px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .itemCard {
+    width: 100%;
+    margin: 5px 0px;
+    padding: 0px;
+  }
+  .cardItem {
+    width: 100%;
+    margin: 5px;
+    padding: 0px;
+  }
+}
 @media screen and (max-width: 768px) {
+  h2 {
+    font-size: 20px;
+  }
   .card {
     width: 100%;
   }
