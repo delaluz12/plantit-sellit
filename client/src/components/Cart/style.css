@@ -28,7 +28,8 @@
 }
 
 .cart .close:hover {
-  text-decoration: underline;
+  cursor: pointer;
+  color: var(--tertiary);
 }
 
 .cart-closed {
@@ -37,7 +38,7 @@
   right: 1%;
   font-size: 2rem;
   cursor: pointer;
-  background-color: var(--secondary);
+  /* background-color: var(--secondary); */
   border-radius: 50%;
   padding: .25rem;
   width: 50px;
@@ -52,11 +53,12 @@
 .cart img {
   width: 70px;
   margin-right: 1rem;
+  border-radius: 10px;
 }
 
 .cart input {
   width: 50px;
-  padding: 0;
+  padding: 2px;
   margin: 0 .5rem 1rem 0;
 }
 

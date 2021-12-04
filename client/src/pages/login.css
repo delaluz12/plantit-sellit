@@ -1,0 +1,28 @@
+.loginBg {
+    background-image: url("../backgroundImg/background2.png");
+    background-color: #8a8a8a;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.cards{
+    padding: 50px;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    left: 600px;
+    width: 20%;
+    text-align: center;
+}
+
+
+h2.loginTitle {
+justify-content:flex-start;
+
+}
+
+.loginBtn{
+justify-content: center;
+align-content: center;
+}

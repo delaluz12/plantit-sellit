@@ -1,10 +1,10 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
+  --primary: #283e35;
+  --secondary:#416758;
+  --tertiary: #20302c;
+  --light: #96c3b0;
   --dark: #272f32;
-  --error: rgb(228, 46, 1);
+  --error: rgb(57, 110, 7);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
 }
@@ -25,22 +25,24 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
-  color: var(--dark);
+  color: rgb(252, 248, 248);
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Poppins',sans-serif;
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
-}
+  font-size: 18px;
+  color: #20302c
+} */
 
-h1 {
+/* h1 {
   font-size: 2.25rem;
 }
 
@@ -62,7 +64,7 @@ h5 {
 
 h6 {
   font-size: 1rem;
-}
+} */
 
 p {
   font-size: 1.1rem;
@@ -72,20 +74,20 @@ p {
 a {
   color: var(--tertiary);
   text-decoration: none;
-  font-weight: bold;
+  color: #416758;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #20302c;
 }
 
-header {
+/* header {
   background: var(--primary);
 }
 
 header a {
   color: var(--light);
-}
+} */
 
 button {
   font-size: 1rem;
@@ -114,10 +116,6 @@ img {
 
 span[role="img"] {
   cursor: default;
-}
-
-form {
-  width: 40%;
 }
 
 input {
@@ -328,4 +326,37 @@ input:focus {
   .card {
     width: 100%;
   }
+
+  /* .cards{
+    width: 100%
+  }
+
+  form{
+    width: 100%
+  } */
+
 }
+
+@media screen and (max-width: 768px) {
+  .each-slide > div {
+    width: 200%;
+    position: relative;
+    right: 70px;
+    display: hidden;
+    position: relative;
+    max-width: 100%;
+    max-height: auto;
+    box-shadow: none;
+    background-color: inherit;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .home_text {
+    position: relative;
+    right: 400px;
+
+
+
+  }
+  }

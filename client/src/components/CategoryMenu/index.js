@@ -42,6 +42,8 @@ function CategoryMenu() {
     });
   };
 
+ 
+
   return (
     <div>
       <div className="sidebarWrapper">
