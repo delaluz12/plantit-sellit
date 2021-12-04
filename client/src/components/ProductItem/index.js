@@ -81,7 +81,7 @@ function ProductItem(item) {
       <div>
       <CardContent>
         <Typography align="left" classes="object" color="inherit">
-        <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div>
+        {/* <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div> */}
         <span className="cardTitle">'$'{price}</span>
         </Typography>
       </CardContent>  
