@@ -65,3 +65,49 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_ALL_PRODUCT_DATA = gql`
+query {
+  allProducts {
+    _id
+    name
+    description
+    image
+    price
+    category {
+      name
+    }
+    sellerId {
+      _id
+    }
+    buyerId {
+      _id
+    }
+    sold
+    shipStatus
+  }
+}
+`;
+
+export const QUERY_PRODUCTS_BY_SELLER = gql`
+  query productsBySeller($sellerId: ID) {
+    products(sellerId: $sellerId) {
+    _id
+    name
+    description
+    image
+    price
+    category {
+      name
+    }
+    sellerId {
+      _id
+    }
+    buyerId {
+      _id
+    }
+    sold
+    shipStatus
+    }
+  }
+`;

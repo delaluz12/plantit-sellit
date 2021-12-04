@@ -33,6 +33,18 @@ const resolvers = {
     product: async (parent, { _id }) => {
       return await Product.findById(_id).populate('category');
     },
+    allProducts: async () => {
+      return await Product.find().
+      populate('category').
+      populate('sellerId').
+      populate('buyerId')      
+    },
+    productsBySeller: async (parent, sellerId ) => {
+      return await Product.find(sellerId).
+      populate('category').
+      populate('sellerId').
+      populate('buyerId')
+    },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({

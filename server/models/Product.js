@@ -33,6 +33,9 @@ const productSchema = new Schema({
   sold: {
     type: Boolean,
     default: false
+  },
+  shipStatus: {
+    type: String
   }
 });
 
