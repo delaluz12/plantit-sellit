@@ -250,7 +250,6 @@ input:focus {
   color: white;
 }
 
-
 .cardTitle {
   font-size: 18px;
   color: #20302c;
@@ -259,7 +258,7 @@ input:focus {
 
 .cartTitle {
   font-weight: bold;
-  color: #20302c;
+  color: #609a81;
 }
 
 #trashIcon {
