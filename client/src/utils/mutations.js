@@ -35,12 +35,22 @@ export const ADD_USER = gql`
     $lastName: String!
     $email: String!
     $password: String!
+    $state: String
+    $city: String
+    $address: String
+    $zip: String
+
+
   ) {
     addUser(
       firstName: $firstName
       lastName: $lastName
       email: $email
       password: $password
+      state: $state
+    city:  $city
+     address: $address
+    zip: $zip 
     ) {
       token
       user {
@@ -49,3 +59,27 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PRODUCT = gql `
+mutation addProduct($input: ProductData){
+  addProduct(input: $input){
+    _id
+    name
+    role
+    listings {
+      _id
+      name
+      description
+      image
+      price
+      category{
+        _id
+        name
+      }
+      sellerId
+      soldStatus
+    }
+
+  }
+}
+`

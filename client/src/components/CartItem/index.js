@@ -2,8 +2,7 @@ import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
-import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
-
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const CartItem = ({ item }) => {
 
@@ -47,7 +46,7 @@ const CartItem = ({ item }) => {
         />
       </div>
       <div>
-        <div>{item.name}, ${item.price}</div>
+        <div className="cardTitle">{item.name}, ${item.price}</div>
         <div>
           <span> Quantity:</span>
           <input
@@ -61,7 +60,7 @@ const CartItem = ({ item }) => {
             aria-label="trash"
             onClick={() => removeFromCart(item)}
           >
-            <DeleteForeverOutlinedIcon/>
+            <DeleteIcon id="trashIcon"/>
           </span>
         </div>
       </div>

@@ -8,8 +8,8 @@ import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import CancelIcon from '@material-ui/icons/Cancel';
+import Avatar from "@material-ui/core/Avatar"
+import CloseIcon from '@material-ui/icons/Close';
 
 const stripePromise = loadStripe('pk_test_51K0BxZKLr0iD6VeBK9jLkCn1oalSRd6CSIoOJaXXF9Qlx8ScXKDm2NpARCSD0muwsObIgaLX2kIfPB8CdPRn3jEb005EXOkxIX');
 
@@ -65,9 +65,7 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-        <ShoppingCartIcon/>
-        </span>
+        <Avatar alt="shopping cart" src="./images/plantshopping.jpg"/>
       </div>
     );
   }
@@ -75,11 +73,9 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="close" onClick={toggleCart}>
-      <span role="img" aria-label="trash">
-        <CancelIcon/>
-        </span>
+        <CloseIcon className="closeBtn" />
       </div>
-      <h2>My Cart</h2>
+      <h2 className="cartTitle">Shopping Cart</h2>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
@@ -87,7 +83,7 @@ const Cart = () => {
           ))}
 
           <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
+            <strong>'Total: $'{calculateTotal()}</strong>
 
             {Auth.loggedIn() ? (
               <button onClick={submitCheckout}>Checkout</button>
@@ -98,10 +94,14 @@ const Cart = () => {
         </div>
       ) : (
         <h3>
-          <span role="img" aria-label="shocked">
+          {/* <span role="img" aria-label="shocked">
             😱
-          </span>
-          You haven't added anything to your cart yet!
+          </span> */}
+          <Avatar 
+          id="sadPlant" 
+          alt="sad plant" 
+          src="./images/sad-plant.jpg"/>
+          You haven't added anything to your cart yet! 
         </h3>
       )}
     </div>

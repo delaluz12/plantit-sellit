@@ -21,8 +21,7 @@ function ProductItem(item) {
     image,
     name,
     _id,
-    price,
-    quantity
+    price
   } = item;
 
   const { cart } = state
@@ -61,8 +60,8 @@ function ProductItem(item) {
   const classes = useStyles();
 
   return (
-    <div className="card px-1 py-1">
-      <Card className={classes.root}>
+    <div className="card px-1 py-1 itemCard">
+      <Card className="cardItem">
               <CardActionArea>
       <Link to={`/products/${_id}`}>
         <CardMedia className={classes.media}>
@@ -73,7 +72,7 @@ function ProductItem(item) {
         </CardMedia>
         <CardContent children="node">
           <Typography className={classes.itemName} >
-        <p className="itemName">{name}</p>
+        <p className="cardTitle">{name}</p>
         </Typography>
         </CardContent>
       </Link>
@@ -82,17 +81,17 @@ function ProductItem(item) {
       <div>
       <CardContent>
         <Typography align="left" classes="object" color="inherit">
-        <div className="quantity">{quantity} {pluralize("item", quantity)} in stock</div>
-        <span className="price">${price}</span>
+        <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div>
+        <span className="cardTitle">'$'{price}</span>
         </Typography>
       </CardContent>  
       </div>
       <CardActions>
-      <Button  className="cardBtn"contained size="small" onClick={addToCart}>Add to cart</Button>
+      <Button  className="addCart" contained size="small" onClick={addToCart}>Add to cart</Button>
       </CardActions>
       </Card>
     </div>
   );
 }
-
+   
 export default ProductItem;
