@@ -1,10 +1,10 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
+  --primary: #283e35;
+  --secondary:#416758;
+  --tertiary: #20302c;
+  --light: #96c3b0;
   --dark: #272f32;
-  --error: rgb(228, 46, 1);
+  --error: rgb(57, 110, 7);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
 }
@@ -25,22 +25,24 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
-  color: var(--dark);
+  color: rgb(252, 248, 248);
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Poppins',sans-serif;
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
-}
+  font-size: 18px;
+  color: #20302c
+} */
 
-h1 {
+/* h1 {
   font-size: 2.25rem;
 }
 
@@ -62,7 +64,7 @@ h5 {
 
 h6 {
   font-size: 1rem;
-}
+} */
 
 p {
   font-size: 1.1rem;
@@ -72,20 +74,20 @@ p {
 a {
   color: var(--tertiary);
   text-decoration: none;
-  font-weight: bold;
+  color: #416758;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #20302c;
 }
 
-header {
+/* header {
   background: var(--primary);
 }
 
 header a {
   color: var(--light);
-}
+} */
 
 button {
   font-size: 1rem;
@@ -116,10 +118,6 @@ span[role="img"] {
   cursor: default;
 }
 
-form {
-  width: 40%;
-}
-
 input {
   font-size: 1rem;
   padding: 0.25rem;
@@ -133,14 +131,22 @@ input:focus {
   border: 1px solid var(--secondary);
   box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
 }
-
 .container {
-  width: 85%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+    width: 85%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
+.shopContainer {
+  /* width: 85%; */
+  display: flex;
+  /* max-width: 1200px; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+.others {
+  flex: 10;
+}
 .flex-row {
   display: flex;
   flex-wrap: wrap;
@@ -203,8 +209,154 @@ input:focus {
   color: var(--error);
 }
 
+.categoryLi {
+  color: black;
+  background-color: #609a81;
+  margin: 5px;
+}
+
+#categoryLi:hover {
+  color: white;
+  background-color: #96c3b0;
+}
+
+#sidebarTitle {
+  font-size: 13px;
+  color: #555;
+}
+
+.itemCard {
+  width: 33%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardItem {
+  flex:1;
+  margin: 0px 20px;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px -1px #868686;
+  box-shadow: 0px 0px 10px -1px #868686;
+}
+
+.addCart {
+  background-color: #609a81;
+}
+
+.addCart:hover {
+  color: white;
+}
+
+.cardTitle {
+  font-size: 18px;
+  color: #20302c;
+  font-weight: bold;
+}
+
+.cartTitle {
+  font-weight: bold;
+  color: #609a81;
+}
+
+#trashIcon {
+  height: 25px;
+  width: 25px;
+  margin-bottom: -7px;
+  color: #416758;
+  cursor: pointer;
+}
+
+#trashIcon:hover {
+  color: #609a81;
+}
+
+.closeBtn {
+  color: black;
+}
+@media screen and (max-width: 319px) {
+  .sidebarWrapper {
+    padding: 0px !important;
+  }
+  .categoryLi {
+    font-size: 16px !important;
+  }
+  .cartTitle {
+    font-size: 20px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .itemCard {
+    width: 100%;
+    margin: 5px 0px;
+    padding: 0px;
+  }
+  .cardItem {
+    width: 100%;
+    margin: 5px;
+    padding: 0px;
+  }
+  .sidebar {
+    width: 40%;
+  }
+  .categoryLi {
+    font-size: 11px;
+    margin: 2px;
+  }
+  #categoryIcon {
+    width: 15px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .itemCard {
+    width: 100%;
+    margin: 5px 0px;
+    padding: 0px;
+  }
+  .cardItem {
+    width: 100%;
+    margin: 5px;
+    padding: 0px;
+  }
+}
 @media screen and (max-width: 768px) {
+  h2 {
+    font-size: 20px;
+  }
   .card {
     width: 100%;
   }
+
+  /* .cards{
+    width: 100%
+  }
+
+  form{
+    width: 100%
+  } */
+
 }
+
+@media screen and (max-width: 768px) {
+  .each-slide > div {
+    width: 200%;
+    position: relative;
+    right: 70px;
+    display: hidden;
+    position: relative;
+    max-width: 100%;
+    max-height: auto;
+    box-shadow: none;
+    background-color: inherit;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .home_text {
+    position: relative;
+    right: 400px;
+
+
+
+  }
+  }
