@@ -16,6 +16,7 @@ const typeDefs = gql`
     sellerId: User
     buyerId: User
     sold: Boolean
+    shipStatus: String
   }
 
   type Order {
@@ -56,14 +57,14 @@ const typeDefs = gql`
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]
+    allProducts: [Product]
+    productsBySeller(sellerId: ID): [Product]
     product(_id: ID!): Product
     user: User
     users: [User]
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
     listings(_id: ID!): Listing
-    # soldBySeller(sellerId: ID!): [Product]
-    # notSoldBySeller(sellerId ID!): [Product]
   }
 
   type Mutation {
