@@ -36,16 +36,28 @@ app.use("/images", express.static(path.join(__dirname, "../client/images")));
 app.get("/s3images/:key", async (req, res) => {
   // console.log(req.params);
   const key = req.params.key;
-  try {
-    const readStream = await getFileStream(key);
-    if (readStream) {
+
+  if (key.length > 30 && key !== 'undefined'){
+    try {
+      const readStream = await getFileStream(key);
       readStream.pipe(res);
-    } else {
-      res.send(401).json("S3 broken :(")
+    } catch (error) {
+      console.log(error)
     }
-  } catch (err) {
-    console.log(err);
+  } else {
+    res.status(400).json( "XXXX Your request was bad, and you should feel bad X( ")
   }
+
+  // try {
+  //   const readStream = await getFileStream(key);
+  //   if (readStream) {
+  //     readStream.pipe(res);
+  //   } else {
+  //     res.send(401).json("S3 broken :(")
+  //   }
+  // } catch (err) {
+  //   console.log(err);
+  // }
 });
 
 app.post("/s3images", upload.single("image"), async (req, res) => {
