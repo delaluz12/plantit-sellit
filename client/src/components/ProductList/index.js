@@ -16,6 +16,7 @@ function ProductList() {
   const { currentCategory } = state;
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
+  console.log(data)
 
   useEffect(() => {
     if (data) {
@@ -41,8 +42,8 @@ function ProductList() {
     if (!currentCategory) {
       return state.products;
     }
-
-    return state.products.filter(
+    const firstTen = state.products.slice(0,10)
+    return firstTen.filter(
       (product) => product.category._id === currentCategory
     );
   }
@@ -53,16 +54,19 @@ function ProductList() {
 
       {state.products.length ? (
         <div className="flex-row">
-          {filterProducts().map((product) => (
+          {filterProducts().map((product, index) => (
+
+          
+           product && index < 10  ? 
+            <ProductItem
+            key={product._id}
+            _id={product._id}
+            image={product.image}
+            name={product.name}
+            price={product.price}
             
-            <ProductItem classname="items"
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
-            />
+          /> : null
+          
           ))}
         </div>
       ) : (

@@ -1,3 +1,4 @@
+// something wrong with front& back end connection in development
 require('dotenv').config()
 const fs = require('fs')
 const S3 = require('aws-sdk/clients/s3')
@@ -10,7 +11,8 @@ const secretAccessKey = process.env.AWS_SECRET_KEY
 const s3 = new S3({
   region,
   accessKeyId,
-  secretAccessKey
+  secretAccessKey,
+  maxRetries:10
 })
 
 // uploads a file to s3
@@ -29,12 +31,17 @@ exports.uploadFile = uploadFile
 
 
 // downloads a file from s3
-function getFileStream(fileKey) {
+async function  getFileStream(fileKey) {
   const downloadParams = {
     Key: fileKey,
     Bucket: bucketName
   }
-
-  return s3.getObject(downloadParams).createReadStream()
+ try {
+   const test = await s3.getObject(downloadParams).createReadStream()
+   return test
+ }catch (err){
+   console.log(err)
+ }
+  
 }
 exports.getFileStream = getFileStream

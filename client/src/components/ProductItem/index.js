@@ -4,6 +4,7 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -65,10 +66,12 @@ function ProductItem(item) {
               <CardActionArea>
       <Link to={`/products/${_id}`}>
         <CardMedia className={classes.media}>
-        <img
-          alt={name}
-          src={`/images/${image}`}
-        />
+        <LazyLoadImage alt={name}
+          src={`/s3images/${image}`}>
+        
+          
+       
+        </LazyLoadImage>
         </CardMedia>
         <CardContent children="node">
           <Typography className={classes.itemName} >
@@ -82,7 +85,7 @@ function ProductItem(item) {
       <CardContent>
         <Typography align="left" classes="object" color="inherit">
         {/* <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div> */}
-        <span className="cardTitle">'$'{price}</span>
+        <span className="cardTitle">$ {price}</span>
         </Typography>
       </CardContent>  
       </div>
