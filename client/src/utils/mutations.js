@@ -76,7 +76,11 @@ mutation addProduct($input: ProductData){
         _id
         name
       }
-      sellerId
+      sellerId{
+        _id
+        firstName
+        lastName
+      }
       soldStatus
     }
 
