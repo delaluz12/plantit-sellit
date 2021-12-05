@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   TextField,
@@ -10,7 +10,8 @@ import {
   makeStyles,
   Button,
 } from "@material-ui/core";
-
+import { useQuery, useMutation } from "@apollo/client";
+import { idbPromise } from "../../utils/helpers";
 import Resizer from "react-image-file-resizer";
 
 //S3 axios import for making call to post image
@@ -20,6 +21,9 @@ import Auth from "../../utils/auth";
 
 //import addProduct mutation
 import { ADD_PRODUCT } from "../../utils/mutations";
+
+//import cat query to get ids to pass back w/ new obj
+import { QUERY_CATEGORIES } from "../../utils/queries";
 
 //async fnc to post image to server via multer
 async function postImage({ image, description }) {
@@ -47,19 +51,40 @@ const useStyles = makeStyles((theme) => ({
 function ProductForm() {
   const classes = useStyles();
   const sellerId = Auth.getProfile();
-  // console.log(sellerId.data._id)
-
+  // console.log(sellerId.data._id);
   //try to capture prod details as one object to send
-  const [product, setProduct] = React.useState({
+  const [product, setProduct] = useState({
     name: "",
     description: "",
     imagePath: "",
-    price: "",
+    price: 0,
     category: "",
     sellerId: sellerId.data._id,
-    soldStatus: "false",
-    buyerId: "",
+    
   });
+  console.log(product);
+
+  //capture catIds to pass into form
+  const { loading, data } = useQuery(QUERY_CATEGORIES);
+  // console.log(data);
+
+  const [catIds, setCatIds] = useState([]);
+  // setCatIds(data.categories);
+  // console.log(catIds);
+
+  useEffect(() => {
+    if (data) {
+      const categories = data.categories;
+      setCatIds(categories);
+      categories.forEach((category) => {
+        idbPromise("prodCategories", "put", category);
+      });
+    } else if (!loading) {
+      idbPromise("prodCategories", "get").then((categories) => {
+        setCatIds(categories);
+      });
+    }
+  }, [data, loading]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -67,9 +92,10 @@ function ProductForm() {
     //try capturing all in one object
     setProduct({
       ...product,
+      
       [event.target.name]: event.target.value,
     });
-    // console.log(product);
+    console.log(product);
   };
 
   //s3 image upload state & event handlers
@@ -77,6 +103,8 @@ function ProductForm() {
   const [description, setDescription] = useState("");
   const [images, setImages] = useState([]);
   // console.log(images);
+
+  const [addProduct] = useMutation(ADD_PRODUCT);
 
   const submit = async (event) => {
     event.preventDefault();
@@ -99,9 +127,25 @@ function ProductForm() {
       setProduct({
         ...product,
       });
-      // console.log("product with imagePath", product);
+      console.log("product with imagePath", product);
 
       setImages([result, ...images]);
+      console.log(product);
+      // send to mongodb via apollo
+      console.log(typeof product.price)
+      let float = parseFloat(product.price);
+      console.log(float);
+      const mutationResponse = await addProduct({
+        variables: {
+          name: product.name,
+          category: product.category,
+          price: float,
+          sellerId: product.sellerId,
+          image: product.imagePath,
+          description: product.description,
+        },
+      });
+      console.log(mutationResponse);
 
       setProduct({
         name: "",
@@ -109,6 +153,7 @@ function ProductForm() {
         imagePath: "",
         price: "",
         category: "",
+        sellerId: sellerId.data._id,
       });
     } catch (error) {
       console.log(error);
@@ -124,7 +169,7 @@ function ProductForm() {
     const newFile = dataURIToBlob(image);
 
     // pass resized file to setFile state handler which will pass it to postImage()
-    setFile(file);
+    setFile(newFile);
   };
   /// ends here
 
@@ -229,11 +274,16 @@ function ProductForm() {
                 inputProps={{ name: "category" }}
               >
                 <option aria-label="None" value="" />
-                <option value="herbs">Herbs</option>
-                <option value="Vegetables">Vegetables </option>
-                <option value="House Plants">House Plants</option>
-                <option value="Flowering Plants">Flowering Plants</option>
-                <option value="Succulents">Succulents</option>
+                {catIds.map((cat) => (
+                  <option key={cat._id} value={cat._id}>
+                    {cat.name}
+                  </option>
+                ))}
+                {/* <option value="herbs">Herbs</option> */}
+                {/* <option value="Vegetables">Vegetables </option> */}
+                {/* <option value="House Plants">House Plants</option> */}
+                {/* <option value="Flowering Plants">Flowering Plants</option> */}
+                {/* <option value="Succulents">Succulents</option> */}
               </Select>
             </FormControl>{" "}
             <br />
@@ -255,7 +305,7 @@ function ProductForm() {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{" "}
+          You need to be logged in to create a Product. Please login{" "}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

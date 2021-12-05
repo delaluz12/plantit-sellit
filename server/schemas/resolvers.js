@@ -31,7 +31,7 @@ const resolvers = {
       return await Product.find(params).populate('category');
     },
     product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+      return await Product.findById(_id).populate('category').populate('sellerId').populate('buyerId');
     },
     allProducts: async () => {
       return await Product.find().
@@ -129,11 +129,13 @@ const resolvers = {
     },
 
     addProduct: async (parent, args) => {
-      console.log("args", args)
+      // console.log("args", args)
       const product = await Product.create(args);
-      const listing = new Listing( product );
-      console.log("listings", listing)
+      // console.log(product);
+      const listing = new Listing( product._id );
+      // console.log("listings", listing)
       await User.findByIdAndUpdate(args.sellerId, { $push: { listings: listing }});
+      
       return product;
     },
 
