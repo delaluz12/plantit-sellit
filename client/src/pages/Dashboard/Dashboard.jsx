@@ -1,44 +1,37 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import "./sellerdash.css";
+import { Route } from 'react-router-dom';
 
-import SellerTopbar from "../../components/SellerTopbar";
+import "./dash.css"
+import auth from "../../utils/auth";
+import AdminTopbar from "../../components/AdminTopbar";
+import AdminSidebar from "../../components/AdminSidebar"
 import SellerSidebar from "../../components/SellerSidebar";
 import SellerHome from "../SellerHome/SellerHome";
 import SellerProductList from "../SellerProductList/SellerProductList";
+import AdminUserList from "../AdminUserList/AdminUserList"
 import NewProduct from "../NewProduct/NewProduct";
 import SellerProductItem from "../SellerProductItem/SellerProductItem";
 
-import auth from "../../utils/auth";
-// console.log(auth.getProfile())
-// const {data} = auth.getProfile()
-// console.log(data._id)
-// const userId = data._id;
 
-
-const SellerDashboard = () => {
+const Dashboard = () => {
   return (
     <>
       {auth.loggedIn() ? (
         <>
-          <SellerTopbar />
-          <div className="mycontainer">
-            <SellerSidebar />
+          <AdminTopbar />
+          <div className='mycontainer'>
+            <AdminSidebar />
             <Route exact path="/seller/home">
               <SellerHome />
             </Route>
             <Route
-              
-              path="/seller/products"
-              component={SellerProductList}
-            />
-            <Route
-              exact
-              path="/seller/product/:id"
-              component={SellerProductItem}
-            />
+              path="/dashboard/users"
+              component={AdminUserList} />
+            <Route exact path="/seller/product/:id" component={SellerProductItem} />
             <Route exact path="/seller/addProduct" component={NewProduct} />
+
           </div>
+
         </>
       ) : (
         <h3>
@@ -47,9 +40,10 @@ const SellerDashboard = () => {
           </span>
           You haven't added anything to your cart yet!
         </h3>
-      )}
+      )};
+
     </>
   );
 };
 
-export default SellerDashboard;
+export default Dashboard;

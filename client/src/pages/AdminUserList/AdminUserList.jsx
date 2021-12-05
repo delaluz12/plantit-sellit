@@ -6,9 +6,9 @@ import { productRows } from '../../components/SellerChart/dummyData';
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import "./sellerProductList.css"
+import "./adminUserList.css"
 
-export default function SellerProductList() {
+export default function AdminUserList() {
 
     const [data, setData] = useState(productRows);
 
@@ -19,8 +19,8 @@ export default function SellerProductList() {
     const columns = [
       { field: "id", headerName: "ID", width: 150 },
       {
-        field: "product",
-        headerName: "Product",
+        field: "name",
+        headerName: "Admin",
         width: 200,
         renderCell: (params) => {
           return (
@@ -63,7 +63,7 @@ export default function SellerProductList() {
     ];
 
     return (
-        <div className='sellerProductList'>
+        <div className='adminUserList'>
              <DataGrid
         rows={data}
         disableSelectionOnClick
