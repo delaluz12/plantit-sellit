@@ -2,13 +2,23 @@ import React from 'react'
 
 import "./sellerProductItem.css"
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Publish } from "@material-ui/icons";
+// import { useQuery } from '@apollo/client';
+// import { QUERY_PRODUCTS } from '../utils/queries';
+// import spinner from '../assets/spinner.gif';
+
 
 import SellerChart from '../../components/SellerChart';
 import { productData } from '../../components/SellerChart/dummyData';
 
 export default function SellerProductItem() {
+    // const { id } = useParams();
+ 
+    // const [currentProduct, setCurrentProduct] = useState({});
+
+    // const { loading, data } = useQuery(QUERY_PRODUCTS);
+
     return (
         <div className='sellerProductItem'>
            <div className="productTitleContainer">
@@ -23,7 +33,7 @@ export default function SellerProductItem() {
           </div>
           <div className="productTopRight">
               <div className="productInfoTop">
-                  <img src="/images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productInfoImg" />
+                  <img src="/s3images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productInfoImg" />
                   <span className="productName">Spider Plant</span>
               </div>
               <div className="productInfoBottom">
@@ -64,11 +74,11 @@ export default function SellerProductItem() {
               </div>
               <div className="productFormRight">
                   <div className="productUpload">
-                      <img src="/images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productUploadImg" />
-                      <label for="file">
+                      <img src="/s3images/7b395e1a376ec72387d7624c0dfef048" alt="" className="productUploadImg" />
+                      {/* <label for="file">
                           <Publish/>
-                      </label>
-                      <input type="file" id="file" style={{display:"none"}} />
+                      </label> */}
+                      {/* <input type="file" id="file" style={{display:"none"}} /> */}
                   </div>
                   <button className="productButton">Update</button>
               </div>

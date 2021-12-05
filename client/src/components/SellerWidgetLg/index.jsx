@@ -19,7 +19,7 @@ export default function SellerWidgetLg() {
             <tr className="widgetLgTr">
               <td className="widgetLgUser">
                 <img
-                  src="/images/175d1aa9872afbf7bf013db062c13e62"
+                  src="/s3images/175d1aa9872afbf7bf013db062c13e62"
                   alt=""
                   className="widgetLgImg"
                 />
@@ -34,7 +34,7 @@ export default function SellerWidgetLg() {
             <tr className="widgetLgTr">
               <td className="widgetLgUser">
                 <img
-                  src="/images/175d1aa9872afbf7bf013db062c13e62"
+                  src="/s3images/175d1aa9872afbf7bf013db062c13e62"
                   alt=""
                   className="widgetLgImg"
                 />
@@ -49,7 +49,7 @@ export default function SellerWidgetLg() {
             <tr className="widgetLgTr">
               <td className="widgetLgUser">
                 <img
-                  src="/images/175d1aa9872afbf7bf013db062c13e62"
+                  src="/s3images/175d1aa9872afbf7bf013db062c13e62"
                   alt=""
                   className="widgetLgImg"
                 />
@@ -64,7 +64,7 @@ export default function SellerWidgetLg() {
             <tr className="widgetLgTr">
               <td className="widgetLgUser">
                 <img
-                  src="/images/175d1aa9872afbf7bf013db062c13e62"
+                  src="/s3images/175d1aa9872afbf7bf013db062c13e62"
                   alt=""
                   className="widgetLgImg"
                 />
