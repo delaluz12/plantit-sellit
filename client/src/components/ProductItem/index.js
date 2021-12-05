@@ -48,9 +48,9 @@ function ProductItem(item) {
   }
 
   const useStyles = makeStyles({
-    root: {
-      maxWidth: 400,
-    },
+    // root: {
+    //   maxWidth: 400,
+    // },
     media: {
       height: 140,
     },
@@ -62,33 +62,31 @@ function ProductItem(item) {
   return (
     <div className="card px-1 py-1 itemCard">
       <Card className="cardItem">
-              <CardActionArea>
-      <Link to={`/products/${_id}`}>
-        <CardMedia className={classes.media}>
-        <img
-          alt={name}
-          src={`/images/${image}`}
-        />
-        </CardMedia>
-        <CardContent children="node">
-          <Typography className={classes.itemName} >
-        <p className="cardTitle">{name}</p>
-        </Typography>
-        </CardContent>
-      </Link>
-      </CardActionArea>
-     
-      <div>
-      <CardContent>
-        <Typography align="left" classes="object" color="inherit">
-        {/* <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div> */}
-        <span className="cardTitle">'$'{price}</span>
-        </Typography>
-      </CardContent>  
-      </div>
-      <CardActions>
-      <Button  className="addCart" contained size="small" onClick={addToCart}>Add to cart</Button>
-      </CardActions>
+        <Link to={`/products/${_id}`}>
+          <CardMedia className={classes.media}>
+          <img
+            alt={name}
+            src={`/images/${image}`}
+          />
+          </CardMedia>
+
+          <CardContent>
+            {/* <Typography className={classes.itemName} > */}
+          <p className="cardTitle">{name}</p>
+          {/* </Typography> */}
+          </CardContent>
+        </Link>
+        <div>
+        <CardContent>
+          <Typography align="left" color="inherit">
+          {/* <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div> */}
+            <span className="cardTitle">${price}</span>
+          </Typography>
+        </CardContent>  
+        </div>
+        <CardActions>
+          <Button  className="addCart" onClick={addToCart}>Add to cart</Button>
+        </CardActions>
       </Card>
     </div>
   );

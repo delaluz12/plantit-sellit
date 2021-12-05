@@ -65,7 +65,7 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
-        <Avatar alt="shopping cart" src="./images/plantshopping.jpg"/>
+        <Avatar alt="shopping cart" src="/images/plantshopping.jpg"/>
       </div>
     );
   }
@@ -83,7 +83,7 @@ const Cart = () => {
           ))}
 
           <div className="flex-row space-between">
-            <strong>'Total: $'{calculateTotal()}</strong>
+            <strong>Total: ${calculateTotal()}</strong>
 
             {Auth.loggedIn() ? (
               <button onClick={submitCheckout}>Checkout</button>
@@ -100,7 +100,7 @@ const Cart = () => {
           <Avatar 
           id="sadPlant" 
           alt="sad plant" 
-          src="./images/sad-plant.jpg"/>
+          src="/images/sad-plant.jpg"/>
           You haven't added anything to your cart yet! 
         </h3>
       )}
