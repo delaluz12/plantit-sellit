@@ -16,10 +16,13 @@ export const QUERY_PRODUCTS = gql`
   }
 `;
 export const QUERY_PRODUCT = gql`
-  query getProduct($_id: ID) {
-    products(_id: $_id) {
+  query getProduct($_id: ID!) {
+    product(_id: $_id) {
       _id
       name
+      description
+      image
+      price
       category {
         name
       }
@@ -27,6 +30,12 @@ export const QUERY_PRODUCT = gql`
         _id
         firstName
       }
+      buyerId {
+        _id
+        firstName
+      }
+      sold
+      shipStatus
     }
   }
 `;
