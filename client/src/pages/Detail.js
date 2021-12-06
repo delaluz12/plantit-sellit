@@ -14,6 +14,7 @@ import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import Loading from '../components/Loading/Loading';
 import "./detail.css";
+import Sidebar from "../components/Sidebar";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -85,60 +86,45 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
+        <div className="others">
         <div className="my-1 detailContainer">
+          
           <Link to="/shop">← Back to Products</Link>
-
-          <h2>{currentProduct.name}</h2>
-
-          <p>{currentProduct.description}</p>
-
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
-
-          <img
-            src={`/s3images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
+          <div className="details">
+            <div id="img-container" className="big-img">
+              <img
+                src="/images/oregano.jpg"
+                //src={`/s3images/${currentProduct.image}`}
+                alt={currentProduct.name}
+              />
+            </div>
+            <div className="box">
+              <div className="row">
+                <h2>{currentProduct.name}</h2>
+                <span><strong>Price:</strong>${currentProduct.price}{' '}</span>
+              </div>
+              <p>{currentProduct.description}</p>
+              <p>
+                <button className="addCart" onClick={addToCart}>Add to Cart</button>
+                <button
+                  id="removeCart"
+                  disabled={!cart.find((p) => p._id === currentProduct._id)}
+                  onClick={removeFromCart}
+                >
+                  Remove from Cart
+                </button>
+              </p>
+            </div>
+          </div> 
+        </div>
         </div>
       ) : null}
       {loading ? <Loading/> : null}
-      <Cart />
+      <div className="shopContainer">
+      <Sidebar />
+      </div>
     </>
   );
 }
-{/* <div className="details">
-<div id="img-container" className="big-img">
-  <img
-    src="/images/oregano.jpg"
-    // src={`/images/${currentProduct.image}`}
-    alt={currentProduct.name}
-  />
-</div>
-<div className="box">
-  <div className="row">
-    <h2>{currentProduct.name}</h2>
-    <span><strong>Price:</strong>${currentProduct.price}{' '}</span>
-  </div>
-  <p>{currentProduct.description}</p>
-  <p>
-    <button className="addCart" onClick={addToCart}>Add to Cart</button>
-    <button
-      id="removeCart"
-      disabled={!cart.find((p) => p._id === currentProduct._id)}
-      onClick={removeFromCart}
-    >
-      Remove from Cart
-    </button>
-  </p>
-</div>
-</div> */}
 
 export default Detail;

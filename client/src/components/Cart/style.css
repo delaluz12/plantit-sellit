@@ -1,10 +1,10 @@
 .cart {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   min-width: 20%;
-  max-width: 30%;
-  max-height: 40%;
+  max-width: 100%;
+  max-height: 60%;
   background-color: var(--light);
   overflow: auto;
   padding: .5rem;
@@ -29,11 +29,11 @@
 
 .cart .close:hover {
   cursor: pointer;
-  color: var(--tertiary);
+  /* color: var(--tertiary); */
 }
 
 .cart-closed {
-  position: fixed;
+  position: absolute;
   top: 2%;
   right: 1%;
   font-size: 2rem;
@@ -67,7 +67,36 @@
   height: 100px;
   margin: auto;
 }
-
+@media screen and (max-width: 2560px) {
+  .cart {
+    position: relative;
+    max-height: 60%;
+  }
+  .cart-closed {
+    position: relative;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .cart {
+    position: relative;
+    max-height: 60%;
+  }
+  .cart-closed {
+    position: relative;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cart {
+    max-height: 50%;
+    position: relative;
+  }
+  .cart-closed {
+    position: relative;
+    margin: 0 auto;
+  }
+}
 @media screen and (max-width: 768px) {
   .cart {
     position: relative;
@@ -88,7 +117,6 @@
 @media screen and (max-width: 540px) {
   .cart {
     max-height: 45%;
-    
   }
 }
 
