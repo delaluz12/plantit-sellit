@@ -72,7 +72,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -87,8 +87,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const withouNavRoutes = ["/seller"];
+
 function LandingNav() {
   const classes = useStyles();
+  const {pathname} = useLocation();
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -126,6 +130,7 @@ function LandingNav() {
       );
     }
   }
+  if (withouNavRoutes.some((item) => pathname.includes(item))) return null;
   return (
     <div className={classes.root}>
       <div className="header ">
