@@ -74,9 +74,7 @@ function ProductItem(item) {
         </LazyLoadImage>
         </CardMedia>
         <CardContent children="node">
-          <Typography className={classes.itemName} >
-        <p className="cardTitle">{name}</p>
-        </Typography>
+          <p className="cardTitle">{name}</p>
         </CardContent>
       </Link>
       </CardActionArea>
