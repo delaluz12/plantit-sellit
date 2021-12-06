@@ -95,13 +95,15 @@ function ProductForm() {
       
       [event.target.name]: event.target.value,
     });
-    console.log(product);
+    // console.log(product);
   };
 
   //s3 image upload state & event handlers
   const [file, setFile] = useState();
   const [description, setDescription] = useState("");
   const [images, setImages] = useState([]);
+  
+
   // console.log(images);
 
   const [addProduct] = useMutation(ADD_PRODUCT);
@@ -127,25 +129,31 @@ function ProductForm() {
       setProduct({
         ...product,
       });
-      console.log("product with imagePath", product);
+      // console.log("product with imagePath", product);
 
       setImages([result, ...images]);
-      console.log(product);
+      // console.log(product);
       // send to mongodb via apollo
       console.log(typeof product.price)
-      let float = parseFloat(product.price);
-      console.log(float);
+      const float = parseFloat(product.price);
+      
+      
+      console.log(product);
       const mutationResponse = await addProduct({
         variables: {
           name: product.name,
+          description: product.description,
           category: product.category,
           price: float,
           sellerId: product.sellerId,
           image: product.imagePath,
-          description: product.description,
+          
         },
       });
-      console.log(mutationResponse);
+      // console.log(mutationResponse);
+
+
+      const prodID = mutationResponse.data.addProduct._id;
 
       setProduct({
         name: "",
@@ -155,6 +163,7 @@ function ProductForm() {
         category: "",
         sellerId: sellerId.data._id,
       });
+      window.location.assign(`/seller/product/${prodID}`)
     } catch (error) {
       console.log(error);
     }
@@ -302,6 +311,7 @@ function ProductForm() {
                 <img src={image.imagePath}></img>
               </div>
             ))} */}
+            
         </>
       ) : (
         <p>
