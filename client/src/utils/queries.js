@@ -92,7 +92,7 @@ query {
 
 export const QUERY_PRODUCTS_BY_SELLER = gql`
   query productsBySeller($sellerId: ID) {
-    products(sellerId: $sellerId) {
+    productsBySeller(sellerId: $sellerId) {
     _id
     name
     description
