@@ -1,5 +1,6 @@
 .sellerProductList{
     flex: 4;
+    margin: 5px
 }
 .productListItem{
     display: flex;
