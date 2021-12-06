@@ -19,7 +19,7 @@ function Nav() {
             </Link>
           </li>    
           <li className="mx-1">
-            <Link to="/seller">
+            <Link to="/seller/home">
               Seller Dashboard
             </Link>
           </li>

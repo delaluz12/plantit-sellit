@@ -94,7 +94,6 @@ function Detail() {
           <div className="details">
             <div id="img-container" className="big-img">
               <img
-                
                 src={`/s3images/${currentProduct.image}`}
                 alt={currentProduct.name}
               />
