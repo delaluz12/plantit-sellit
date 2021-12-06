@@ -29,7 +29,6 @@ const Dashboard = () => {
               component={AdminUserList} />
             <Route exact path="/seller/product/:id" component={SellerProductItem} />
             <Route exact path="/seller/addProduct" component={NewProduct} />
-
           </div>
 
         </>

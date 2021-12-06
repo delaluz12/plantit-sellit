@@ -1,12 +1,12 @@
 .adminUserList{
     flex: 4;
 }
-.productListItem{
+.userListItem{
     display: flex;
     align-items: center;
 }
 
-.productListImg {
+.userListImg {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -14,7 +14,7 @@
     margin-right: 10px;
   }
 
-.productListEdit{
+.userListEdit{
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
@@ -24,7 +24,7 @@
     margin-right: 20px;
 }
 
-.productListDelete{
+.userListDelete{
     color: red;
     cursor: pointer;
 }
