@@ -4,6 +4,14 @@ class AuthService {
   getProfile() {
     return decode(this.getToken());
   }
+  isSeller (){
+    const data = decode(this.getToken());
+    const role = data.data.role;
+    if(role !== 'seller'){
+      return false
+    }
+    return true;
+  }
 
   loggedIn() {
     // Checks if there is a saved token and it's still valid
