@@ -51,7 +51,7 @@ export default function AdminSidebar() {
                 Users
               </li>
               </Link>
-            <Link to="/seller/products" className="link">
+            <Link to="/dashboard/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 Products

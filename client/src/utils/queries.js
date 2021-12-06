@@ -104,7 +104,7 @@ query {
       name
     }
     sellerId {
-      _id
+      firstName
     }
     buyerId {
       _id

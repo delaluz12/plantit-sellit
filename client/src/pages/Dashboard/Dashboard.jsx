@@ -5,12 +5,13 @@ import "./dash.css"
 import auth from "../../utils/auth";
 import AdminTopbar from "../../components/AdminTopbar";
 import AdminSidebar from "../../components/AdminSidebar"
-import SellerSidebar from "../../components/SellerSidebar";
+
 import SellerHome from "../SellerHome/SellerHome";
-import SellerProductList from "../SellerProductList/SellerProductList";
+
 import AdminUserList from "../AdminUserList/AdminUserList"
 import NewProduct from "../NewProduct/NewProduct";
-import SellerProductItem from "../SellerProductItem/SellerProductItem";
+
+import AdminProductList from "../AdminProductList/AdminProductList"
 
 
 const Dashboard = () => {
@@ -25,9 +26,9 @@ const Dashboard = () => {
               <SellerHome />
             </Route>
             <Route
-              path="/dashboard/users"
+             exact path="/dashboard/users"
               component={AdminUserList} />
-            <Route exact path="/seller/product/:id" component={SellerProductItem} />
+            <Route exact path="/dashboard/products" component={AdminProductList} />
             <Route exact path="/seller/addProduct" component={NewProduct} />
           </div>
 
