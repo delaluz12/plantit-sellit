@@ -14,7 +14,8 @@ import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import Loading from '../components/Loading/Loading';
 import "./detail.css";
-import Sidebar from "../components/Sidebar";
+import Button from "@material-ui/core/Button";
+
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -93,8 +94,8 @@ function Detail() {
           <div className="details">
             <div id="img-container" className="big-img">
               <img
-                src="/images/oregano.jpg"
-                //src={`/s3images/${currentProduct.image}`}
+                
+                src={`/s3images/${currentProduct.image}`}
                 alt={currentProduct.name}
               />
             </div>
@@ -105,14 +106,14 @@ function Detail() {
               </div>
               <p>{currentProduct.description}</p>
               <p>
-                <button className="addCart" onClick={addToCart}>Add to Cart</button>
-                <button
+              <Button  className="cartBtn" onClick={addToCart}>Add to cart</Button>
+                <Button
                   id="removeCart"
                   disabled={!cart.find((p) => p._id === currentProduct._id)}
                   onClick={removeFromCart}
                 >
                   Remove from Cart
-                </button>
+                </Button>
               </p>
             </div>
           </div> 
@@ -120,9 +121,10 @@ function Detail() {
         </div>
       ) : null}
       {loading ? <Loading/> : null}
-      <div className="shopContainer">
-      <Sidebar />
+      <div className="detail-cart">
+        <Cart />
       </div>
+      
     </>
   );
 }

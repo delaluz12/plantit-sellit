@@ -302,10 +302,13 @@ input:focus {
     padding: 0px !important;
   }
   .categoryLi {
-    font-size: 16px !important;
+    font-size: 12px !important;
   }
   .cartTitle {
     font-size: 20px !important;
+  }
+  .cardTitle {
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 320px) {

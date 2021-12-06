@@ -41,10 +41,22 @@
     line-height: 1.5;
     margin: 15px 0;
 }
-#removeCart {
-    background: #609a81;
+
+.detail-cart {
+    /* display: flex;
+    justify-content: center; */
+    width: 63%;
+    margin: auto;
+    height: 50%;
 }
 
+@media screen and (max-width: 478) {
+
+    .detail-cart {
+        width: 100%;
+        height: 100%;
+    }
+}
 @media screen and (max-width: 280px) {
     p {
         padding: 0px 10px;
@@ -67,3 +79,4 @@
         padding: 0px 10px;
     }
 }
+
