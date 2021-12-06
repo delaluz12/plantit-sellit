@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_PRODUCTS = gql`
   query getProducts($category: ID) {
@@ -11,6 +11,21 @@ export const QUERY_PRODUCTS = gql`
       category {
         _id
         name
+      }
+    }
+  }
+`;
+export const QUERY_PRODUCT = gql`
+  query getProduct($_id: ID) {
+    products(_id: $_id) {
+      _id
+      name
+      category {
+        name
+      }
+      sellerId {
+        _id
+        firstName
       }
     }
   }
@@ -68,47 +83,47 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_ALL_PRODUCT_DATA = gql`
-query {
-  allProducts {
-    _id
-    name
-    description
-    image
-    price
-    category {
+  query {
+    allProducts {
+      _id
       name
+      description
+      image
+      price
+      category {
+        name
+      }
+      sellerId {
+        _id
+      }
+      buyerId {
+        _id
+      }
+      sold
+      shipStatus
     }
-    sellerId {
-      _id
-    }
-    buyerId {
-      _id
-    }
-    sold
-    shipStatus
   }
-}
 `;
 
 export const QUERY_PRODUCTS_BY_SELLER = gql`
   query productsBySeller($sellerId: ID) {
     productsBySeller(sellerId: $sellerId) {
-    _id
-    name
-    description
-    image
-    price
-    category {
+      _id
       name
-    }
-    sellerId {
-      _id
-    }
-    buyerId {
-      _id
-    }
-    sold
-    shipStatus
+      description
+      image
+      price
+      category {
+        name
+      }
+      sellerId {
+        _id
+      }
+      buyerId {
+        _id
+      }
+      sold
+      shipStatus
     }
   }
 `;
