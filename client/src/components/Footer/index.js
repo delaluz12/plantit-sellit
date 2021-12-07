@@ -73,7 +73,7 @@ function Footer() {
 
                     <Box textAlign="center" pt={{xs:2, sm:5}} pb={{xs:2, sm:0}}>
 
-                        Plant it - Sell it &reg; {new Date().getFullYear}
+                        Plant it - Sell it &reg; 2021
                     </Box>
 
                 </Container>
