@@ -63,14 +63,14 @@ export const ADD_PRODUCT = gql`
     $description: String
     $category: ID!
     $price: Float!
-    $sellerid: ID
+    $sellerId: ID!
     $image: String!
   ) {
     addProduct(
       name: $name
       category: $category
       price: $price
-      sellerId: $sellerid
+      sellerId: $sellerId
       image: $image
       description: $description
     ) {

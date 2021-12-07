@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { Route } from "react-router-dom";
 import "./sellerdash.css";
 
@@ -17,9 +17,10 @@ import auth from "../../utils/auth";
 
 
 const SellerDashboard = () => {
+    
   return (
     <>
-      {auth.loggedIn() ? (
+      {auth.loggedIn() && auth.isSeller() ? (
         <>
           <SellerTopbar />
           <div className="mycontainer">
@@ -28,7 +29,7 @@ const SellerDashboard = () => {
               <SellerHome />
             </Route>
             <Route
-              
+              exact
               path="/seller/products"
               component={SellerProductList}
             />
@@ -41,11 +42,11 @@ const SellerDashboard = () => {
           </div>
         </>
       ) : (
-        <h3>
+        <h3 className='notSeller'>
           <span role="img" aria-label="shocked">
             😱
           </span>
-          You haven't added anything to your cart yet!
+          You must have a Seller Account to access this page
         </h3>
       )}
     </>
