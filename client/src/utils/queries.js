@@ -77,6 +77,11 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
+      address
+      state
+      city
+      zip
+      email
       orders {
         _id
         purchaseDate
