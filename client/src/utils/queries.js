@@ -8,6 +8,7 @@ export const QUERY_PRODUCTS = gql`
       description
       price
       image
+      sold
       category {
         _id
         name
