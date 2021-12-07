@@ -139,12 +139,13 @@ const resolvers = {
 
 
     addOrder: async (parent, { products }, context) => {
-      console.log(context);
+      console.log(products);
       if (context.user) {
         const order = new Order({ products });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-
+        await Product.updateMany({_id: {$in: products}},{$set: [{sold: true},{buyerId: context.user._id}]});
+     
         return order;
       }
 
