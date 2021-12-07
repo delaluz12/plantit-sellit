@@ -226,31 +226,38 @@ function ProductForm() {
           >
             <TextField
               id="outlined-basic"
-              label="Name of Product"
+              label="Pothos Cutting"
+            
+              
+              helperText="required field"
               variant="outlined"
               name="name"
               value={product.name}
               onChange={handleChange}
               className={classes.formControl}
+              
             />
             <TextField
               id="outlined-textarea"
-              label="Product Description"
-              placeholder="description"
+              label="Listing Description"
+              helperText="required field"
               multiline
               variant="outlined"
               name="description"
               value={product.description}
               onChange={handleChange}
               className={classes.formControl}
+              
             />
             <TextField
               id="outlined-basic"
+              helperText="required field"
               variant="outlined"
               onChange={fileSelected}
               type="file"
               accept="image/*"
               className={classes.formControl}
+              
             ></TextField>
             {/* <TextField
                 id="outlined-basic"
@@ -264,17 +271,20 @@ function ProductForm() {
               id="outlined-basic"
               label="Price"
               variant="outlined"
+              helperText="required field"
               name="price"
               value={product.price}
               onChange={handleChange}
               type="number"
               className={classes.formControl}
+              
             />
             <FormControl variant="outlined" className={classes.formControl}>
-              <InputLabel htmlFor="outlined-age-native-simple">
+              <InputLabel htmlFor="outlined-age-native-simple" helpertext="required field">
                 Category
               </InputLabel>
               <Select
+              
                 native
                 value={product.category}
                 onChange={handleChange}
