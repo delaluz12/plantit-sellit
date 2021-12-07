@@ -91,6 +91,31 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_USERS = gql`
+  {
+    users {
+      _id
+      firstName
+      lastName
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          image
+        }
+      }
+      listings{
+        _id
+      }
+    }
+  }
+  `;
+
+
 export const QUERY_ALL_PRODUCT_DATA = gql`
   query {
     allProducts {

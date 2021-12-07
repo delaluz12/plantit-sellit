@@ -15,7 +15,7 @@ function ProductList() {
   const { currentCategory } = state;
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     if (data) {
@@ -37,7 +37,7 @@ function ProductList() {
   }, [data, loading, dispatch]);
 
   const filterProducts = () => {
-    console.log("inside filteredProducts", state);
+    // console.log("inside filteredProducts", state);
     if (!currentCategory) {
       return state.products;
     }

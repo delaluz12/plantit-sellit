@@ -1,62 +1,52 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Auth from "../../utils/auth";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@material-ui/core";
+// import auth from "../../utils/auth";
 
 const withouNavRoutes = ["/seller", "/dashboard"];
 
 function Nav() {
-  // const classes = useStyles();
-  const {pathname} = useLocation();
+ 
+  const { pathname } = useLocation();
+  
   function showNavigation() {
-    
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/shop">
-              Shop
-            </Link>
+            <Link to="/shop">Shop</Link>
           </li>
           <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>    
-          <li className="mx-1">
-            <Link to="/seller/home">
-              Dashboard
-            </Link>
-          </li>
+            <Link to="/orderHistory">Order History</Link>
+          </li>{" "}
+          {Auth.isSeller() === true ? (
+            <li className="mx-1">
+              <Link to="/seller/home">Dashboard</Link>
+            </li>
+          ) : null}
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
           </li>
-      
         </ul>
       );
     } else {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/shop">
-              Shop
-            </Link>
+            <Link to="/shop">Shop</Link>
           </li>
           <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
+            <Link to="/signup">Signup</Link>
           </li>
           <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       );
@@ -72,9 +62,7 @@ function Nav() {
         </Link>
       </h1>
 
-      <nav>
-        {showNavigation()}
-      </nav>
+      <nav>{showNavigation()}</nav>
     </header>
   );
 }
@@ -163,7 +151,6 @@ export default Nav;
 
 // export default LandingNav;
 
-
 //PART 1
 // <div className={classes.root}>
 // <div className="header ">
@@ -186,13 +173,13 @@ export default Nav;
 // <div className={classes.root}>
 // <div className="header ">
 //   <div className="navigation">
-    
+
 //       <Toolbar disableGutters="true" className="navbar d__flex">
 //         <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
 //         <Link to="/signup" edge="end" className="nav__items px__30" >Signup</Link>
 //         <Link to="/login" edge="end" className="nav__items px__30" >Login</Link>
 //       </Toolbar>
-    
+
 //   </div>
 // </div>
 // </div>
@@ -263,7 +250,8 @@ export default Nav;
 //     </div>
 //   );
 // }
-{/* <div className={classes.root}>
+{
+  /* <div className={classes.root}>
 <div className="header ">
   <div className="navigation pxy__30">
     <header>
@@ -279,4 +267,5 @@ export default Nav;
     </header>
   </div>
 </div>
-</div> */}
+</div> */
+}
