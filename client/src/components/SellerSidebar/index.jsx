@@ -1,36 +1,38 @@
-import React from 'react'
-import "./sellerSidebar.css"
+import React from "react";
+import "./sellerSidebar.css";
 
+import auth from "../../utils/auth";
 
 import {
-    LineStyle,
-    Timeline,
-    TrendingUp,
-    PermIdentity,
-    Storefront,
-    AttachMoney,
-    BarChart,
-    MailOutline,
-    DynamicFeed,
-    ChatBubbleOutline,
-    WorkOutline,
-    Report,
-  } from "@material-ui/icons";
-  import { Link } from "react-router-dom";
-  
+  LineStyle,
+  Timeline,
+  TrendingUp,
+  PermIdentity,
+  Storefront,
+  AttachMoney,
+  BarChart,
+  MailOutline,
+  DynamicFeed,
+  ChatBubbleOutline,
+  WorkOutline,
+  Report,
+  ExitToApp,
+  Store,
+} from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 export default function SellerSidebar() {
-    return (
-        <div className="sidebar">
+  return (
+    <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/seller/home" className="link">
-            <li className="sidebarListItem active">
-              <LineStyle className="sidebarIcon" />
-              Home
-            </li>
+              <li className="sidebarListItem">
+                <LineStyle className="sidebarIcon" />
+                Home
+              </li>
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
@@ -45,12 +47,6 @@ export default function SellerSidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            
-              <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
-                Users
-              </li>
-            
             <Link to="/seller/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
@@ -65,6 +61,12 @@ export default function SellerSidebar() {
               <BarChart className="sidebarIcon" />
               Reports
             </li>
+            <Link to="/shop" className="link">
+              <li className="sidebarListItem">
+                <Store className="sidebarIcon" />
+                Storefront
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -85,23 +87,23 @@ export default function SellerSidebar() {
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Staff</h3>
+          <h3 className="sidebarTitle">Exit</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <WorkOutline className="sidebarIcon" />
-              Manage
+            <li className="sidebarListItem" onClick={() => auth.logout()}>
+              <ExitToApp className="sidebarIcon" />
+              Logout
             </li>
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics
             </li>
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
               Reports
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
     </div>
-    )
+  );
 }

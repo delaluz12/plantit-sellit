@@ -21,6 +21,7 @@
     "react-image-file-resizer": "^0.4.7",
     "react-lazy-load-image-component": "^1.5.1",
     "react-material-ui-carousel": "^2.3.8",
+    "react-paginate": "^8.0.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "4.0.2",
     "recharts": "^2.1.6"

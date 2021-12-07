@@ -129,13 +129,11 @@ const resolvers = {
     },
 
     addProduct: async (parent, args) => {
-      // console.log("args", args)
+      console.log("args", args)
       const product = await Product.create(args);
-      // console.log(product);
-      const listing = new Listing( product._id );
-      // console.log("listings", listing)
+      const listing = new Listing( product );
+      console.log("listings", listing)
       await User.findByIdAndUpdate(args.sellerId, { $push: { listings: listing }});
-      
       return product;
     },
 

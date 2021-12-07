@@ -1,4 +1,10 @@
 .mycontainer{
     display: flex;
 }
+.notSeller {
+    
+    padding: 5rem;
+    text-align: center;
+}
+
 
