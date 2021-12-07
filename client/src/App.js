@@ -12,7 +12,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import Shop from './pages/Shop';
-import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard/Dashboard'
 import SellerDashboard from './pages/SellerDashboard/SellerDashboard'
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
@@ -23,6 +23,7 @@ import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 // import Footer from './components/Footer';
+
 
 
 const httpLink = createHttpLink({
@@ -54,7 +55,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/shop" component={Shop} />              
-              <Route exact path="/dashboard" component={Dashboard} />
+              <Route  path="/dashboard/" component={Dashboard} />
               <Route exaxt path="/seller" component={SellerDashboard} />    
                   
               <Route exact path="/login" component={Login} />

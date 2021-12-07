@@ -9,6 +9,7 @@ import { Button } from "@material-ui/core";
 const withouNavRoutes = ["/seller", "/dashboard"];
 
 function Nav() {
+  
   const {pathname} = useLocation();
   function showNavigation() {
     
