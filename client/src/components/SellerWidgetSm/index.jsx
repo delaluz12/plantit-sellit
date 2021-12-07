@@ -31,7 +31,7 @@ export default function SellerWidgetSm() {
           />
           <div className="widgetSmPendingOrders">
             <span className="widgetSmProduct">Snake Plant Pup - 1</span>
-            <span className="widgetSmOrder">Ordered on: <span className="widgetSmOrderDate"> 25 Nov 2021</span></span>
+            <span className="widgetSmOrder">Order Placed: <span className="widgetSmOrderDate"> 25 Nov 2021</span></span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
@@ -46,7 +46,7 @@ export default function SellerWidgetSm() {
           />
           <div className="widgetSmPendingOrders">
             <span className="widgetSmProduct">Rare Hawaiian Species</span>
-            <span className="widgetSmOrder">Ordered on: <span className="widgetSmOrderDate"> 28 Nov 2021</span></span>
+            <span className="widgetSmOrder">Order Placed: <span className="widgetSmOrderDate"> 28 Nov 2021</span></span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
@@ -61,7 +61,7 @@ export default function SellerWidgetSm() {
           />
           <div className="widgetSmPendingOrders">
             <span className="widgetSmProduct">Philodendron Micans</span>
-            <span className="widgetSmOrder">Ordered on: <span className="widgetSmOrderDate"> 2 Dec 2021</span></span>
+            <span className="widgetSmOrder">Order Placed: <span className="widgetSmOrderDate"> 2 Dec 2021</span></span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
@@ -76,7 +76,7 @@ export default function SellerWidgetSm() {
           />
           <div className="widgetSmPendingOrders">
             <span className="widgetSmProduct">Golden Pothos 1 Node</span>
-            <span className="widgetSmOrder">Ordered on: <span className="widgetSmOrderDate"> 5 Dec 2021</span></span>
+            <span className="widgetSmOrder">Order Placed: <span className="widgetSmOrderDate"> 5 Dec 2021</span></span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />

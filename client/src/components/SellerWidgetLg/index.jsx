@@ -26,7 +26,7 @@ export default function SellerWidgetLg() {
                 <span className="widgetLgName">Amber Hall</span>
               </td>
               <td className="widgetLgDate">1 Nov 2021</td>
-              <td className="widgetLgAmount">$122.00</td>
+              <td className="widgetLgAmount">$75.42</td>
               <td className="widgetLgStatus">
                 <Button type="Approved" />
               </td>
@@ -41,7 +41,7 @@ export default function SellerWidgetLg() {
                 <span className="widgetLgName">Susan Carol</span>
               </td>
               <td className="widgetLgDate">6 Nov 2021</td>
-              <td className="widgetLgAmount">$122.00</td>
+              <td className="widgetLgAmount">$169.32</td>
               <td className="widgetLgStatus">
                 <Button type="Declined" />
               </td>
@@ -57,7 +57,7 @@ export default function SellerWidgetLg() {
                 <span className="widgetLgName">Cara Frey</span>
               </td>
               <td className="widgetLgDate">12 Nov 2021</td>
-              <td className="widgetLgAmount">$122.00</td>
+              <td className="widgetLgAmount">$89.56</td>
               <td className="widgetLgStatus">
                 <Button type="Approved" />
               </td>
@@ -72,7 +72,7 @@ export default function SellerWidgetLg() {
                 <span className="widgetLgName">Johnie Reid</span>
               </td>
               <td className="widgetLgDate">17 Nov 2021</td>
-              <td className="widgetLgAmount">$122.00</td>
+              <td className="widgetLgAmount">$14.89</td>
               <td className="widgetLgStatus">
                 <Button type="Pending" />
               </td>
@@ -87,7 +87,7 @@ export default function SellerWidgetLg() {
                 <span className="widgetLgName">Miguel Rosales</span>
               </td>
               <td className="widgetLgDate">19 Jun 2021</td>
-              <td className="widgetLgAmount">$122.00</td>
+              <td className="widgetLgAmount">$115.45</td>
               <td className="widgetLgStatus">
                 <Button type="Pending" />
               </td>
@@ -102,7 +102,7 @@ export default function SellerWidgetLg() {
                 <span className="widgetLgName">Itzel Tirado</span>
               </td>
               <td className="widgetLgDate">21 Nov 2021</td>
-              <td className="widgetLgAmount">$122.00</td>
+              <td className="widgetLgAmount">$23.69</td>
               <td className="widgetLgStatus">
                 <Button type="Pending" />
               </td>
