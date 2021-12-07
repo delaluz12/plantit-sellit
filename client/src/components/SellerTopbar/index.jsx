@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import "./index.css";
 import {Link} from 'react-router-dom';
 
-import { NotificationsNone, Language, Settings, AddCircle, FilterVintage } from "@material-ui/icons";
+import { NotificationsNone,  Settings, Eco, FilterVintage } from "@material-ui/icons";
 import StorefrontIcon from '@material-ui/icons/Storefront';
 
 import auth from '../../utils/auth'
@@ -35,11 +35,11 @@ const name = data.firstName;
             <span className="topIconBadge">2</span>
           </div>
           <div className="topbarIconContainer">
-            <Language />
+            <FilterVintage />
             <span className="topIconBadge">2</span>
           </div>
           <Link to='/seller/addProduct' className="topbarIconContainer">
-            <FilterVintage/>
+            <Eco/>
             </Link>
             
           <div className="topbarIconContainer">
