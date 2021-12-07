@@ -33,12 +33,16 @@ function Login(props) {
   };
 
   return (
-    <div className="container loginBg">
+    <div className="container loginStage loginBg">
+      <div className="row">
       <Link to="/signup">Go to Signup</Link>
+      <div className="col__2">
+        <div className="contact__box">
+          <div className="contact__meta">
 
       <Card className="cards">
       <div className="loginTitle">
-      <h2>Login</h2>
+      <h1 className="login__text">Login</h1>
       </div>
      
         <CardContent>
@@ -74,6 +78,11 @@ function Login(props) {
       </form>
       </CardContent>
       </Card>
+
+      </div>
+      </div>
+      </div>
+      </div>
     </div>
   );
 }

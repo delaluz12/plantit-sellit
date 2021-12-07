@@ -22,7 +22,7 @@ import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 
 const httpLink = createHttpLink({
@@ -68,10 +68,10 @@ function App() {
           </StoreProvider>
         
         </div>
-
+    
       
       </Router>
-      
+      <Footer/>
     </ApolloProvider>
   
   );
