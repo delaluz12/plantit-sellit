@@ -4,11 +4,13 @@
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
+    /* width: 100%; */
 }
 
 .navbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content:right;
+    
 }
 .nav__items{
     font-size: 18px;
