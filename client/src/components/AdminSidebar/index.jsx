@@ -1,6 +1,7 @@
 import React from 'react'
 import "./adminSidebar.css"
 
+import auth from "../../utils/auth"
 
 import {
     LineStyle,
@@ -15,6 +16,8 @@ import {
     ChatBubbleOutline,
     WorkOutline,
     Report,
+    ExitToApp,
+    Store,
   } from "@material-ui/icons";
   import { Link } from "react-router-dom";
   
@@ -65,6 +68,12 @@ export default function AdminSidebar() {
               <BarChart className="sidebarIcon" />
               Reports
             </li>
+            <Link to="/shop" className="link">
+              <li className="sidebarListItem">
+                <Store className="sidebarIcon" />
+                Storefront
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -85,20 +94,13 @@ export default function AdminSidebar() {
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Staff</h3>
+          <h3 className="sidebarTitle">Exit</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <WorkOutline className="sidebarIcon" />
-              Manage
+            <li className="sidebarListItem" onClick={() => auth.logout()}>
+              <ExitToApp className="sidebarIcon" />
+              Logout
             </li>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            <li className="sidebarListItem">
-              <Report className="sidebarIcon" />
-              Reports
-            </li>
+          
           </ul>
         </div>
       </div>

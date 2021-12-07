@@ -95,6 +95,7 @@ export const QUERY_USERS = gql`
   {
     users {
       _id
+      role
       firstName
       lastName
       orders {
@@ -128,10 +129,12 @@ export const QUERY_ALL_PRODUCT_DATA = gql`
         name
       }
       sellerId {
-        _id
+        firstName
+        lastName
       }
       buyerId {
-        _id
+       firstName
+        lastName
       }
       sold
       shipStatus
