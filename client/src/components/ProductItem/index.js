@@ -71,7 +71,7 @@ function ProductItem(item) {
         />
         </CardMedia>
         <CardContent children="node">
-          <Typography className={classes.itemName} >
+          <Typography>
         <p className="cardTitle">{name}</p>
         </Typography>
         </CardContent>

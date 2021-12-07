@@ -95,7 +95,7 @@ function LandingNav() {
         <div className={classes.root}>
           <div className="header ">
             <div className="navigation pxy__30">
-              <AppBar positon="static" color="transparent">
+              <AppBar position="static" color="primary">
                 <Toolbar className="navbar d__flex">
                   <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
                   <Link to="/orderHistory" edge="end" className="nav__items px__30" >Order History</Link>
@@ -113,13 +113,13 @@ function LandingNav() {
         <div className={classes.root}>
           <div className="header ">
             <div className="navigation">
-              <AppBar positon="static" color="transparent">
-                <Toolbar className="navbar d__flex">
+              
+                <Toolbar disableGutters="true" className="navbar d__flex">
                   <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
                   <Link to="/signup" edge="end" className="nav__items px__30" >Signup</Link>
                   <Link to="/login" edge="end" className="nav__items px__30" >Login</Link>
                 </Toolbar>
-              </AppBar>
+              
             </div>
           </div>
         </div>
@@ -131,15 +131,15 @@ function LandingNav() {
       <div className="header ">
         <div className="navigation pxy__30">
           <header>
-            <AppBar positon="static" color="transparent">
-              <Toolbar className="d__flex">
+           
+              <Toolbar disableGutters="true"  className="d__flex">
                 <Link to="/" edge="end">
                   Plant It - Sell It
                 </Link>
 
                 <nav>{showNavigation()}</nav>
               </Toolbar>
-            </AppBar>
+           
           </header>
         </div>
       </div>

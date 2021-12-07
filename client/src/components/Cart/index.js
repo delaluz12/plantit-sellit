@@ -10,6 +10,7 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 import Avatar from "@material-ui/core/Avatar"
 import CloseIcon from '@material-ui/icons/Close';
+import { AppBar, Toolbar } from '@material-ui/core';
 
 const stripePromise = loadStripe('pk_test_51K0BxZKLr0iD6VeBK9jLkCn1oalSRd6CSIoOJaXXF9Qlx8ScXKDm2NpARCSD0muwsObIgaLX2kIfPB8CdPRn3jEb005EXOkxIX');
 
@@ -64,6 +65,7 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
+    
       <div className="cart-closed" onClick={toggleCart}>
         <Avatar alt="shopping cart" src="./images/plantshopping.jpg"/>
       </div>
