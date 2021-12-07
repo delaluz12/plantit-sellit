@@ -16,6 +16,8 @@ export function idbPromise(storeName, method, object) {
       db.createObjectStore('cart', { keyPath: '_id' });
       db.createObjectStore('sellerProducts', { keyPath: 'id' });
       db.createObjectStore('prodCategories', { keyPath: '_id' });
+      db.createObjectStore('users', { keyPath: '_id' })
+
 
     };
 
