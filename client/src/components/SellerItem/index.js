@@ -17,7 +17,7 @@ const SellerItem= () => {
           component="img"
           alt="Contemplative Reptile"
           height="250"
-          image="/images/e28b6ab31d08fa014c06532447305e97"
+          image="/s3images/e28b6ab31d08fa014c06532447305e97"
           
         />
         <CardContent>

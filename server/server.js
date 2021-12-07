@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
@@ -31,38 +32,58 @@ app.use(express.json());
 // Serve up static assets
 app.use("/images", express.static(path.join(__dirname, "../client/images")));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
-}
-
 //add s3 server code
-app.get("/images/:key", (req, res) => {
-  console.log(req.params);
+app.get("/s3images/:key", async (req, res) => {
+  // console.log(req.params);
   const key = req.params.key;
-  const readStream = getFileStream(key);
 
-  readStream.pipe(res);
+  if (key.length > 30 && key !== 'undefined'){
+    try {
+      const readStream = await getFileStream(key);
+      readStream.pipe(res);
+    } catch (error) {
+      console.log(error)
+    }
+  } else {
+    res.status(400).json( "XXXX Your request was bad, and you should feel bad X( ")
+  }
+
+  // try {
+  //   const readStream = await getFileStream(key);
+  //   if (readStream) {
+  //     readStream.pipe(res);
+  //   } else {
+  //     res.send(401).json("S3 broken :(")
+  //   }
+  // } catch (err) {
+  //   console.log(err);
+  // }
 });
 
-app.post("/images", upload.single("image"), async (req, res) => {
+app.post("/s3images", upload.single("image"), async (req, res) => {
   const file = req.file;
-  console.log(file);
+  // console.log(file);
 
   //can do the following:
   // 1. apply filter
   // 2. resize
+  //did resize/compress on the front-end
 
   const result = await uploadFile(file);
   await unlinkFile(file.path);
   // console.log(result);
   const description = req.body.description;
-  res.send({ imagePath: `/images/${result.Key}` });
+  res.send({ imagePath: `/s3images/${result.Key}` });
 });
 ///
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../client/build")));
+// }
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 db.once("open", () => {
   app.listen(PORT, () => {

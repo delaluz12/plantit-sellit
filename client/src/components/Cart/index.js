@@ -67,7 +67,7 @@ const Cart = () => {
     return (
     
       <div className="cart-closed" onClick={toggleCart}>
-        <Avatar alt="shopping cart" src="./images/plantshopping.jpg"/>
+        <Avatar alt="shopping cart" src="/images/plantshopping.jpg"/>
       </div>
     );
   }

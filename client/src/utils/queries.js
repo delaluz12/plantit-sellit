@@ -10,6 +10,7 @@ export const QUERY_PRODUCTS = gql`
       image
       category {
         _id
+        name
       }
     }
   }

@@ -10,7 +10,7 @@ export default function SellerWidgetSm() {
       <ul className="widgetSmList">
         <li className="widgetSmListItem">
           <img
-            src="/images/e28b6ab31d08fa014c06532447305e97"
+            src="/s3images/e28b6ab31d08fa014c06532447305e97"
             alt=""
             className="widgetSmImg"
           />
@@ -25,7 +25,7 @@ export default function SellerWidgetSm() {
         </li>
         <li className="widgetSmListItem">
           <img
-            src="/images/e28b6ab31d08fa014c06532447305e97"
+            src="/s3images/e28b6ab31d08fa014c06532447305e97"
             alt=""
             className="widgetSmImg"
           />
@@ -40,7 +40,7 @@ export default function SellerWidgetSm() {
         </li>
         <li className="widgetSmListItem">
           <img
-            src="/images/e28b6ab31d08fa014c06532447305e97"
+            src="/s3images/e28b6ab31d08fa014c06532447305e97"
             alt=""
             className="widgetSmImg"
           />
@@ -55,7 +55,7 @@ export default function SellerWidgetSm() {
         </li>
         <li className="widgetSmListItem">
           <img
-            src="/images/e28b6ab31d08fa014c06532447305e97"
+            src="/s3images/e28b6ab31d08fa014c06532447305e97"
             alt=""
             className="widgetSmImg"
           />
@@ -70,7 +70,7 @@ export default function SellerWidgetSm() {
         </li>
         <li className="widgetSmListItem">
           <img
-            src="/images/e28b6ab31d08fa014c06532447305e97"
+            src="/s3images/e28b6ab31d08fa014c06532447305e97"
             alt=""
             className="widgetSmImg"
           />

@@ -36,9 +36,9 @@ class AuthService {
 
     if(token.data.role === "admin") {
       window.location.assign('/dashboard');
-    }else {
-      window.location.assign('/');
-    }
+    }else if (token.data.role === "seller") {
+      window.location.assign('/seller/home');
+    } else { window.location.assign('/')} 
   }
 
   logout() {
