@@ -1,5 +1,6 @@
-import React from 'react'
-
+import React from "react";
+import { useEffect } from "react";
+//UI imports
 import { DataGrid } from "@material-ui/data-grid";
 // import { DeleteOutline } from "@material-ui/icons";
 // import { productRows } from "../../components/SellerChart/dummyData";
