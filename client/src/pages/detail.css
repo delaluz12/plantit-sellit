@@ -49,6 +49,9 @@
     margin: auto;
     height: 50%;
 }
+.detail-name {
+    color: #416758
+}
 
 @media screen and (max-width: 478) {
 
