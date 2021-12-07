@@ -1,19 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./index.css";
 import {Link} from 'react-router-dom';
 
-import { NotificationsNone, Language, Settings, AddCircle } from "@material-ui/icons";
+import { NotificationsNone, Language, Settings, AddCircle, FilterVintage } from "@material-ui/icons";
 import StorefrontIcon from '@material-ui/icons/Storefront';
 
+import auth from '../../utils/auth'
 
 
 
 export default function SellerTopbar() {
+  const {data} = auth.getProfile();
+// console.log(data)
+const name = data.firstName;
+// console.log(name)
+
+ 
+
     return (
         <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">Seller Dashboard</span>
+          <span className="logo">{name}'s Dashboard</span>
         </div>
         <div className="topRight">
         <div className="topbarIconContainer">
@@ -31,7 +39,7 @@ export default function SellerTopbar() {
             <span className="topIconBadge">2</span>
           </div>
           <Link to='/seller/addProduct' className="topbarIconContainer">
-            <AddCircle/>
+            <FilterVintage/>
             </Link>
             
           <div className="topbarIconContainer">

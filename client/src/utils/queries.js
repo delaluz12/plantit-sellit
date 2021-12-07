@@ -82,6 +82,7 @@ export const QUERY_USER = gql`
       city
       zip
       email
+      role
       orders {
         _id
         purchaseDate
