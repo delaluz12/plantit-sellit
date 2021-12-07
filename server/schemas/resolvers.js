@@ -144,7 +144,7 @@ const resolvers = {
         const order = new Order({ products });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-        await Product.updateMany({_id: {$in: products}},{$set: [{sold: true},{buyerId: context.user._id}]});
+        await Product.updateMany({_id: {$in: products}},{$set : {buyerId: context.user._id, sold: true }});
      
         return order;
       }
@@ -152,7 +152,7 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     addListing: async (parent, { product }, context) => {
-      console.log(context);
+      
       if (context.user) {
         const listing = new Listing({ product });
 
