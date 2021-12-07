@@ -154,3 +154,56 @@ export default Nav;
 // }
 
 // export default LandingNav;
+
+//PART 1
+// <div className={classes.root}>
+// <div className="header ">
+//   <div className="navigation pxy__30">
+//     <AppBar position="static" color="primary">
+//       <Toolbar className="navbar d__flex">
+//         <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+//         <Link to="/orderHistory" edge="end" className="nav__items px__30" >Order History</Link>
+//         <a href="/" onClick={() => Auth.logout()}>
+//           Logout
+//         </a>
+//       </Toolbar>
+//     </AppBar>
+//   </div>
+// </div>
+// </div>
+// );
+// } else {
+// return (
+// <div className={classes.root}>
+// <div className="header ">
+//   <div className="navigation">
+    
+//       <Toolbar disableGutters="true" className="navbar d__flex">
+//         <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+//         <Link to="/signup" edge="end" className="nav__items px__30" >Signup</Link>
+//         <Link to="/login" edge="end" className="nav__items px__30" >Login</Link>
+//       </Toolbar>
+    
+//   </div>
+// </div>
+// </div>
+
+//PART 2
+
+{/* <div className={classes.root}>
+<div className="header ">
+  <div className="navigation pxy__30">
+    <header>
+     
+        <Toolbar disableGutters="true"  className="d__flex">
+          <Link to="/" edge="end">
+            Plant It - Sell It
+          </Link>
+
+          <nav>{showNavigation()}</nav>
+        </Toolbar>
+     
+    </header>
+  </div>
+</div>
+</div> */}
