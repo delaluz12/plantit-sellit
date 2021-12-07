@@ -1,5 +1,7 @@
+
 require("dotenv").config();
 const express = require("express");
+const logger = require('morgan')
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 
@@ -28,6 +30,7 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(logger('dev'));
 
 // Serve up static assets
 app.use("/images", express.static(path.join(__dirname, "../client/images")));
@@ -36,8 +39,11 @@ app.use("/images", express.static(path.join(__dirname, "../client/images")));
 app.get("/s3images/:key", async (req, res) => {
   // console.log(req.params);
   const key = req.params.key;
+  console.log("looking up s3 image with this key:", key);
 
-  if (key.length > 30 && key !== 'undefined'){
+
+
+  if (key.length === 32 && key !== 'undefined'){
     try {
       const readStream = await getFileStream(key);
       readStream.pipe(res);
@@ -71,7 +77,7 @@ app.post("/s3images", upload.single("image"), async (req, res) => {
 
   const result = await uploadFile(file);
   await unlinkFile(file.path);
-  // console.log(result);
+  console.log(result);
   const description = req.body.description;
   res.send({ imagePath: `/s3images/${result.Key}` });
 });
