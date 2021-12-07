@@ -6,7 +6,7 @@ import './newProduct.css'
 const NewProduct = () => {
   return (
     <div className="newProduct">
-        <h1 className='newProdTitle'>New Product</h1>
+        <h1 className='newProdTitle'> Add New Product</h1>
         <ProductForm/>
     </div>
   );

@@ -1,10 +1,18 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "@material-ui/core";
+
+const withouNavRoutes = ["/seller", "/dashboard"];
 
 function Nav() {
-
+  const classes = useStyles();
+  const {pathname} = useLocation();
   function showNavigation() {
+    
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
@@ -54,7 +62,7 @@ function Nav() {
       );
     }
   }
-
+  if (withouNavRoutes.some((item) => pathname.includes(item))) return null;
   return (
     <header className="flex-row px-1">
       <h1>
@@ -155,6 +163,7 @@ export default Nav;
 
 // export default LandingNav;
 
+
 //PART 1
 // <div className={classes.root}>
 // <div className="header ">
@@ -190,6 +199,70 @@ export default Nav;
 
 //PART 2
 
+// const withouNavRoutes = ["/seller"];
+
+// function LandingNav() {
+//   const classes = useStyles();
+//   const {pathname} = useLocation();
+
+//   function showNavigation() {
+//     if (Auth.loggedIn()) {
+//       return (
+//         <div className={classes.root}>
+//           <div className="header ">
+//             <div className="navigation pxy__30">
+//               <AppBar positon="static" color="transparent">
+//                 <Toolbar className="navbar d__flex">
+//                   <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+//                   <Link to="/orderHistory" edge="end" className="nav__items px__30" >Order History</Link>
+//                   <a href="/" onClick={() => Auth.logout()}>
+//                     Logout
+//                   </a>
+//                 </Toolbar>
+//               </AppBar>
+//             </div>
+//           </div>
+//         </div>
+//       );
+//     } else {
+//       return (
+//         <div className={classes.root}>
+//           <div className="header ">
+//             <div className="navigation">
+//               <AppBar positon="static" color="transparent">
+//                 <Toolbar className="navbar d__flex">
+//                   <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+//                   <Link to="/signup" edge="end" className="nav__items px__30" >Signup</Link>
+//                   <Link to="/login" edge="end" className="nav__items px__30" >Login</Link>
+//                 </Toolbar>
+//               </AppBar>
+//             </div>
+//           </div>
+//         </div>
+//       );
+//     }
+//   }
+//   if (withouNavRoutes.some((item) => pathname.includes(item))) return null;
+//   return (
+//     <div className={classes.root}>
+//       <div className="header ">
+//         <div className="navigation pxy__30">
+//           <header>
+//             <AppBar positon="static" color="transparent">
+//               <Toolbar className="d__flex">
+//                 <Link to="/" edge="end">
+//                   Plant It - Sell It
+//                 </Link>
+
+//                 <nav>{showNavigation()}</nav>
+//               </Toolbar>
+//             </AppBar>
+//           </header>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 {/* <div className={classes.root}>
 <div className="header ">
   <div className="navigation pxy__30">

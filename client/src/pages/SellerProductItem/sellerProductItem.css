@@ -57,7 +57,7 @@
   }
   
   .productInfoItem {
-    width: 150px;
+    width: 200px;
     display: flex;
     justify-content: space-between;
   }
@@ -100,8 +100,8 @@
   }
   
   .productUploadImg{
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
     object-fit: cover;
     margin-right: 20px;
@@ -127,3 +127,13 @@
     font-weight: 600;
     cursor: pointer;
   }
+  .scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .descriptionText{
+    
+	border-radius: 10px;
+	
+	width: auto
+  }
+ 

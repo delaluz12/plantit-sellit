@@ -156,7 +156,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'Xerosicyos Danguyi stem also known as "Silver Dollar", "Dollar Vine" and "Penny Plant". This is a beautiful climbing succulent vine. It is perfect for outside gardens since it can grow up 10 - 12 feet in height! It is a thick green succulent with round leaves. One four inch unrooted cutting.',
-      image: 'sb04c8bad0161278f45c301da892c8da8',
+      image: 'de3746209b0cc66636fde7be9c8155e1',
       price: 4.99,
       // quantity: 10
     }
