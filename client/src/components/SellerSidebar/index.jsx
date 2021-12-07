@@ -18,7 +18,8 @@ import {
   Report,
   ExitToApp,
   Store,
-  LocalFlorist
+  LocalFlorist,
+  Eco
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -31,7 +32,7 @@ export default function SellerSidebar() {
           <ul className="sidebarList">
             <Link to="/seller/home" className="link">
               <li className="sidebarListItem">
-                <LineStyle className="sidebarIcon" />
+                <LocalFlorist className="sidebarIcon" />
                 Home
               </li>
             </Link>
@@ -64,7 +65,7 @@ export default function SellerSidebar() {
             </li>
             <Link to="/seller/addProduct" className="link">
             <li className="sidebarListItem">
-              <LocalFlorist className="sidebarIcon" />
+              <Eco className="sidebarIcon" />
               Create Listing
               </li>
             </Link>
