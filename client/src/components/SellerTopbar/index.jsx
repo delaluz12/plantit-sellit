@@ -33,11 +33,15 @@ export default function SellerTopbar() {
           <Link to='/seller/addProduct' className="topbarIconContainer">
             <AddCircle/>
             </Link>
+            
           <div className="topbarIconContainer">
+          <Link to='/seller/editProfile' className='link'>
             <Settings />
+            </Link>
           </div>
           
-          <img src="/s3images/35afa876b7c427a1dbb26d44f25fd57b" alt="" className="topAvatar" />
+          
+          <img src="/s3images/18a3a155bee3d4e817ad25df16e3fe83" alt="" className="topAvatar" />
         </div>
       </div>
     </div>
