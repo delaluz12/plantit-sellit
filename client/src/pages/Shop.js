@@ -7,8 +7,6 @@ import Sidebar from "../components/Sidebar"
 const Shop = () => {
   return (
     <div className="shopContainer">
-                
-
       <Sidebar />
       <div className="others">
         <ProductList />

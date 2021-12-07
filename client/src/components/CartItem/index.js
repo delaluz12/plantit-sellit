@@ -38,7 +38,7 @@ const CartItem = ({ item }) => {
   }
 
   return (
-    <div className="flex-row">
+    <div className="">
       <div>
         <img
           src={`/s3images/${item.image}`}
@@ -48,13 +48,13 @@ const CartItem = ({ item }) => {
       <div>
         <div className="cardTitle">{item.name}, ${item.price}</div>
         <div>
-          <span> Quantity:</span>
+          <span> Quantity:
           <input
             type="number"
             placeholder="1"
             value={item.purchaseQuantity}
             onChange={onChange}
-          />
+          /></span>
           <span
             role="img"
             aria-label="trash"

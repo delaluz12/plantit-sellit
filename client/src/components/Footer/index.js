@@ -20,7 +20,7 @@ function Footer() {
                             </Box>
                             <Box>
                                 <Link href="/" color="inherit">
-                                    Suuport
+                                    Suport
                                 </Link>
                             </Box>
                             <Box>
