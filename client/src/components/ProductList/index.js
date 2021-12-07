@@ -53,7 +53,7 @@ function ProductList() {
       <h2>Our Products:</h2>
 
       {state.products.length ? (
-        <div className="flex-row">
+        <div className="flex-row-shop">
           {filterProducts().map((product, index) => (
 
           
@@ -66,7 +66,6 @@ function ProductList() {
             price={product.price}
             
           /> : null
-          
           ))}
         </div>
       ) : (
