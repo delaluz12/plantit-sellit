@@ -221,7 +221,7 @@ input:focus {
   color: var(--error);
 }
 
-.categoryLi {
+.categoryLi, .allProducts {
   color: black;
   background-color: #609a81;
   margin: 5px;
@@ -231,14 +231,18 @@ input:focus {
   color: white;
   background-color: #96c3b0;
 }
-
+.allProducts:hover {
+  color: white;
+  background-color: #96c3b0;
+}
 #sidebarTitle {
   font-size: 13px;
   color: #555;
 }
 
-.navbar
-
+.allProducts {
+  border-radius: 10px;
+}
 
 .itemCard {
   width: 33%;
@@ -304,7 +308,7 @@ input:focus {
   .sidebarWrapper {
     padding: 0px !important;
   }
-  .categoryLi {
+  .categoryLi, .allProducts {
     font-size: 12px !important;
   }
   .cartTitle {
@@ -328,7 +332,7 @@ input:focus {
   .sidebar {
     width: 40%;
   }
-  .categoryLi {
+  .categoryLi, .allProducts {
     font-size: 11px;
     margin: 2px;
   }
@@ -355,6 +359,11 @@ input:focus {
   h2 {
     font-size: 20px;
   }
+  .card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
   .card {
     width: 100%;
   }

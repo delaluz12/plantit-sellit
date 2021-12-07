@@ -87,9 +87,14 @@
     margin: 0 auto;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
   .cart {
     max-height: 50%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cart {
+    max-height: 34%;
     position: relative;
   }
   .cart-closed {
@@ -123,5 +128,20 @@
 @media screen and (max-width: 375px) {
   .cart {
     max-height: 40%;
+  }
+}
+@media screen and (max-width: 360px) {
+  .cart {
+    max-height: 35%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .cart {
+    max-height: 35%;
+  }
+}
+@media screen and (max-width: 280px) {
+  .cart {
+    max-height: 50%;
   }
 }
