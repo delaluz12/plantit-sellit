@@ -49,9 +49,9 @@ function ProductItem(item) {
   }
 
   const useStyles = makeStyles({
-    root: {
-      maxWidth: 400,
-    },
+    // root: {
+    //   maxWidth: 400,
+    // },
     media: {
       height: 140,
     },
@@ -67,34 +67,37 @@ function ProductItem(item) {
       <Link to={`/products/${_id}`}>
         <CardMedia className={classes.media}>
         <LazyLoadImage alt={name}
-          src={`/s3images/${image}`}>
+          src={`/s3images/${image}`}
+          //  
+          >
         
           
        
         </LazyLoadImage>
         </CardMedia>
         <CardContent children="node">
-          <Typography className={classes.itemName} >
-        <p className="cardTitle">{name}</p>
-        </Typography>
+          <p className="cardTitle">{name}</p>
         </CardContent>
       </Link>
       </CardActionArea>
      
       <div>
       <CardContent>
-        <Typography align="left" classes="object" color="inherit">
+        <Typography align="left" color="inherit">
         {/* <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div> */}
         <span className="cardTitle">$ {price}</span>
         </Typography>
       </CardContent>  
       </div>
       <CardActions>
-      <Button  className="addCart" contained size="small" onClick={addToCart}>Add to cart</Button>
+      <Button  className="cartBtn" onClick={addToCart}>Add to cart</Button>
       </CardActions>
       </Card>
     </div>
   );
 }
-   
+
 export default ProductItem;
+
+
+

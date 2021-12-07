@@ -35,7 +35,7 @@ function Landing() {
              py={{xs:1, sm:0}}>
                 <Grid container spacing={1}>
                 <div className="home__content row">
-                    <Grid item xs={8} md={8}>
+                    <Grid item xs={12} sm={12} md={8}>
                     <div className="home__meta">
                         
                         <h2 className="home_text  plantIt">
@@ -51,7 +51,7 @@ function Landing() {
                         </h1>
                     </div>
                     </Grid>
-                    <Grid item xs={4} md={4}>
+                    <Grid item xs={12} sm={12} md={4}>
                      <LandingSlide/>
                     </Grid>
 
