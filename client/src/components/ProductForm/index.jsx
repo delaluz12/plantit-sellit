@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import {
   TextField,
   InputLabel,
-  FormHelperText,
   FormControl,
+  FormHelperText,
   Select,
-  NativeSelect,
   makeStyles,
   Button,
 } from "@material-ui/core";
@@ -57,7 +56,7 @@ function ProductForm() {
     name: "",
     description: "",
     imagePath: "",
-    price: 0,
+    price: 0.99,
     category: "",
     sellerId: sellerId.data._id,
     
@@ -188,9 +187,9 @@ function ProductForm() {
       Resizer.imageFileResizer(
         file,
         600,
-        600,
+        400,
         "JPEG",
-        80,
+        90,
         0,
         (uri) => {
           resolve(uri);

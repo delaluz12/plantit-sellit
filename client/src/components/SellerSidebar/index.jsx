@@ -18,6 +18,7 @@ import {
   Report,
   ExitToApp,
   Store,
+  LocalFlorist
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -39,6 +40,10 @@ export default function SellerSidebar() {
               Analytics
             </li>
             <li className="sidebarListItem">
+              <BarChart className="sidebarIcon" />
+              Reports
+            </li>
+            <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
               Sales
             </li>
@@ -57,10 +62,12 @@ export default function SellerSidebar() {
               <AttachMoney className="sidebarIcon" />
               Transactions
             </li>
+            <Link to="/seller/addProduct" className="link">
             <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Reports
-            </li>
+              <LocalFlorist className="sidebarIcon" />
+              Create Listing
+              </li>
+            </Link>
             <Link to="/shop" className="link">
               <li className="sidebarListItem">
                 <Store className="sidebarIcon" />
@@ -89,10 +96,12 @@ export default function SellerSidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Exit</h3>
           <ul className="sidebarList">
+            <Link className='link'>
             <li className="sidebarListItem" onClick={() => auth.logout()}>
               <ExitToApp className="sidebarIcon" />
               Logout
             </li>
+            </Link>
             {/* <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics

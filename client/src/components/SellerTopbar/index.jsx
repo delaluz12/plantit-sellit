@@ -2,7 +2,7 @@ import React from 'react';
 import "./index.css";
 import {Link} from 'react-router-dom';
 
-import { NotificationsNone, Language, Settings,  } from "@material-ui/icons";
+import { NotificationsNone, Language, Settings, AddCircle } from "@material-ui/icons";
 import StorefrontIcon from '@material-ui/icons/Storefront';
 
 
@@ -17,7 +17,8 @@ export default function SellerTopbar() {
         </div>
         <div className="topRight">
         <div className="topbarIconContainer">
-          <Link to='/shop'>
+          
+          <Link to='/shop' >
             <StorefrontIcon/>
             </Link>
           </div>
@@ -29,6 +30,9 @@ export default function SellerTopbar() {
             <Language />
             <span className="topIconBadge">2</span>
           </div>
+          <Link to='/seller/addProduct' className="topbarIconContainer">
+            <AddCircle/>
+            </Link>
           <div className="topbarIconContainer">
             <Settings />
           </div>
