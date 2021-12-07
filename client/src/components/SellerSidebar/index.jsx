@@ -96,12 +96,12 @@ export default function SellerSidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Exit</h3>
           <ul className="sidebarList">
-            <Link className='link'>
+            <div className='link'>
             <li className="sidebarListItem" onClick={() => auth.logout()}>
               <ExitToApp className="sidebarIcon" />
               Logout
             </li>
-            </Link>
+            </div>
             {/* <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics
