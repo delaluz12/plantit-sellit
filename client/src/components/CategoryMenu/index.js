@@ -48,7 +48,7 @@ function CategoryMenu() {
     <div>
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          <h3 id="sidebarTitle">Choose a Category:</h3>
+          <h3 id="sidebarTitle">CATEGORIES</h3>
           <ul className="sidebarList">
             {categories.map((item) => (
               <li

@@ -20,3 +20,34 @@
     justify-content: center;
 align-content: center; 
 }
+
+h1.signupTitle {
+justify-content: center;
+align-content: center;
+}
+    
+    .signupBtn{
+    justify-content: center;
+    align-content: center;
+    }
+    
+    .signupStage{
+        background-color: #ffffff;
+    }
+    h1.signup__text {
+        font-size: 60px;
+        justify-content: center;
+        align-content: center;
+    }
+    p.signup__text{
+        font-size: 18px;
+        line-height: 30px;
+        color: rgba(29,29,36,.75);
+        font-weight: 400;
+    }
+    
+    Button.btn.contact.pointer {
+        margin: 20px 0px;
+    }
+
+    
