@@ -67,8 +67,8 @@ function ProductItem(item) {
           <Link to={`/products/${_id}`}>
             <CardMedia className={classes.media}>
               <LazyLoadImage className="productImage" alt={name}
-                // src={`/s3images/${image}`}
-                src="/images/oregano.jpg"
+                src={`/s3images/${image}`}
+                // src="/images/oregano.jpg"
                 >
               
                 
