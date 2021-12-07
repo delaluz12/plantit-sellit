@@ -30,9 +30,9 @@ import {
     // const [seller, setSeller]= useState(user)
     // console.log(seller);
 
-    const role = user.role;
-    const capsRole = role.charAt(0).toUpperCase()+role.slice(1);
-    console.log(capsRole);
+    // const role = user.role;
+    // const capsRole = role.charAt(0).toUpperCase()+role.slice(1);
+    // console.log(capsRole);
     
 
       return (
@@ -52,7 +52,7 @@ import {
               />
               <div className="userShowTopTitle">
                 <span className="userShowUsername">{user.firstName + " "+ user.lastName}</span>
-                <span className="userShowUserTitle">{capsRole} since 12/1/2021</span>
+                <span className="userShowUserTitle">{user.role} since 12/1/2021</span>
               </div>
             </div>
             <div className="userShowBottom">
