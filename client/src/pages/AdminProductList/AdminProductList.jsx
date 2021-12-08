@@ -8,13 +8,36 @@ import { useState, useEffect } from "react";
 import { QUERY_ALL_PRODUCT_DATA } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import { useQuery, useLazyQuery } from "@apollo/client";
+import { makeStyles } from '@material-ui/core/styles';
 
 import "./adminProductList.css"
+
+
 
 export default function AdminProductList() {
   const { loading, error, data } = useQuery(QUERY_ALL_PRODUCT_DATA);
   const [productdata, setProductdata] = useState([]);
 
+  const useStyles = makeStyles({
+    root: {
+      '& .cold': {
+
+        backgroundColor: '#FF3030',
+        opacity: "0.5",
+        borderRadius: '5px',
+
+
+      },
+      '& .hot': {
+        backgroundColor: '#2E9800',
+        opacity: "0.5",
+        borderRadius: '5px',
+
+
+      },
+    },
+  });
+  const classes = useStyles()
   useEffect(() => {
     if (data) {
       console.log(data)
@@ -27,7 +50,11 @@ export default function AdminProductList() {
           price: p.price,
           sold: p.sold,
           description: p.description,
-          seller: p.sellerId
+          seller: p.sellerId,
+          category: p.category.name,
+          shipStatus: p.shipStatus,
+          
+
 
         }
       });
@@ -51,10 +78,15 @@ export default function AdminProductList() {
 
   const columns = [
 
-
+   
     {
       field: "name",
       headerName: "Name",
+      width: 150,
+    },
+    {
+      field: "category",
+      headerName: "Category",
       width: 150,
     },
     {
@@ -62,7 +94,16 @@ export default function AdminProductList() {
       headerName: "Description",
       width: 150,
     },
-    { field: "sold", headerName: "Sold", width: 150 },
+    { field: "sold",
+     headerName: "Sold",
+      width: 150, 
+      type: "boolean"
+     },
+     {
+      field: "shipStatus",
+      headerName: "Ship Status",
+      width: 160,
+    },
     {
       field: "price",
       headerName: "Price",
@@ -82,12 +123,10 @@ export default function AdminProductList() {
         return (
           <>
             <Link to={"user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+              <button className="userListEdit">Remove</button>
             </Link>
-            <DeleteOutline
-              className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            />
+            
+            
           </>
         );
       },
@@ -96,6 +135,7 @@ export default function AdminProductList() {
 
   return (
     <div className='adminUserList'>
+
       <DataGrid
         rows={productdata}
         disableSelectionOnClick
@@ -103,6 +143,8 @@ export default function AdminProductList() {
         pageSize={10}
 
       />
+
+
     </div>
-  )
+  );
 }
