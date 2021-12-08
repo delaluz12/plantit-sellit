@@ -10,7 +10,7 @@ import SellerHome from "../SellerHome/SellerHome";
 
 import AdminUserList from "../AdminUserList/AdminUserList"
 import NewProduct from "../NewProduct/NewProduct";
-
+import AdminTrans from "../AdminTrans/AdminTrans"
 import AdminProductList from "../AdminProductList/AdminProductList"
 
 
@@ -26,10 +26,10 @@ const Dashboard = () => {
               <SellerHome />
             </Route>
             <Route
-             exact path="/dashboard/users"
+              exact path="/dashboard/users"
               component={AdminUserList} />
             <Route exact path="/dashboard/products" component={AdminProductList} />
-            <Route exact path="/seller/addProduct" component={NewProduct} />
+            <Route exact path="/dashboard/transactions" component={AdminTrans} />
           </div>
 
         </>
