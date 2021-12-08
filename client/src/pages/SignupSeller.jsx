@@ -8,7 +8,7 @@ import { Button, Card } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { FormGroup } from '@material-ui/core';
 
-function Signup(props) {
+function SignupSeller(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
 
@@ -23,7 +23,8 @@ function Signup(props) {
         street: formState.street,
         city: formState.city,
         state: formState.state,
-        zip: formState.zip
+        zip: formState.zip,
+        role: 'seller',
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -116,15 +117,11 @@ function Signup(props) {
 
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
-          
         </div>
       </form>
-      <Link to='/signupSeller'>
-      <button style= {{marginTop: '5px'}}type="button">Create Seller Account</button>
-      </Link>
       </Card>
     </div>
   );
 }
 
-export default Signup;
+export default SignupSeller;
