@@ -135,18 +135,27 @@ function Signup(props) {
           </div>
         </div>
 
+<<<<<<< HEAD
         <div className="flex-row signupBtn">
           <Button type="submit">Submit</Button>
         </div>
       </form>
-      <Link to='/signupSeller'>
-      <button style= {{marginTop: '5px'}}type="button">Create Seller Account</button>
-      </Link>
       {/* </Card> */}
       </div>
       </div>
       </div>
       </div>
+=======
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+          
+        </div>
+      </form>
+      <Link to='/signupSeller'>
+      <button style= {{marginTop: '5px'}}type="button">Create Seller Account</button>
+      </Link>
+      </Card>
+>>>>>>> 033a8868b2abcaa87bece751d61d6bff24aa4390
     </div>
   );
 }
