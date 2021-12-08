@@ -38,6 +38,7 @@ export const ADD_USER = gql`
     $city: String
     $address: String
     $zip: String
+    $role: String
   ) {
     addUser(
       firstName: $firstName
@@ -48,10 +49,12 @@ export const ADD_USER = gql`
       city: $city
       address: $address
       zip: $zip
+      role: $role
     ) {
       token
       user {
         _id
+        role
       }
     }
   }

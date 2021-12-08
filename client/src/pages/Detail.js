@@ -100,8 +100,8 @@ function Detail() {
             </div>
             <div className="box">
               <div className="row">
-                <h2>{currentProduct.name}</h2>
-                <span><strong>Price:</strong>${currentProduct.price}{' '}</span>
+                <h2 className="detail-name"><strong>{currentProduct.name}</strong></h2>
+                <span><strong>Price:</strong>  ${currentProduct.price}{' '}</span>
               </div>
               <p>{currentProduct.description}</p>
               <p>

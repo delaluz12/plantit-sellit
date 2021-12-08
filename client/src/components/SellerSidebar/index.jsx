@@ -18,6 +18,8 @@ import {
   Report,
   ExitToApp,
   Store,
+  LocalFlorist,
+  Eco
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -30,13 +32,17 @@ export default function SellerSidebar() {
           <ul className="sidebarList">
             <Link to="/seller/home" className="link">
               <li className="sidebarListItem">
-                <LineStyle className="sidebarIcon" />
+                <LocalFlorist className="sidebarIcon" />
                 Home
               </li>
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics
+            </li>
+            <li className="sidebarListItem">
+              <BarChart className="sidebarIcon" />
+              Reports
             </li>
             <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
@@ -57,10 +63,12 @@ export default function SellerSidebar() {
               <AttachMoney className="sidebarIcon" />
               Transactions
             </li>
+            <Link to="/seller/addProduct" className="link">
             <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Reports
-            </li>
+              <Eco className="sidebarIcon" />
+              Create Listing
+              </li>
+            </Link>
             <Link to="/shop" className="link">
               <li className="sidebarListItem">
                 <Store className="sidebarIcon" />
@@ -89,10 +97,12 @@ export default function SellerSidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Exit</h3>
           <ul className="sidebarList">
+            <div className='link'>
             <li className="sidebarListItem" onClick={() => auth.logout()}>
               <ExitToApp className="sidebarIcon" />
               Logout
             </li>
+            </div>
             {/* <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics

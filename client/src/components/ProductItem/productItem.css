@@ -31,3 +31,8 @@ transition: .4s all ease;
     font-weight: bold;
     /* text-shadow: #283e35 2px 2px; */
 }
+@media screen and (max-width: 768) {
+    .productImage {
+        height: 200px;
+    }
+}
