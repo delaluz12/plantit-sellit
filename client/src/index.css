@@ -272,6 +272,8 @@ margin-bottom: 40px;
 
 .categoryLi {
   color: var(--light);
+}
+
 .categoryLi, .allProducts {
   color: black;
   background-color: #609a81;
@@ -293,6 +295,7 @@ margin-bottom: 40px;
 
 .sidebarWrapper {
 background-color:var(--primary);
+}
 
 .allProducts {
   border-radius: 10px;
@@ -463,6 +466,8 @@ body::-webkit-scrollbar-thumb {
   background-color:#609a81;
   border: 1px dotted ;
   border-color:var(--tertiary);
+}
+
 @media screen and (max-width: 1024px) {
   .card {
     width: 100%;
