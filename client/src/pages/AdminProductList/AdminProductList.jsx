@@ -55,6 +55,7 @@ export default function AdminProductList() {
           shipStatus: p.shipStatus,
           
 
+
         }
       });
 
@@ -77,11 +78,7 @@ export default function AdminProductList() {
 
   const columns = [
 
-    {
-      field: "buyer",
-      headerName: "Buyer",
-      width: 150,
-    },
+   
     {
       field: "name",
       headerName: "Name",
