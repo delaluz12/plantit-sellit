@@ -1,10 +1,10 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
-  --error: rgb(228, 46, 1);
+  --primary: #20302c;
+  --secondary: #416758;
+  --tertiary: #283e35;
+  --light: #96c3b0;
+  --dark: #172518;
+  --error: rgb(178, 98, 209);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
 }
@@ -19,6 +19,7 @@ body {
 }
 
 body {
+  min-height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Karla', sans-serif;
@@ -28,7 +29,7 @@ body {
   color: var(--dark);
 }
 
-h1,
+ h1,
 h2,
 h3,
 h4,
@@ -36,9 +37,7 @@ h5,
 h6 {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
-  margin: 5px 0;
-  line-height: 1.25;
-}
+} 
 
 h1 {
   font-size: 2.25rem;
@@ -72,11 +71,42 @@ p {
 a {
   color: var(--tertiary);
   text-decoration: none;
-  font-weight: bold;
 }
 
+Link{
+  color: var(--tertiary);
+  text-decoration: none;
+
+}
+
+Link:hover {
+  color:whitesmoke;  
+
+}
+
+
+.home__icon.svg.MuiSvgIcon-root.a {
+
+  width: 4em;
+  height: 2em;
+}
+.plant-it {
+  z-index: 1;
+}
+
+svg.MuiSvgIcon-root:hover {
+  color: aliceblue;
+  transition: 0.3s ease-in-out;
+  transform: scale(1.3);
+
+}
+
+a.nav__items:hover {
+  color: aliceblue;
+  transform: scale(1.1);
+}
 a:hover {
-  text-decoration: underline;
+  color: whitesmoke;
 }
 
 header {
@@ -117,7 +147,7 @@ span[role="img"] {
 }
 
 form {
-  width: 40%;
+  width: 100%;
 }
 
 input {
@@ -139,6 +169,9 @@ input:focus {
     /* max-width: 1200px; */
     margin-left: auto;
     margin-right: auto;
+    min-height: 100%;
+    overflow: auto;
+    padding-bottom: 10px;
 }
 
 .shopContainer {
@@ -153,12 +186,21 @@ input:focus {
   flex: 10;
 }
 
+h2.ourProducts {
+  font-size: 20px;
+}
+
 .flex-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
+.flex-column {
+  display: flex;
+  flex-wrap:wrap;
+  align-content: flex-start;
+  justify-content: left;
+}
 .flex-row-shop {
   display: flex;
   flex-wrap: wrap;
@@ -180,6 +222,13 @@ input:focus {
 .mx-2 {
   margin-right: var(--spacing-two);
   margin-left: var(--spacing-two);
+}
+
+.ourProducts {
+margin-left: 30px;
+margin-right: 40px;
+margin-top: 20px;
+margin-bottom: 40px;
 }
 
 .my-1 {
@@ -221,6 +270,10 @@ input:focus {
   color: var(--error);
 }
 
+.categoryLi {
+  color: var(--light);
+}
+
 .categoryLi, .allProducts {
   color: black;
   background-color: #609a81;
@@ -236,14 +289,21 @@ input:focus {
   background-color: #96c3b0;
 }
 #sidebarTitle {
-  font-size: 13px;
-  color: #555;
+  font-size: 16px;
+  color: white;
+}
+
+.sidebarWrapper {
+background-color:var(--primary);
 }
 
 .allProducts {
   border-radius: 10px;
 }
 
+div.sidebar {
+  background-color: var(--primary);
+}
 .itemCard {
   width: 33%;
   display: flex;
@@ -258,6 +318,8 @@ input:focus {
   -webkit-box-shadow: 0px 0px 10px -1px #868686;
   box-shadow: 0px 0px 10px -1px #868686;
 }
+
+
 
 .addCart {
   border: 0 solid;
@@ -304,6 +366,8 @@ input:focus {
 .closeBtn {
   color: black;
 }
+
+ /* RESPONSIVE */
 @media screen and (max-width: 319px) {
   .sidebarWrapper {
     padding: 0px !important;
@@ -342,6 +406,10 @@ input:focus {
   .card {
     width: 100%;
   }
+
+  .contact__meta {
+        margin: 30px;
+  }
 }
 @media screen and (max-width: 425px) {
   .itemCard {
@@ -363,6 +431,43 @@ input:focus {
     width: 100%;
   }
 }
+ 
+ 
+    @media only screen and (max-width: 768px){
+    .home_meta {
+        max-width: 50%;
+    }
+    }
+    @media only screen and (max-width: 425px){
+    .home_meta {
+        max-width: 100%;
+    }
+    }
+    @media only screen and (max-width: 360px){
+    
+    .footer.d__flex.align__items__center.justify__content__space__between {
+      flex-wrap: wrap;
+    }
+
+    h1.signupTitle.signup__text {
+      font-size: 90px;
+    }
+}
+
+body::-webkit-scrollbar {
+  width: 12px; 
+}
+
+body::-webkit-scrollbar-track {
+  background: #ffffff;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);}
+
+body::-webkit-scrollbar-thumb {
+  background-color:#609a81;
+  border: 1px dotted ;
+  border-color:var(--tertiary);
+}
+
 @media screen and (max-width: 1024px) {
   .card {
     width: 100%;

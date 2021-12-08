@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 import './login.css';
-import { Button, Card, CardContent, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
 
 function Login(props) {
@@ -33,19 +33,26 @@ function Login(props) {
   };
 
   return (
-    <div className="container loginBg">
+    <div className="container loginStage loginBg">
+    
       <Link to="/signup">Go to Signup</Link>
+      <div className="row">
+      <div className="col__2">
+        <div className="contact__box">
+          <div className="contact__meta">
 
-      <Card className="cards">
+      {/* <Card className="cards"> */}
       <div className="loginTitle">
-      <h2>Login</h2>
+      <h1 className="login__text">LOGIN</h1>
       </div>
      
-        <CardContent>
+        {/* <CardContent> */}
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
-          <TextField
+          <TextField className="message"
+          size="medium"
+          fullWidth="true"
             placeholder="email@test.com"
             name="email"
             type="email"
@@ -55,7 +62,9 @@ function Login(props) {
         </div>
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
-          <TextField
+          <TextField className="message"
+          size="small"
+          fullWidth="true"
             placeholder="******"
             name="password"
             type="password"
@@ -72,8 +81,13 @@ function Login(props) {
           <Button type="submit">Submit</Button>
         </div>
       </form>
-      </CardContent>
-      </Card>
+      {/* </CardContent> */}
+      {/* </Card> */}
+
+      </div>
+      </div>
+      </div>
+      </div>
     </div>
   );
 }

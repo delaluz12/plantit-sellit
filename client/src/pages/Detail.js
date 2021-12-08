@@ -90,7 +90,7 @@ function Detail() {
         <div className="others">
         <div className="my-1 detailContainer">
           
-          <Link to="/shop">← Back to Products</Link>
+          <Button><Link to="/shop" className="links">Back to Products</Link></Button>
           <div className="details">
             <div id="img-container" className="big-img">
               <img

@@ -78,7 +78,7 @@ const Cart = () => {
       <div className="close" onClick={toggleCart}>
         <CloseIcon className="closeBtn" />
       </div>
-      <h2 className="cartTitle">Shopping Cart</h2>
+      <h2 className="cartTitle">My Cart</h2>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
