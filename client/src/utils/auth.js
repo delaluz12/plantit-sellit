@@ -43,7 +43,7 @@ class AuthService {
     console.log(token);
 
     if(token.data.role === "admin") {
-      window.location.assign('/dashboard');
+      window.location.assign('/dashboard/users');
     }else if (token.data.role === "seller") {
       window.location.assign('/seller/home');
     } else { window.location.assign('/')} 

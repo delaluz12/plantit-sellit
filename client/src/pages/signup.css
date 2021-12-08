@@ -20,3 +20,62 @@
     justify-content: center;
 align-content: center; 
 }
+
+h1.signupTitle {
+justify-content: center;
+align-content: center;
+}
+    
+    .signupBtn{
+    justify-content: center;
+    align-content: center;
+    }
+    
+    .signupStage{
+        background-color: #ffffff;
+    }
+    h1.signup__text {
+        font-size: 60px;
+        justify-content: center;
+        align-content: center;
+    }
+    p.signup__text{
+        font-size: 18px;
+        line-height: 30px;
+        color: rgba(29,29,36,.75);
+        font-weight: 400;
+    }
+    
+    Button.btn.contact.pointer {
+        margin: 20px 0px;
+    }
+
+    @media only screen and (max-width: 365px){
+        h1.signup__text {
+            font-size: 30px;
+        }
+     
+         }
+
+         @media only screen and (max-width: 377px){
+            h1.signup__text {
+                font-size: 30px;
+            }
+         
+             }
+    
+
+         @media only screen and (max-width: 769px){
+    
+            .contact__meta {
+                margin: 30px -30px;
+               
+            }
+    
+            .signupBg {
+                background-position: center;
+                background-size: 1800px 1200px;
+                background-repeat: no-repeat;
+            }
+         
+             }

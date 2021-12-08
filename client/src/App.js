@@ -23,7 +23,7 @@ import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 import SignupSeller from './pages/SignupSeller';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 
 
@@ -74,7 +74,7 @@ function App() {
 
       
       </Router>
-      
+      <Footer/>
     </ApolloProvider>
   
   );

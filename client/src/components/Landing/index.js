@@ -25,43 +25,48 @@ function Landing() {
 
     return (
         <div className = "home">
-            <Box >
-           <div className = "home__bg">
-            {/* <LandingNav/> */}
-            {/* home content */}
-            <div className={classes.root}>
-            <Box 
-             px={{xs:1, sm:0}}
-             py={{xs:1, sm:0}}>
-                <Grid container spacing={1}>
-                <div className="home__content row">
-                    <Grid item xs={12} sm={12} md={8}>
-                    <div className="home__meta">
-                        
-                        <h2 className="home_text  plantIt">
-                        Plant it
-                        </h2>
-                        <h3 className="home_text sweet  sellIt">
-                         Sell it
-                        </h3>
+        <Box >
+       <div className = "home__bg">
+        {/* <LandingNav/> */}
+        {/* home content */}
+        <div className={classes.root}>
+        <Box 
+         px={{xs:1, sm:0}}
+         py={{xs:1, sm:0}}>
+            <Grid container spacing={1}>
+            <div className="home__content row">
+                <Grid item xs={12} sm={12} md={8}>
+                <div className="home__meta">
+                    
+                    <div className="plantIt"  >
+                    <h2 className="home_text  " >
+                    Plant it
+                    </h2>
                     </div>
-                    <div className="home_meta">
-                    <h1 className="home_text ">
-                        a propagator's paradise
-                        </h1>
-                    </div>
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={4}>
-                     <LandingSlide/>
-                    </Grid>
 
+                    <div className="sellIt" >
+                    <h3 className="home_text sweet">
+                     Sell it
+                    </h3>
+                    </div>
+                </div>
+                <div className="paradise">
+                <h1 className="home_meta home_text  ">
+                    a propagator's paradise
+                    </h1>
                 </div>
                 </Grid>
-                </Box>
+                <Grid item xs={12} sm={12} md={4}>
+                 <LandingSlide/>
+                </Grid>
+
             </div>
-           </div>
-           </Box>
+            </Grid>
+            </Box>
         </div>
+       </div>
+       </Box>
+    </div>
     )
 }
 

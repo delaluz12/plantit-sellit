@@ -88,9 +88,9 @@ export default function AdminUserList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"user/" + params.row.id}>
+            
               <button className="userListEdit">Disable</button>
-            </Link>
+            
            
           </>
         );

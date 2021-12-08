@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 import './signup.css';
-import { Button, Card } from '@material-ui/core';
+import { Button} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { FormGroup } from '@material-ui/core';
 
@@ -39,16 +39,24 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1 signupBg">
+    <div className="container my-1 signupStage signupBg">
       <Link to="/login">Go to Login</Link>
 
-      <Card className="cards">
-      <h2>Signup</h2>
+      <div className="row">
+      <div className="col__2">
+        <div className="contact__box">
+          <div className="contact__meta">
+
+      {/* <Card className="cards"> */}
+      <div className="signupTitle">
+      <h1 className="signup__text">SIGN UP</h1>
+      </div>
 
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="firstName">First Name:</label>
           <TextField
+          size="small"
             placeholder="First"
             name="firstName"
             type="firstName"
@@ -59,6 +67,7 @@ function Signup(props) {
         <div className="flex-row space-between my-2">
           <label htmlFor="lastName">Last Name:</label>
           <TextField
+          size="small"
             placeholder="Last"
             name="lastName"
             type="lastName"
@@ -69,6 +78,7 @@ function Signup(props) {
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email:</label>
           <TextField
+          size="small"
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -79,6 +89,7 @@ function Signup(props) {
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
           <TextField
+          size="small"
             placeholder="******"
             name="password"
             type="password"
@@ -86,44 +97,61 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="flex-column my-2">
           <label htmlFor="address">Address:</label>
-          <input
+          {/* <div className="mx-2"> */}
+          <TextField
+          size="small"
+          fullWidth="true"
             name={"address"}
             type={"address"}
             placeholder={"Address"}
             onChange={handleChange}
           />
-          <input
+          {/* </div> */}
+          <div className="mx-1">
+          <TextField
             name={"city"}
             type={"city"}
             placeholder={"City"}
             onChange={handleChange}
           />
-          <input
+           </div>
+          <div className="mx-1">
+          <TextField
             name={"state"}
             type={"state"}
             placeholder={"State"}
             onChange={handleChange}
           />
-          <input
+           </div>
+          <div className="mx-1">
+          <TextField
             name={"zip"}
             type={"zip"}
             placeholder={"zip"}
             onChange={handleChange}
           />
+          </div>
         </div>
 
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-          
+        <div className="flex-row signupBtn">
+          <Button type="submit">Submit</Button>
         </div>
-      </form>
-      <Link to='/signupSeller'>
-      <button style= {{marginTop: '5px'}}type="button">Create Seller Account</button>
+
+        <div className="flex-row signupBtn">
+        <Link to='/signupSeller'>
+      <Button style= {{marginTop: '5px'}}type="button">Create Seller Account</Button>
       </Link>
-      </Card>
-    </div>
+      </div>
+
+      </form>
+      {/* </Card> */}
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
   );
 }
 
