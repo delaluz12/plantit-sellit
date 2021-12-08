@@ -57,18 +57,173 @@ h3.home_text{
 }
 
 @media only screen and (max-width: 768px){
-    h1.home_text {
+   .plantIt {
       position: relative;
-      right: 400px;
+      right: 150px;
     }
 
-    h3.home_text.sellIt {
+    .sellIt {
         position: relative;
-        right: 400px;
-      }
+        right: 120px;
 
-    h2.home_text.plantIt {
-        position: relative;
-        right: 200px;
-      }
     }
+
+    .paradise {
+        position: relative;
+        right: 110px;
+
+    }
+
+    h1.home_text {
+        font-size: 20px;
+    }
+
+    }
+
+    @media only screen and (max-width: 365px){
+        .plantIt {
+           position: relative;
+           right: 310px;
+         bottom: 60px;
+           
+         }
+
+         h3.home_text {
+             font-size: 70px;
+         }
+
+         h2.home_text {
+             font-size: 70px;
+            
+         }
+     
+         .sellIt {
+             position: relative;
+             right: 295px;
+             bottom: 40px;
+     
+         }
+     
+         .paradise {
+             position: relative;
+             right: 310px;
+             bottom: 30px;
+     
+         }
+     
+         h1.home_text {
+             font-size: 20px;
+         }
+     
+         }
+
+         @media only screen and (max-width: 377px){
+            .plantIt {
+               position: relative;
+               right: 310px;
+             bottom: 60px;
+               
+             }
+    
+             h3.home_text {
+                 font-size: 70px;
+             }
+    
+             h2.home_text {
+                 font-size: 70px;
+                
+             }
+         
+             .sellIt {
+                 position: relative;
+                 right: 295px;
+                 bottom: 40px;
+         
+             }
+         
+             .paradise {
+                 position: relative;
+                 right: 310px;
+                 bottom: 30px;
+         
+             }
+         
+             h1.home_text {
+                 font-size: 20px;
+             }
+         
+             }
+
+             @media only screen and (max-width: 415px){
+                .plantIt {
+                   position: relative;
+                   right: 310px;
+                 bottom: 60px;
+                   
+                 }
+        
+                 h3.home_text {
+                     font-size: 70px;
+                 }
+        
+                 h2.home_text {
+                     font-size: 70px;
+                    
+                 }
+             
+                 .sellIt {
+                     position: relative;
+                     right: 295px;
+                     bottom: 40px;
+             
+                 }
+             
+                 .paradise {
+                     position: relative;
+                     right: 310px;
+                     bottom: 30px;
+             
+                 }
+             
+                 h1.home_text {
+                     font-size: 20px;
+                 }
+             
+                 }
+
+                  @media only screen and (max-width: 415px){
+                .plantIt {
+                   position: relative;
+                   right: 310px;
+                 bottom: 60px;
+                   
+                 }
+        
+                 h3.home_text {
+                     font-size: 70px;
+                 }
+        
+                 h2.home_text {
+                     font-size: 70px;
+                    
+                 }
+             
+                 .sellIt {
+                     position: relative;
+                     right: 295px;
+                     bottom: 40px;
+             
+                 }
+             
+                 .paradise {
+                     position: relative;
+                     right: 310px;
+                     bottom: 30px;
+             
+                 }
+             
+                 h1.home_text {
+                     font-size: 20px;
+                 }
+             
+                 }

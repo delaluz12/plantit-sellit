@@ -33,3 +33,45 @@ p.login__text{
 Button.btn.contact.pointer {
     margin: 20px 0px;
 }
+
+@media only screen and (max-width: 365px){
+    h1.login__text {
+        font-size: 30px;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .contact__meta {
+        margin: 30px -30px;
+       
+    }
+ 
+     }
+
+     @media only screen and (max-width: 377px){
+        h1.login__text {
+            font-size: 30px;
+            justify-content: center;
+            align-content: center;
+        }
+    
+        .contact__meta {
+            margin: 30px -30px;
+           
+        }
+     
+         }
+
+     @media only screen and (max-width: 769px){
+    
+        .contact__meta {
+            margin: 30px -30px;
+           
+        }
+
+        .loginBg {
+            background-position: center;
+            background-size: 2200px 1200px;
+        }
+     
+         }
