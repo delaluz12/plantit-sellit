@@ -224,6 +224,8 @@ h2.ourProducts {
   margin-left: var(--spacing-two);
 }
 
+form
+
 .ourProducts {
 margin-left: 30px;
 margin-right: 40px;
@@ -290,11 +292,11 @@ margin-bottom: 40px;
 }
 #sidebarTitle {
   font-size: 16px;
-  color: white;
+  color:var(--primary)
 }
 
 .sidebarWrapper {
-background-color:var(--primary);
+background-color:white;
 }
 
 .allProducts {
@@ -302,7 +304,7 @@ background-color:var(--primary);
 }
 
 div.sidebar {
-  background-color: var(--primary);
+  background-color:white;
 }
 .itemCard {
   width: 33%;

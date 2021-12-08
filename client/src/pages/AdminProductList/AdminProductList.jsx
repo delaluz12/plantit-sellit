@@ -122,9 +122,9 @@ export default function AdminProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"user/" + params.row.id}>
+         
               <button className="userListEdit">Remove</button>
-            </Link>
+          
             
             
           </>

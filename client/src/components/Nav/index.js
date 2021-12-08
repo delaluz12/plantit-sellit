@@ -31,11 +31,16 @@ function Nav() {
       return (
         <div className={classes.root}>
 <div className="header ">
-  <div className="navigation pxy__30">
+  <div className="navigation ">
     
       <Toolbar className="navbar nav__items d__flex">
         <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
         <Link to="/orderHistory" edge="end" className="nav__items px__30" >Order History</Link>
+        {Auth.isSeller() === true ? (
+            
+              <Link to="/seller/home" className="nav__items px__30">Dashboard</Link>
+    
+          ) : null}
         <a href="/" onClick={() => Auth.logout()}>
           Logout
         </a>
@@ -69,7 +74,7 @@ return (
       <div className="home__icon">
         <Link to="/" className="nav__items">
           {/* <span role="img" aria-label="shopping bag">🛍️</span> */}
-        <EcoOutlinedIcon/>
+        <EcoOutlinedIcon/> Plant it- Sell it
         </Link>
       </div>
 
