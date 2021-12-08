@@ -38,20 +38,15 @@ function Landing() {
                     <Grid item xs={12} sm={12} md={8}>
                     <div className="home__meta">
                         
-                        <div className="plantIt"  >
-                        <h2 className="home_text  " >
+                        <h2 className="home_text  plantIt">
                         Plant it
                         </h2>
-                        </div>
-
-                        <div className="sellIt" >
-                        <h3 className="home_text sweet">
+                        <h3 className="home_text sweet  sellIt">
                          Sell it
                         </h3>
-                        </div>
                     </div>
-                    <div className="paradise">
-                    <h1 className="home_meta home_text  ">
+                    <div className="home_meta">
+                    <h1 className="home_text ">
                         a propagator's paradise
                         </h1>
                     </div>

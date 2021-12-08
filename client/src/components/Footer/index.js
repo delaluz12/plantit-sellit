@@ -4,7 +4,8 @@ import './footer.css';
 
 function Footer() {
     return (
-         <footer  className="allFooter">
+        <div className="allFooter">
+        <footer>
             <Box 
             px={{xs:3, sm:10}}
             py={{xs:3, sm:10}} 
@@ -15,17 +16,17 @@ function Footer() {
                         <Grid item xs={12} sm={4}>
                             <Box borderBottom ={1}> HELP</Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                     Contact
                                 </Link>
                             </Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                     Support
                                 </Link>
                             </Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                     Privacy
                                 </Link>
                             </Box>
@@ -34,17 +35,17 @@ function Footer() {
                         <Grid item xs={12} sm={4}>
                             <Box borderBottom ={1}> SOCIALS</Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                     Facebook
                                 </Link>
                             </Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                     Twitter
                                 </Link>
                             </Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                     Instagram
                                 </Link>
                             </Box>
@@ -53,17 +54,17 @@ function Footer() {
                         <Grid item xs={12} sm={4}>
                             <Box borderBottom ={1}> BLOGS</Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                 Seedlings
                                 </Link>
                             </Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                 Edible Flowers
                                 </Link>
                             </Box>
                             <Box>
-                                <Link underline="none" href="/" color="inherit">
+                                <Link href="/" color="inherit">
                                 Wild Plants
                                 </Link>
                             </Box>
@@ -78,9 +79,8 @@ function Footer() {
                 </Container>
             </Box>
         </footer>
+        </div>
     )
 }
 
 export default Footer
-
-

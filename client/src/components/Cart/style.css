@@ -47,7 +47,7 @@
 }
 
 .cart-closed:hover {
-  transform: scale(1.2);
+  transform: rotate(8deg);
 }
 
 .cart img {

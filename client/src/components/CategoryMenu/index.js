@@ -48,7 +48,7 @@ function CategoryMenu() {
     <div>
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          <h3 id="sidebarTitle">CATEGORIES</h3>
+          <h3 id="sidebarTitle">Choose a Category:</h3>
           <ul className="sidebarList">
             <li className="allProducts" onClick={() => {window.location.reload()}}><SpaIcon id="categoryIcon" />All Products</li>
             {categories.map((item) => (

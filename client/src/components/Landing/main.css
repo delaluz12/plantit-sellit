@@ -1,9 +1,9 @@
- *{
+/* *{
     padding: 0;
     margin-right: 0px;
     box-sizing: border-box;
     outline: none;
-}
+  } */
 
   * {
     margin: 0;
@@ -127,6 +127,8 @@
     font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
+    border: 2px solid #f9004d;
+    background-color: #f9004d;
     color: #fff!important;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -147,5 +149,27 @@
     background: #fff;
     color: #000!important;
   }
-  
-  
+  /* RESPONSIVE */
+  @media only screen and (max-width: 768px){
+  .home_text {
+      max-width: 100%;
+  }
+  }
+  @media only screen and (max-width: 768px){
+  .home_meta {
+      max-width: 50%;
+  }
+  }
+  @media only screen and (max-width: 425px){
+  .home_meta {
+      max-width: 100%;
+  }
+  }
+  @media only screen and (max-width: 425px){
+  span.copyright {
+      font-size: 13px!important;
+  }
+  .footer.d__flex.align__items__center.justify__content__space__between {
+    flex-wrap: wrap;
+  }
+  }
