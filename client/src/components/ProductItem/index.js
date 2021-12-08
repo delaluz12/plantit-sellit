@@ -49,12 +49,12 @@ function ProductItem(item) {
   }
 
   const useStyles = makeStyles({
-    // root: {
-    //   maxWidth: 400,
-    // },
-    media: {
-      height: 140,
+    root: {
+      maxWidth: 400,
     },
+    // media: {
+    //   height: 200,
+    // },
     
   });
   
@@ -63,34 +63,33 @@ function ProductItem(item) {
   return (
     <div className="card px-1 py-1 itemCard">
       <Card className="cardItem">
-              <CardActionArea>
-      <Link to={`/products/${_id}`}>
-        <CardMedia className={classes.media}>
-        <LazyLoadImage alt={name}
-          src={`/s3images/${image}`}
-          //  
-          >
-        
-          
-       
-        </LazyLoadImage>
-        </CardMedia>
-        <CardContent children="node">
-          <p className="cardTitle">{name}</p>
-        </CardContent>
-      </Link>
-      </CardActionArea>
+        <CardActionArea>
+          <Link to={`/products/${_id}`}>
+            <CardMedia className={classes.media}>
+              <LazyLoadImage className="productImage" alt={name}
+                src={`/s3images/${image}`}
+                >
+              
+                
+            
+              </LazyLoadImage>
+            </CardMedia>
+            <CardContent>
+              <p className="cardTitle">{name}</p>
+            </CardContent>
+          </Link>
+        </CardActionArea>
      
       <div>
       <CardContent>
         <Typography align="left" color="inherit">
         {/* <div className="cardTitle">{quantity} {pluralize("item", quantity)} in stock</div> */}
-        <span className="cardTitle">$ {price}</span>
+          <span className="cardTitle">$ {price}</span>
         </Typography>
       </CardContent>  
       </div>
       <CardActions>
-      <Button  className="cartBtn" onClick={addToCart}>Add to cart</Button>
+        <Button  className="cartBtn" onClick={addToCart}>Add to cart</Button>
       </CardActions>
       </Card>
     </div>

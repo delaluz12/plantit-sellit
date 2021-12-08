@@ -10,7 +10,8 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 import Avatar from "@material-ui/core/Avatar"
 import CloseIcon from '@material-ui/icons/Close';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, Toolbar, Button } from '@material-ui/core';
+
 
 const stripePromise = loadStripe('pk_test_51K0BxZKLr0iD6VeBK9jLkCn1oalSRd6CSIoOJaXXF9Qlx8ScXKDm2NpARCSD0muwsObIgaLX2kIfPB8CdPRn3jEb005EXOkxIX');
 
@@ -88,7 +89,7 @@ const Cart = () => {
             <strong>Total: ${calculateTotal()}</strong>
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              <Button id="cartBtn" onClick={submitCheckout}>Checkout</Button>
             ) : (
               <span>(log in to check out)</span>
             )}
