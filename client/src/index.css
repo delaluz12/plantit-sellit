@@ -270,14 +270,11 @@ margin-bottom: 40px;
   color: var(--error);
 }
 
-<<<<<<< HEAD
 .categoryLi {
   color: var(--light);
-=======
 .categoryLi, .allProducts {
   color: black;
   background-color: #609a81;
->>>>>>> 033a8868b2abcaa87bece751d61d6bff24aa4390
   margin: 5px;
 }
 

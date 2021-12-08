@@ -66,25 +66,6 @@ function ProductItem(item) {
   return (
     <div className="card px-1 py-1 itemCard">
       <Card className="cardItem">
-<<<<<<< HEAD
-              <CardActionArea>
-      <Link to={`/products/${_id}`}>
-        <CardMedia className={classes.media}>
-        <LazyLoadImage alt={name}
-          src={`/s3images/${image}`}
-          // src="./images/oregano.jpg"  
-          >
-        
-          
-       
-        </LazyLoadImage>
-        </CardMedia>
-        <CardContent children="node">
-          <p className="cardTitle">{name}</p>
-        </CardContent>
-      </Link>
-      </CardActionArea>
-=======
         <CardActionArea>
           <Link to={`/products/${_id}`}>
             <CardMedia className={classes.media}>
@@ -101,7 +82,6 @@ function ProductItem(item) {
             </CardContent>
           </Link>
         </CardActionArea>
->>>>>>> 033a8868b2abcaa87bece751d61d6bff24aa4390
      
       <div>
       <CardContent>
