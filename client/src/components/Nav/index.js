@@ -6,64 +6,76 @@ import Auth from "../../utils/auth";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@material-ui/core";
 // import auth from "../../utils/auth";
+import EcoOutlinedIcon from '@material-ui/icons/EcoOutlined';
 
 const withouNavRoutes = ["/seller", "/dashboard"];
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+
 function Nav() {
- 
+  const classes = useStyles();
   const { pathname } = useLocation();
   
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/shop">Shop</Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/orderHistory">Order History</Link>
-          </li>{" "}
-          {Auth.isSeller() === true ? (
-            <li className="mx-1">
-              <Link to="/seller/home">Dashboard</Link>
-            </li>
-          ) : null}
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
-      );
-    } else {
-      return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/shop">Shop</Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/signup">Signup</Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
+        <div className={classes.root}>
+<div className="header ">
+  <div className="navigation pxy__30">
+    
+      <Toolbar className="navbar nav__items d__flex">
+        <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+        <Link to="/orderHistory" edge="end" className="nav__items px__30" >Order History</Link>
+        <a href="/" onClick={() => Auth.logout()}>
+          Logout
+        </a>
+      </Toolbar>
+  </div>
+</div>
+</div>
+);
+} else {
+return (
+<div className={classes.root}>
+<div className="header ">
+  <div className="navigation">
+
+      <Toolbar className="navbar  nav__items d__flex">
+        <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+        <Link to="/signup" edge="end" className="nav__items px__30" >Signup</Link>
+        <Link to="/login" edge="end" className="nav__items px__30" >Login</Link>
+      </Toolbar>
+  </div>
+</div>
+</div>
       );
     }
   }
   if (withouNavRoutes.some((item) => pathname.includes(item))) return null;
   return (
+    <AppBar position="static" color="transparent" className="navbar" >
+      
     <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
+      <div className="home__icon">
+        <Link to="/" className="nav__items">
           {/* <span role="img" aria-label="shopping bag">🛍️</span> */}
-          Plant It - Sell It
+        <EcoOutlinedIcon/>
         </Link>
-      </h1>
+      </div>
 
       <nav>{showNavigation()}</nav>
     </header>
+    </AppBar>
   );
 }
 
@@ -152,37 +164,37 @@ export default Nav;
 // export default LandingNav;
 
 //PART 1
-// <div className={classes.root}>
-// <div className="header ">
-//   <div className="navigation pxy__30">
-//     <AppBar position="static" color="primary">
-//       <Toolbar className="navbar d__flex">
-//         <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
-//         <Link to="/orderHistory" edge="end" className="nav__items px__30" >Order History</Link>
-//         <a href="/" onClick={() => Auth.logout()}>
-//           Logout
-//         </a>
-//       </Toolbar>
-//     </AppBar>
-//   </div>
-// </div>
-// </div>
-// );
-// } else {
-// return (
-// <div className={classes.root}>
-// <div className="header ">
-//   <div className="navigation">
+{/* <div className={classes.root}>
+<div className="header ">
+  <div className="navigation pxy__30">
+    <AppBar position="static" color="primary">
+      <Toolbar className="navbar d__flex">
+        <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+        <Link to="/orderHistory" edge="end" className="nav__items px__30" >Order History</Link>
+        <a href="/" onClick={() => Auth.logout()}>
+          Logout
+        </a>
+      </Toolbar>
+    </AppBar>
+  </div>
+</div>
+</div>
+);
+} else {
+return (
+<div className={classes.root}>
+<div className="header ">
+  <div className="navigation">
 
-//       <Toolbar disableGutters="true" className="navbar d__flex">
-//         <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
-//         <Link to="/signup" edge="end" className="nav__items px__30" >Signup</Link>
-//         <Link to="/login" edge="end" className="nav__items px__30" >Login</Link>
-//       </Toolbar>
+      <Toolbar disableGutters="true" className="navbar d__flex">
+        <Link to="/shop" edge="end" className="nav__items px__30" >Shop</Link>
+        <Link to="/signup" edge="end" className="nav__items px__30" >Signup</Link>
+        <Link to="/login" edge="end" className="nav__items px__30" >Login</Link>
+      </Toolbar>
 
-//   </div>
-// </div>
-// </div>
+  </div>
+</div>
+</div> */}
 
 //PART 2
 
