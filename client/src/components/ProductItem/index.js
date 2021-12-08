@@ -52,9 +52,6 @@ function ProductItem(item) {
     root: {
       maxWidth: 400,
     },
-    media: {
-      height: 140,
-    },
     // media: {
     //   height: 200,
     // },
