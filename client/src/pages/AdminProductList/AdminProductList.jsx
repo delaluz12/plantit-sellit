@@ -123,7 +123,7 @@ export default function AdminProductList() {
         return (
           <>
             <Link to={"user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+              <button className="userListEdit">Remove</button>
             </Link>
             
             
