@@ -12,7 +12,7 @@ export default function AdminTopbar() {
         <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">admin Dashboard</span>
+          <span className="logo">Admin Dashboard</span>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">

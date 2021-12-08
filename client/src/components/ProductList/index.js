@@ -39,14 +39,20 @@ function ProductList() {
   const filterProducts = () => {
     // console.log("inside filteredProducts", state);
     if (!currentCategory) {
-      return state.products;
+      // return state.products;
+      const notSold = state.products.filter((product)=> product.sold === false);
+      return notSold
     }
 
     // const firstTen = state.products.slice(0, 10);
 
-    const categoryFiltered = state.products.filter(
+    //filter by sold status first
+    const notSold = state.products.filter((product)=> product.sold === false)
+    console.log("Products NOT sold ", notSold )
+    const categoryFiltered = notSold.filter(
       (product) => product.category._id === currentCategory
     );
+    
     // const paginatedProductList = displayProd(0, categoryFiltered);
 
     return categoryFiltered;

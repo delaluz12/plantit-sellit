@@ -270,8 +270,14 @@ margin-bottom: 40px;
   color: var(--error);
 }
 
+<<<<<<< HEAD
 .categoryLi {
   color: var(--light);
+=======
+.categoryLi, .allProducts {
+  color: black;
+  background-color: #609a81;
+>>>>>>> 033a8868b2abcaa87bece751d61d6bff24aa4390
   margin: 5px;
 }
 
@@ -279,7 +285,10 @@ margin-bottom: 40px;
   color: white;
   background-color: #96c3b0;
 }
-
+.allProducts:hover {
+  color: white;
+  background-color: #96c3b0;
+}
 #sidebarTitle {
   font-size: 16px;
   color: white;
@@ -288,6 +297,8 @@ margin-bottom: 40px;
 .sidebarWrapper {
 background-color:var(--primary);
 
+.allProducts {
+  border-radius: 10px;
 }
 
 div.sidebar {
@@ -361,7 +372,7 @@ div.sidebar {
   .sidebarWrapper {
     padding: 0px !important;
   }
-  .categoryLi {
+  .categoryLi, .allProducts {
     font-size: 12px !important;
   }
   .cartTitle {
@@ -385,7 +396,7 @@ div.sidebar {
   .sidebar {
     width: 40%;
   }
-  .categoryLi {
+  .categoryLi, .allProducts {
     font-size: 11px;
     margin: 2px;
   }
@@ -455,4 +466,8 @@ body::-webkit-scrollbar-thumb {
   background-color:#609a81;
   border: 1px dotted ;
   border-color:var(--tertiary);
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 100%;
+  }
 }

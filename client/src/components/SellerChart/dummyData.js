@@ -1,36 +1,36 @@
 export const data = [
     {
-      name: 'Jan',
+      name: 'July',
       "sales in dollars": 4000,
     
       
     },
     {
-      name: 'Feb',
+      name: 'Aug',
       "sales in dollars": 3000,
     
       
     },
     {
-      name: 'Mar',
+      name: 'Sep',
       "sales in dollars": 2000,
     
       
     },
     {
-      name: 'Apr',
+      name: 'Oct',
       "sales in dollars": 2780,
     
       
     },
     {
-      name: 'May',
+      name: 'Nov',
       "sales in dollars": 1890,
     
       
     },
     {
-      name: 'June',
+      name: 'Dec',
       "sales in dollars": 2390,
     
       

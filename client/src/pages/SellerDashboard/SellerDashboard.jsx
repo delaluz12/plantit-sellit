@@ -8,6 +8,7 @@ import SellerHome from "../SellerHome/SellerHome";
 import SellerProductList from "../SellerProductList/SellerProductList";
 import NewProduct from "../NewProduct/NewProduct";
 import SellerProductItem from "../SellerProductItem/SellerProductItem";
+import SellerEditProfile from "../SellerEditProfile/SellerEditProfile";
 
 import auth from "../../utils/auth";
 // console.log(auth.getProfile())
@@ -16,7 +17,9 @@ import auth from "../../utils/auth";
 // const userId = data._id;
 
 
+
 const SellerDashboard = () => {
+  
     
   return (
     <>
@@ -39,6 +42,7 @@ const SellerDashboard = () => {
               component={SellerProductItem}
             />
             <Route exact path="/seller/addProduct" component={NewProduct} />
+            <Route exact path="/seller/editProfile" component={SellerEditProfile} />
           </div>
         </>
       ) : (
